@@ -1,0 +1,84 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-col-2 ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Quickbar Classes - Examples"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>One of the types of panels predefined in the ace classes.</p>
+		<p>It is basically a vertical section of the screen, which modifies how some fields are displayed in it.</p>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 1 - Quickbar</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>To define such a region, use the <i>ace-quick-access-bar</i> class.</li>
+					<li>It can be combined, like in this example, with an <i>ace-advanced-panel</i> class.
+						<ul>
+							<li>To show it, use the <i>ace-show</i> class.</li>
+							<li>To hide it, remove the <i>ace-show</i> class.</li>
+							<li>By default, the quickbar overrides the absolut positioning of the advanced panel. So order to force the panel to slide from the side, over the existing page content, add to it the class <i>ace-not-default</i>.</li>
+						</ul>					
+					</li>
+					
+				</ul>
+			</div>
+		</div>
+		
+		<div class="ace-col-12 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+		
+			<div class="ace-auto-gen" type="button" value="Toggle Show / Hide" action="toggleQuickbarVisibility"></div>
+			
+    	</div>
+    	
+    	<div class="ace-col-12">
+			
+			<div id="ex-1-quickbar" class="ace-quick-access-bar ace-not-default ace-advanced-panel ace-scroll-view ace-full-height ks-target">
+				
+				<div class="ace-title-bar">
+				
+					<h2> Quick Access Bar.</h2>
+
+    			</div>
+    			
+    			<div class="ace-col-12 ace-centered-blocks">
+    				
+    				<div class="ace-auto-gen" type="button" value="Toggle Show / Hide" action="toggleQuickbarVisibility"></div>
+    				
+    			</div>
+    			
+    			<div class="ace-auto-gen ace-col-12 ace-medium-padding-top" type="text" label="Label"></div>
+    			
+    			<div id="qb-ex1-grid" class="ace-auto-gen ace-col-12"></div>
+				
+		    </div>
+
+    	</div>
+    	
+    	<div class="ace-col-12">
+	
+		    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	    
+	    </div>
+	    
+	</div>
+	
+</div>
+
+<script>
+
+    function quickbar_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/utilities/js/quickbar.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

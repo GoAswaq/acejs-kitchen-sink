@@ -1,0 +1,103 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Textarea Elements - Examples"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>Elements of tip <b>textarea</b> are used to edit large texts.</p>
+		<p>If the element is in a form, and it is porperly configured, the form will automatically retrive its value on the save operation, if the textarea has been changed.</p>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 1 - Simple textarea</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>the simplest ace0textarea there is: just a label, and the textarea proper</li>
+				</ul>
+			</div>
+		</div>
+	
+		<div
+	            class="ace-auto-gen ace-col-8"
+	            type="textarea"
+	            label="Label"
+	            labelwidth="200px"
+	    ></div>
+	    
+	    <div class="ace-col-4 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+	    
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Toggle Label Placement"
+		            action="toggleLabelPlacementTextarea"
+		    ></div>
+		    
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Get value"
+		            action="getValueTextarea"
+		    ></div>
+	    </div>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 2 - initial value, custom row count and focusinevent</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>thre is a custom number of initial rows displayed: 3</li>
+					<li>the text are has an initial value</li>
+					<li>each time the textarea has focus, the textarea triggers a <i>focusin</i> even can be intercepted.</li>
+				</ul>
+			</div>
+		</div>
+	
+		<div
+	            class="ace-auto-gen ace-col-8"
+	            type="textarea"
+	            placeholder="type something here"
+	            label="Label"
+	            rows="3"
+	            value="Hey there, see, there is something already written here! &#10;&#13; Isn't that nice?"
+	            onfocusin="onFocusInTextArea"
+	    ></div>
+	    
+	    <div class="ace-col-4 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+	    
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Toggle Readonly"
+		            action="toggleReadonlyTextarea"
+		    ></div>
+		    
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Get value"
+		            action="getValueTextarea"
+		    ></div>
+	    </div>
+	</div>
+</div>
+
+<script>
+
+    function textarea_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/elements/js/textarea.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

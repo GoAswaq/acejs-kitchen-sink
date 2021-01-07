@@ -1,0 +1,240 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Positioning Classes - Examples"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>These are sets of classes that help to position elements, somehow on the page.</p>
+		<p>Classes that handle flex properties are not listed here. Please check the Flex section for futher details.<p>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 1 - Float Classes</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>These classes are used to manipulate the floating settings.</li>
+					<li>The following classes have style written with the <b>!important</b> modifier, and they are used directly by the ace js code.
+						<ul>
+							<li>ace-left</li>
+							<li>ace-right</li>
+						</ul>
+					</li>
+					<li>The following classes are not written <b>without</b> the <i>!important</i> modifier.
+						<ul>
+							<li>ace-left-float</li>
+							<li>ace-left-right</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="ace-col-12 ace-small-padding">
+			<div class="ace-col-2 ace-col-fm-2">Floating Left</div>
+			<div class="ace-col-10 ace-small-padding">
+				<div class="ace-col-5 ace-col-fm-5 ace-small-margin-right ace-font-size-150p ace-blue-bg">
+					<div class="ace-orange-bg ace-small-margin-left ace-left">ace-left</div>
+				</div>
+				<div class="ace-col-5 ace-col-fm-5 ace-small-margin-right ace-font-size-150p ace-blue-bg">
+					<div class="ace-orange-bg ace-small-margin-left ace-left">ace-left-float</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="ace-col-12 ace-small-padding">
+			<div class="ace-col-2 ace-col-fm-2">Floating Right</div>
+			<div class="ace-col-10 ace-small-padding">
+				<div class="ace-col-5 ace-col-fm-5 ace-small-margin-right ace-font-size-150p ace-blue-bg">
+					<div class="ace-orange-bg ace-small-margin-right ace-right">ace-right</div>
+				</div>
+				<div class="ace-col-5 ace-col-fm-5 ace-small-margin-right ace-font-size-150p ace-blue-bg">
+					<div class="ace-orange-bg ace-small-margin-right ace-right">ace-right-float</div>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 2 - Positioning Classes</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>The following classes modify only the postion style of the an element:
+						<ul>
+							<li>ace-static-position</li>
+							<li>ace-relative-position</li>
+							<li>ace-fixed-position</li>
+							<li>ace-absolute-position</li>
+						</ul>
+					</li>
+					<li>The following classes adjust but the position, and other attributes, to trigger certain results:
+						<ul>
+							<li>ace-to-bottom: moves the element to the bottom of the nearest positioned parent</li>
+						</ul>
+					</li>
+					<li><span style="color:red">Attention:</span> in the examples bellow, the top, right, bottom, left controls are ignored for the following test classes: ace-to-bottom.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="ace-col-12 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes" id="ex2-positioning-controls">
+		
+			<div
+	            class="ace-auto-gen ace-col-2"
+	            type="combobox"
+	            label="Positioning Classes"
+	            fieldname="helperClass"
+	            onchange="onChangePositioningEx2Helpers"
+	    	>
+		    	<store>
+		            <record>
+		                <field name="name">none</field>
+		                <field name="id">No Class</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-static-position</field>
+		                <field name="id">ace-static-position</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-relative-position</field>
+		                <field name="id">ace-relative-position</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-fixed-position</field>
+		                <field name="id">ace-fixed-position</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-absolute-position</field>
+		                <field name="id">ace-absolute-position</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-to-bottom</field>
+		                <field name="id">ace-to-bottom</field>
+		            </record>
+		        </store>
+		   	</div>
+		   	
+		   	<div
+	            class="ace-auto-gen ace-col-2"
+	            type="combobox"
+	            label="Top"
+	            fieldname="top"
+	            onchange="onChangePositioningEx2Helpers"
+	    	>
+		    	<store>
+		            <record>
+		                <field name="name">initial</field>
+		                <field name="id">initial</field>
+		            </record>
+		            <record>
+		                <field name="name">20px</field>
+		                <field name="id">20px</field>
+		            </record>
+		            <record>
+		                <field name="name">-20px</field>
+		                <field name="id">-20px</field>
+		            </record>
+		        </store>
+		   	</div>
+		   	
+		   	<div
+	            class="ace-auto-gen ace-col-2"
+	            type="combobox"
+	            label="Right"
+	            fieldname="right"
+	            onchange="onChangePositioningEx2Helpers"
+	    	>
+		    	<store>
+		            <record>
+		                <field name="name">initial</field>
+		                <field name="id">initial</field>
+		            </record>
+		            <record>
+		                <field name="name">20px</field>
+		                <field name="id">20px</field>
+		            </record>
+		            <record>
+		                <field name="name">-20px</field>
+		                <field name="id">-20px</field>
+		            </record>
+		        </store>
+		   	</div>
+		   	
+		   	<div
+	            class="ace-auto-gen ace-col-2"
+	            type="combobox"
+	            label="Bottom"
+	            fieldname="bottom"
+	            onchange="onChangePositioningEx2Helpers"
+	    	>
+		    	<store>
+		            <record>
+		                <field name="name">initial</field>
+		                <field name="id">initial</field>
+		            </record>
+		            <record>
+		                <field name="name">20px</field>
+		                <field name="id">20px</field>
+		            </record>
+		            <record>
+		                <field name="name">-20px</field>
+		                <field name="id">-20px</field>
+		            </record>
+		        </store>
+		   	</div>
+		   	
+		   	<div
+	            class="ace-auto-gen ace-col-2"
+	            type="combobox"
+	            label="Left"
+	            fieldname="left"
+	            onchange="onChangePositioningEx2Helpers"
+	    	>
+		    	<store>
+		            <record>
+		                <field name="name">initial</field>
+		                <field name="id">initial</field>
+		            </record>
+		            <record>
+		                <field name="name">20px</field>
+		                <field name="id">20px</field>
+		            </record>
+		            <record>
+		                <field name="name">-20px</field>
+		                <field name="id">-20px</field>
+		            </record>
+		        </store>
+		   	</div>
+		   	
+    	</div>
+		
+		<div class="ace-col-12 ace-small-padding ace-dark-green-bg ace-small-padding-top ace-vcol-3 ace-relative-position">
+			
+			<div class="ace-col-2 ace-orange-bg ace-small-margin" id="ex2-positioning-target">No Class</div>
+			
+		</div>
+
+	</div>
+	
+</div>
+
+<script>
+
+    function positioning_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/utilities/js/positioning.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

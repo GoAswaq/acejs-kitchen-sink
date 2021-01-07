@@ -1,0 +1,191 @@
+<div class="ace-transparent-title-bar">
+
+	<h2>Dashboard</h2>
+
+</div>
+
+<div class="ace-col-12 ace-height-minus-150 ace-scrollview">
+
+	<div class="ace-col-12">
+	
+		<div class="ace-col-8 ace-small-padding-left">
+			<div class="ace-auto-gen ace-col-12 ace-h3" type="display" value="How It Works"></div>
+			
+			<div class="ace-col-12">
+				
+				<p>When the ACE application is initialized, a HTML target element needs to be specified. In this exampe, the target element is the document's body.
+				  In it a div will be created, with the id: <i>ace-app</i>. This represents the main application container. <i>ace-app</i> has 2 children:
+			   </p>
+			   <ul>
+			   		<li>id: <i>ace-middle-container</i>, with the class <i>ace-general-wrapper</i>. This section contains:
+			   			<ul>
+			   				<li>An Optional Top Bar. Will receive the Id: <i>ace-top-bar</i>, and the class: <i>ace-main-nav</i>.</li>
+			   				<li>An Optional Side Menu. Will receive the class: <i>ace-side-container</i>.</li>
+			   				<li>The main content. Will receive the Id: <i>ace-content</i>, and the class: <i>ace-content</i>. Yes, the id and the class are the same.</li>
+			   			</ul>
+			   		</li>
+			   		<li>id: <i>ace-bottom-bar</i>, with the class <i>ace-footer</i>. This is an optional section of the page, which, if it exists, it will be displayed at the bottom of the page.</li>
+			   </ul>
+			   
+			   <div class="ace-auto-gen ace-col-12 ace-h3" type="display" value="About the Top Bar"></div>
+			   <p>If a Top Bar is to be created, a selector which will identify the custom top bar elements needs to be specified when the Application is initialized. The content of the selector will be removed from its original dom position, and appended to the Top Bar.</p>
+			   <p>If an element with the class <i>ace-side-menu-trigger</i> is detected in the Top Bar, clicking this element will toggle the display of the side menu ( if one exists ).</p>
+			   
+			   <div class="ace-auto-gen ace-col-12 ace-h3" type="display" value="About the Bottom Bar"></div>
+			   <p>If a Bottom Bar is to be created, a selector which will identify the custom bottom bar elements needs to be specified when the Application is initialized. The content of the selector will be removed from its original dom position, and appended to the Bottom Bar.</p>
+			   
+			   <div class="ace-auto-gen ace-col-12 ace-h3" type="display" value="About the Side Menu"></div>
+			   <p>If a Side Menu is to be created, a selector which will identify the content of the side menu needs to be specified. The identified content will become the side menu itself( will receive the <i>ace-side-container</i> class).</p>
+			   <p>The side menu should contain a user defined ACE accordion element, to which the class <i>ace-side-menu</i> should be given.</p>
+			   <p>The accordion handler's function should have the name: <i>switchMainMenuContent</i>. This is the name of a predefined ACE function, which will automatically switch the visible content based on the selection in the accordion.</p>
+			   
+			   <div class="ace-auto-gen ace-col-12 ace-h3" type="display" value="About the Main Content"></div>
+			   <p>When the application is initialized, a selector needs to be specified, which will identify each distinct element that may be displayed in the main content area.</p>
+			   <p>For example, for this example, the content selector used is this one: <i>.ace-app-edit-windwow</i>.</p>
+			   <p>Each distinct element needs to also have an attribute defined with the name: <i>tag</i>. If the value of the <i>tag</i> attribute matches the tag attribute of one of the entries of the side panel accordion, whenever that element is selected, the content element will be displayed.</p>
+			   <p>Each time a content element is displayed, a user defined method is called, if the method exist. The methods name is: <i>onDisplayContentForTagXXXXX</i>, where XXXXX should be replaced with the name of the tag that identifies the displayed content.</p>
+			   <p>For each content element, an additional user method may be defined, with the name <i>onBeforeDisplayContentForTag</i>, where XXXXX should be replaced with the name of the tag that identifies the displayed content. If this method exists, and it returns false when ran, the content will not be changed.</p>
+			   
+			   <div class="ace-auto-gen ace-col-12 ace-h3" type="display" value="Create the Application"></div>
+			   <p>To create the application, use the <i>ace_app</i> plugin method on the target element. The method accepts one parameter: an object, <i>settings</i>. through which the initialization of the application may be customized.</p>
+			   <p>The <i>settings</i> object supports the following fields:</p>
+			   <ul>
+			   		<li><i>topbar</i>: selector which will identify the content of the top bar; set an empty string to not display it.</li>
+			   		<li><i>sidemenu</i>: selector which will identify side menu; set an empty string to not display it.</li>
+			   		<li><i>bottombar</i>: selector which will identify the content of the bar bar; set an empty string to not display it.</li>
+			   		<li><i>contentselector</i>: selector which will identify all the individual application content sections.</li>
+			   		<li><i>groupsidebarwithcontent</i>: if true, the side menu and the application content will be group together in a div, identified with the id: <i>ace-grouped-topside-container</i> and the class <i>ace-wrapper</i>.</li>
+			   </ul> 
+			   <p>Please see the code in <i>ace-init.js</i> file for how this application is initiated.</p>
+			   
+			   <div class="ace-auto-gen ace-col-12 ace-h3" type="display" value="Hash Navigation"></div>
+			   <p>The code in the <i>ace-init.js</i> file offers another method of switching content: through modifications of the page hash.</p>
+			   <p>To use this method, simply create <i>a</i> HTML elements, and set their <i>href</i> attribute to '#CONTENT_TAG[/.../.../...]', where:</p>
+			   <ul>
+			   		<li><i>CONTENT_TAG</i>: is the name of the tag which uniquelly identifies the content to be displayed.</li>
+			   		<li><i>[/.../.../...]</i>: this is an optional content, a slash delimited string of characters, to further customize what actions should be taken once the content is displayed. This optional data will be found, together with the initial tag, in the parameter passed to the <i>onDisplayContentForTagXXXXX</i> user defined functions.</li>
+			   </ul>
+			   <p>Examples:</p>
+			   <ul>
+			   		<li><a href="#studentsmenutag">Go to Students</a></li>
+			   		<li><a href="#settingsmenutag">Go to Settings</a></li>
+			   		<li><a href="#settingsmenutag/preferences">Go to Settings / Preferences</a></li>
+			   		<li><a href="#settingsmenutag/personal">Go to Settings / Personal</a></li>
+			   </ul>
+			   
+			</div>
+			
+		 </div>
+		
+		<div class="ace-col-4 ace-small-padding-left ace-small-padding-right"> 
+			<div class="ace-auto-gen ace-col-12 ace-h3" type="display" value="Application Settings"></div>
+			
+			<div
+	            class="ace-auto-gen ace-col-12 ace-medium-padding-top"
+	            id="page-alignament-combo"
+	            type="combobox"
+	            label="Alignament"
+	            onchange="onPageAlignamentChange"
+	    	>
+		    	<store>
+		            <record>
+		                <field name="name">Left To Right</field>
+		                <field name="id">ltr</field>
+		            </record>
+		            <record>
+		                <field name="name">Right to Left</field>
+		                <field name="id">rtl</field>
+		            </record>
+		        </store>
+		   	</div>
+		   	
+		   	<div
+	            class="ace-auto-gen ace-col-12 ace-small-padding-top"
+	            id="page-theme-combo"
+	            type="combobox"
+	            label="Theme"
+	            onchange="onPageThemeChange"
+	    	>
+		    	<store>
+		            <record>
+		                <field name="name">None</field>
+		                <field name="id">none</field>
+		            </record>
+		            <record>
+		                <field name="name">Beyond</field>
+		                <field name="id">beyond</field>
+		            </record>
+		            <record>
+		                <field name="name">Deep Sea</field>
+		                <field name="id">deepsea</field>
+		            </record>
+		            <record>
+		                <field name="name">Flex</field>
+		                <field name="id">flex</field>
+		            </record>
+		            <record>
+		                <field name="name">Ruby Stone</field>
+		                <field name="id">rubystone</field>
+		            </record>
+		            <record>
+		                <field name="name">White Stone</field>
+		                <field name="id">whitestone</field>
+		            </record>
+		            <record>
+		                <field name="name">Waterflow</field>
+		                <field name="id">waterflow</field>
+		            </record>
+		            <record>
+		                <field name="name">Amethyst</field>
+		                <field name="id">amethyst</field>
+		            </record>
+		        </store>
+		   	</div>
+			
+			<div class="ace-auto-gen ace-col-12 ace-small-padding app-control" type="checkbox" label="Hide Top Bar" appcode="tb" onchange="onAppChanges"></div>
+			<div class="ace-auto-gen ace-col-12 ace-small-padding app-control" type="checkbox" label="Hide Side Menu" appcode="sm" onchange="onAppChanges"></div>
+			<div class="ace-auto-gen ace-col-12 ace-small-padding app-control" type="checkbox" label="Hide Bottom Bar" appcode="bb" onchange="onAppChanges"></div>
+
+			<div class="ace-col-12 ace-white-space-normal">
+				<p class="ace-font-size-75p">(*) After each modification the page will refresh itself, and the ACE Application will be recreated with the new settings.</p>
+			</div>
+			
+			<div class="ace-auto-gen ace-col-12 ace-h3" type="display" value="Requirements CSS"></div>
+			<ul>
+				<li><i>ace.css</i>: mandatory</li>
+				<li><i>an ACE theme CSS</i>:  optional</li>
+			</ul>
+			
+			<div class="ace-auto-gen ace-col-12 ace-h3" type="display" value="Requirements JavaScript"></div>
+			<ul>
+				<li><i><a href="https://jquery.com/" target="_blank">jQuery</a></i>:  mandatory.</li>
+				<li><i><a href="https://jqueryui.com/" target="_blank">jQuery UI</a></i>:  mandatory only if ACE <i>datepicker</a></i> fields will be used.</li>
+				<li><i><a href="https://momentjs.com/" target="_blank">Moment plugin</a></i>:  mandatory.</li>
+				<li><i><a href="https://github.com/alexei/sprintf.js" target="_blank">sprintf-js plugin</a></i>:  mandatory, if the translation module is to be used.</li>
+				<li><i>translation.js</i>:  optional translation module.</li>
+				<li><i>ace.js</i>:  mandatory, ACE core functionality.</li>
+				<li><i>ace-app.js</i>:  mandatory, ACE Application code.</li>
+				<li><i>ace-init.js</i>:  optional, standard ACE Application initialization method.</li>
+			</ul>
+			
+		</div>
+		
+	</div>
+
+</div>
+
+
+
+<script>
+
+    function dashboard_tpl_loaded(target){
+        $.aceOverWatch.template.loadScripts("./layout/html/app/js/dashboard.js", function(){
+            
+        	dashboardObj.init();
+        	/*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

@@ -1,0 +1,160 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-col-2 ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Wizard - Examples"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>ACE fields of type <i>wizard</i> are used to create complex elements, which are generelley known as <i>wizards</i>.</p>
+		<p>They combined together multiple forms, buttons, and progress bars.</p>
+		<p>Each step works as a distinct form. All step forms share the same record.</p>
+		<p>Calling ACE <i>value</i> method returns or set the working record.</p>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 1 - Example</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>This wizard here gives an example for:
+						<ul>
+							<li>Step 1: steps with auto field validation.</li>
+							<li>Step 2: steps without auto field validation.</li> 
+							<li>Step 3: steps with custom user logic validation.</li>
+							<li>Step 4: steps with server side communication and validation; Attention: the step is configures so that the server validation takes place on BOTH forword, and backwords navigation.</li>
+							<li>Step 5,6,7: these display the step visibility setting, and how it can be changed.</li>
+							<li>Step 8: this step doesn't save its data! Write anything, and the field values will remain as they are. Also, the form loads some data from the server as well!</li>
+							<li>Step 9: the final step, with custom user callback.</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="ace-col-12 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+			<div class='ace-auto-gen' type="checkbox" label="With Progress Bar" checked="true" value="1" onchange="toggleWizzardPB"></div>
+			<div class='ace-auto-gen' type="checkbox" label="Progress Bar with Text" onchange="toggleWizzardPBText"></div>
+			<div class='ace-auto-gen' type="checkbox" label="Progress Bar on Top" checked="true" value="1" onchange="toggleWizzardPBPosition"></div>
+			<div class='ace-auto-gen' type="checkbox" label="Overview" onchange="toggleOverview"></div>
+		</div>
+		
+		<div class="ace-col-12">
+			<div id="wizard-ex-1-overview" class="ace-col-4 ace-col-fm-4 ace-hide"></div>
+			<div id="wizard-ex-1" class="ace-col-12"></div>
+		</div>
+	
+	    
+	</div>
+	
+	<div id="ex-1-step-1" class="ace-hide">
+	
+		<div class="ace-auto-gen ace-col-12 ace-h2" type="display" value="Who are you?"></div>
+	
+		<div class='ace-auto-gen ace-col-12 ace-small-padding-top' fieldname="first_name" label="First Name" validation="allowempty=false;"></div>
+		<div class='ace-auto-gen ace-col-12 ace-small-padding-top' fieldname="Last_name" label="Last Name"  validation="allowempty=false;"></div>
+	</div>
+	
+	<div id="ex-1-step-2" class="ace-hide">
+		<div class="ace-auto-gen ace-col-12 ace-h2" type="display" value="Do you have a nickname?"></div>
+		<div class='ace-auto-gen ace-col-12 ace-small-padding-top' fieldname="nickname" label="Nickname" validation="allowempty=false;"></div>
+		<div class="ace-auto-gen ace-col-12 ace-small-padding-top ace-font-size-75p" type="display" value="(*) leave the field empty, if you do not have a nickname"></div>
+	</div>
+	
+	<div id="ex-1-step-custom-validation" class="ace-hide">
+		<div class="ace-auto-gen ace-col-12 ace-h2" type="display" value="User Defined Validation For Next Step"></div>
+
+		<div class='ace-auto-gen ace-col-12 ace-small-padding-top' fieldname="the_answer" label="What is the answer to Life, the Universe, and Everything?" validation="allowempty=false;" labelsuffix="&nbsp;"></div>
+		<div class="ace-auto-gen ace-col-12 ace-small-padding-top ace-font-size-75p" type="display" value="(*) to enter go to the next step, please enter in the above field the number: <i>42</i>."></div>
+	</div>
+	
+	<div id="ex-1-step-server-validation" class="ace-hide">
+		<div class="ace-auto-gen ace-col-12 ace-h2" type="display" value="Server Validation"></div>
+
+		<div class='ace-auto-gen ace-col-12 ace-small-padding-top' fieldname="even_number" label="Please enter an even number" validation="allowempty=false;" labelsuffix="&nbsp;" alwayssend="true"></div>
+		<div class="ace-auto-gen ace-col-12 ace-small-padding-top ace-font-size-75p" type="display" value="(*) the value entered will be sent to the server; if the value is an even number, the server will return a success, otherwise the server will return an error."></div>
+	</div>
+	
+	<div id="ex-1-step-visibility" class="ace-hide">
+		<div class="ace-auto-gen ace-col-12 ace-h2" type="display" value="Visibility"></div>
+
+		<div class='ace-auto-gen ace-col-12 ace-small-padding-top' type="checkbox" fieldname="hide_red" label="Hide red step"></div>
+		<div class='ace-auto-gen ace-col-12 ace-small-padding-top' type="checkbox" fieldname="hide_green" label="Hide green step"></div>
+		
+		<div class="ace-auto-gen ace-col-12 ace-small-padding-top ace-font-size-75p" type="display" value="(*) Some steps in a wizard may be made vizible only when needed."></div>
+	</div>
+	
+	<div id="ex-1-step-visibility-red" class="ace-hide">
+		<div class="ace-col-12 ace-vcol-3 ace-panel-red">
+			<div class="ace-auto-gen ace-col-12 ace-h2" type="display" value="Red Step"></div>
+		</div>
+	</div>
+	
+	<div id="ex-1-step-visibility-green" class="ace-hide">
+		<div class="ace-col-12 ace-vcol-3 ace-panel-green">
+			<div class="ace-auto-gen ace-col-12 ace-h2" type="display" value="Green Step"></div>
+		</div>
+	</div>
+	
+	<div id="ex-1-step-nosave" class="ace-hide">
+		<div class="ace-auto-gen ace-col-12 ace-h2" type="display" value="The data in these fields will not be updated!"></div>
+		
+		<div class="ace-col-12">
+			<div class="ace-col-6 ace-small-padding-right">
+				<div class="ace-auto-gen ace-col-12 ace-h3" type="display" value="Local Fields!"></div>
+				<div class='ace-auto-gen ace-col-12 ace-small-padding-top' type="text" fieldname="first_name" label="First Name" labelalign="left" labelwidth="150px"></div>
+				<div class='ace-auto-gen ace-col-12 ace-small-padding-top' type="text" fieldname="Last_name" label="Last Name" labelalign="left" labelwidth="150px"></div>
+				<div class='ace-auto-gen ace-col-12 ace-small-padding-top' type="text" fieldname="nickname" label="Nickname" labelalign="left" labelwidth="150px"></div>
+				<div class='ace-auto-gen ace-col-12 ace-small-padding-top' type="text" fieldname="the_answer" label="The Answer" labelalign="left" labelwidth="150px"></div>
+				<div class='ace-auto-gen ace-col-12 ace-small-padding-top' type="text" fieldname="even_number" label="Even Number" labelalign="left" labelwidth="150px"></div>
+			</div>
+			<div class="ace-col-6 ace-small-padding-right">
+				<div class="ace-auto-gen ace-col-12 ace-h3" type="display" value="Remote Fields!"></div>
+				<div class='ace-auto-gen ace-col-12 ace-small-padding-top' type="text" fieldname="field_1" label="Field 1" labelalign="left" labelwidth="150px"></div>
+				<div class='ace-auto-gen ace-col-12 ace-small-padding-top' type="text" fieldname="field_2" label="Field 1" labelalign="left" labelwidth="150px"></div>
+				<div class='ace-auto-gen ace-col-12 ace-small-padding-top' type="text" fieldname="field_3" label="Field 1" labelalign="left" labelwidth="150px"></div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="ex-1-step-final" class="ace-hide">
+		<div class="ace-auto-gen ace-col-12 ace-h2" type="display" value="Is this data correct?"></div>
+		<div class='ace-auto-gen ace-col-12 ace-small-padding-top' type="display" fieldname="first_name" label="First Name" labelalign="left" labelwidth="150px"></div>
+		<div class='ace-auto-gen ace-col-12 ace-small-padding-top' type="display" fieldname="Last_name" label="Last Name" labelalign="left" labelwidth="150px"></div>
+		<div class='ace-auto-gen ace-col-12 ace-small-padding-top' type="display" fieldname="nickname" label="Nickname" labelalign="left" labelwidth="150px" renderer="rendererNotSet"></div>
+		<div class='ace-auto-gen ace-col-12 ace-small-padding-top' type="display" fieldname="the_answer" label="The Answer" labelalign="left" labelwidth="150px"></div>
+		<div class='ace-auto-gen ace-col-12 ace-small-padding-top' type="display" fieldname="even_number" label="Even Number" labelalign="left" labelwidth="150px"></div>
+		<div class='ace-auto-gen ace-col-12 ace-small-padding-top ace-state-check' type="checkbox" fieldname="hide_red" label="Hide Red" readonly="true"></div>
+		<div class='ace-auto-gen ace-col-12 ace-small-padding-top ace-state-check' type="checkbox" fieldname="hide_green" label="Hide Green" readonly="true"></div>
+	</div>
+	
+	<div id="ex-1-overview" class="ace-hide">
+		<div class="ace-auto-gen ace-col-12 ace-h2" type="display" value="Overview"></div>
+		<div class='ace-auto-gen ace-col-12 ace-small-padding-top' type="display" fieldname="first_name" label="First Name" labelalign="left" labelwidth="150px" renderer="rendererNotSet"></div>
+		<div class='ace-auto-gen ace-col-12 ace-small-padding-top' type="display" fieldname="Last_name" label="Last Name" labelalign="left" labelwidth="150px" renderer="rendererNotSet"></div>
+		<div class='ace-auto-gen ace-col-12 ace-small-padding-top' type="display" fieldname="nickname" label="Nickname" labelalign="left" labelwidth="150px" renderer="rendererNotSet"></div>
+		<div class='ace-auto-gen ace-col-12 ace-small-padding-top' type="display" fieldname="the_answer" label="The Answer" labelalign="left" labelwidth="150px" renderer="rendererNotSet"></div>
+		<div class='ace-auto-gen ace-col-12 ace-small-padding-top' type="display" fieldname="even_number" label="Even Number" labelalign="left" labelwidth="150px" renderer="rendererNotSet"></div>
+		<div class='ace-auto-gen ace-col-12 ace-small-padding-top ace-state-check' type="checkbox" fieldname="hide_red" label="Hide Red" readonly="true"></div>
+		<div class='ace-auto-gen ace-col-12 ace-small-padding-top ace-state-check' type="checkbox" fieldname="hide_green" label="Hide Green" readonly="true"></div>
+	</div>
+	
+	<div class="ace-col-12 ace-vcol-6">&nbsp;</div>
+	
+	
+</div>
+
+<script>
+
+    function wizard_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/elements/js/wizard.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

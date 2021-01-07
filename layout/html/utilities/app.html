@@ -1,0 +1,23 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-col-2 ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Application Frame"></h2>
+	
+	<div class="ace-auto-gen" type="button" value="Open in New Tab" action="openAppInNewTab"></div>
+	
+</div>
+
+<div class="ace-col-12 ace-full-height-vh ace-no-scrolling ace-no-scrolling">
+	<iframe class="ace-col-12 ace-height-minus-50-vh" src="./appview" ></iframe>
+</div>
+
+<script>
+
+    function app_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/utilities/js/app.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

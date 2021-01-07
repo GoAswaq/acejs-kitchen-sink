@@ -1,0 +1,137 @@
+<html style="direction:{__PH_ALGN}" dir="{__PH_ALGN}">
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<!-- make it SO that these PATHS are correctly loaded on your local machine -->
+	
+	<link href="https://cdn.jsdelivr.net/gh/GoAswaq/acejs/css/ace.css" type="text/css" rel="stylesheet" />
+	
+	{__PH_THEMES}
+
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+	<link href="./layout/css/ks.css" type="text/css" rel="stylesheet" >
+
+	<script src="./layout/libs/jquery-ui-1.10.3.custom/js/jquery-1.9.1.js" type="text/javascript"></script>
+	<script src="./layout/libs/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+	<script src="./layout/libs/moment/moment.min.js" type="text/javascript"></script>
+	
+	<script src="https://cdn.jsdelivr.net/gh/GoAswaq/acejs/lang/en.js" type="text/javascript"></script>
+	<script src="https://cdn.jsdelivr.net/gh/GoAswaq/acejs/ace.js" type="text/javascript"></script>
+	
+	<script src="./layout/libs/hashchange/jquery.hashchange.min.js" type="text/javascript"></script>
+	<script src="./layout/libs/sprintf/sprintf.js" type="text/javascript"></script>
+	<script src="./layout/libs/translation/translation.js" type="text/javascript"></script>
+	
+	<script src="https://cdn.jsdelivr.net/gh/GoAswaq/acejs/ace-pro-icons.js" type="text/javascript"></script>
+	<script src="https://cdn.jsdelivr.net/gh/GoAswaq/acejs/ace-app.js" type="text/javascript"></script>
+	<script src="https://cdn.jsdelivr.net/gh/GoAswaq/acejs/ace-init.js" type="text/javascript"></script>
+	 
+	<script src="./layout/html/main/js/utils.js" type="text/javascript"></script>
+	<script src="./layout/html/main/js/app_view.js" type="text/javascript"></script>
+	
+</head>
+
+<body>
+
+	<div id="my-app-top-bar" class="ace-hide">
+		<a class="ace-side-menu-trigger ace-menu-trigger ace-left fad fa-bars"></a>
+		
+		<a href="" alt="Test App 1.0" title="Test App 1.0">
+			<div style="background-image:url(./layout/imgs/logouser.png);max-width:32px;max-height:32px" class="ace-left ace-logo"></div>
+		</a>
+		
+		<div class="ace-search-bar ace-col-6 ace-fleace-flex-justify-spacebetween">
+			<div class="ace-col-5">
+				<div class="ace-auto-gen ace-col-12 _t_placeholder" placeholder="quick search" validation="allowempty=false;validate=true"></div>
+				<div class="ace-auto-gen ace-inside" type="button" iconcls="fad fa-star"></div>
+				<div class="ace-auto-gen ace-inside ace-inside-double" type="button" iconcls="fad fa-search"></div>
+			</div>
+		</div>
+		
+		<div class="ace-right">
+			<div class="ace-medium-padding ace-user-intro ace-left">Hello <a href="" id="ace-user-intro-link">User</a></div>
+			<div class="ace-auto-gen ace-right" type="menubutton">
+	
+				<items>
+					<record>
+						<field name="label">Settings</field>
+	                    <field name="iconcls">fad fa-cogs</field>
+	                    <field name="action">showsettingswnd</field>
+					</record>
+					<record>
+						<field name="label">Help</field>
+					</record>
+					<record>
+						<field name="label">Logout</field>
+						<field name="iconcls">fa fa-sign-out</field>
+						<field name="action">logout</field>
+					</record>
+				</items>
+	
+			</div>
+		</div>
+	</div>
+
+	<div class="ace-hide" id="main-menu" >
+		<div 
+			class="ace-auto-gen ace-side-menu ace-expand" 
+			type='accordion'
+			handler='switchMainMenuContent'
+			
+			fileloadsufix=''
+			fileloadcode='html'
+		>	
+			
+			<store>
+	            <record>
+	                <field name="name">Dashboard</field>
+	                <field name="tag">dashboardmenutag</field>
+	                <field name="iconcls">fal fa-tag</field>
+	                
+	                <field name="tpl_al">1</field>
+	                <field name="tpl_app">app</field>
+	                <field name="tpl_module">dashboard</field>
+	                
+	            </record>
+	            <record>
+	                <field name="name">Students</field>
+	                <field name="tag">studentsmenutag</field>
+	                <field name="iconcls">fal fa-star</field>
+	                
+	                <field name="tpl_al">1</field>
+	                <field name="tpl_app">app</field>
+	                <field name="tpl_module">students</field>
+	                
+	            </record>
+	            <record>
+	                <field name="name">Settings</field>
+	                <field name="tag">settingsmenutag</field>
+	                <field name="iconcls">fal fa-cogs</field>
+	                
+	                <field name="tpl_al">1</field>
+	                <field name="tpl_app">app</field>
+	                <field name="tpl_module">settings</field>
+	                
+	            </record>
+	        </store>
+			
+		</div>
+	</div>	
+	
+	<div id="my-app-bottom-bar" class="ace-hide">
+		<div class="ace-col-12 ace-ta-center"><h3>Footer Region - add various things here!</h3></div>
+	</div>
+	
+	<script>
+	
+		var hideACETopBar = parseInt('{__PH_ACE_TOP_BAR}') === 1;
+		var hideACESideMenu = parseInt('{__PH_ACE_SIDE_MENU}') === 1;
+		var hideACEBottomBar = parseInt('{__PH_ACE_BOTTOM_BAR}') === 1;
+
+	</script>
+	
+</body>
+
+</html>

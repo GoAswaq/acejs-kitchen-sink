@@ -1,0 +1,479 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Accordion Elements - Examples"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>Elements of tip <b>accordion</b> help display a items that follow a given hierarchy.</p>
+		<p>Accordions do not have labels</p>
+		<p>Each element of the data displayed by the accordion needs to have at least 2 fields</p>
+			<ul>
+				<li>A field with the name: <i>name</i>, which will be the text displayed.</li>
+				<li>A field with the name: <i>tag</i>, which will be the actual value of the option.</li>
+				<li>Attention: a <i>tag</i> should be unique in the data set of an accordion.</li>
+			</ul>
+		<p>Whenver an option is selected, if the accordion has a handle function defined, the handle function will be called, and the tag of the selected option will be passed as a parameter.</p>
+		<p>Forms can set / get autmatically data from fields of this type.</p>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 1 - The simples accordion ever</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>At its simplest, an accordion is just a simple list of options, displayed one bellow the other.</li>
+					<li>Whenver the user clicks on item, an even is triggered which can be handled.</li>
+					<li>The active selection is marked with a distinct style.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-10 ks-target"
+	            type="accordion"
+	            handler="onAccordionSelection"
+	    >
+	    
+	    	<store>
+	            <record>
+	                <field name="name">Option 1</field>
+	                <field name="tag">opt-1</field>
+	            </record>
+	            <record>
+	                <field name="name">Option 2</field>
+	                <field name="tag">opt-2</field>
+	            </record>
+	            <record>
+	                <field name="name">Option 3</field>
+	                <field name="tag">opt-3</field>
+	            </record>
+	        </store>
+	    
+	    </div>
+	    
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 2 - Icons, children, initial tag</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>Some elements may have children. And those children may have children of their own.</li>
+					<li>When an element with children is first clicked, if the children are visible, they will be hidden. Otherwise, the children will be displayed.</li>
+					<li>An accordion may have an initial option selected. If this initial option is a child, then all its parents will be visible.</li>
+					<li>The accordion can be frozen, so that id doesn't expand or collapses when a parent option is clicked. Use <i>Freeze / Unfreeze</i> button to test this..</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-10 ks-target"
+	            type="accordion"
+	            handler="onAccordionSelection"
+	            activetag="opt-2-c3-gc1"
+	    >
+	    
+	    	<store>
+	            <record>
+	                <field name="name">Option 1</field>
+	                <field name="tag">opt-1</field>
+	                <field name="iconcls">fal fa-tag</field>
+	            </record>
+	            <record>
+	                <field name="name">Option 2</field>
+	                <field name="tag">opt-2</field>
+	                <field name="iconcls">fal fa-folder</field>
+	                <field name="children" type="array">
+	                    <array>
+	                        <record>
+	                            <field name="name">Option 2, Child 1</field>
+	                            <field name="tag">opt-2-c1</field>
+	                        </record>
+	                        <record>
+	                            <field name="name">Option 2, Child 2</field>
+	                            <field name="tag">opt-2-c2</field>
+	                            <field name="iconcls">fal fa-user</field>
+	                        </record>
+	                        <record>
+	                            <field name="name">Option 2, Child 3</field>
+	                            <field name="tag">opt-2-c3</field>
+	                            
+	                            <field name="children" type="array">
+				                    <array>
+				                        <record>
+				                            <field name="name">Granchild 1</field>
+				                            <field name="tag">opt-2-c3-gc1</field>
+				                            <field name="iconcls">fal fa-star</field>
+				                        </record>
+				                        <record>
+				                            <field name="name">Granchild 2</field>
+				                            <field name="tag">opt-2-c3-gc2</field>
+				                        </record>
+				                    </array>
+				                </field>
+	                            
+	                            
+	                        </record>
+	                    </array>
+	                </field>
+	            </record>
+	            <record>
+	                <field name="name">Option 3</field>
+	                <field name="tag">opt-3</field>
+	                <field name="children" type="array">
+                    <array>
+                        <record>
+                            <field name="name">Option 3, Child 1</field>
+                            <field name="tag">opt-3-c1</field>
+                        </record>
+                    </array>
+                </field>
+	            </record>
+	        </store>
+	    
+	    </div>
+	    
+	    <div class="ace-col-2 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+	    
+	    	<div
+	            class="ace-auto-gen"
+	            type="button"
+	            value="Open All"
+	            action="openAllAccordionTags"
+
+	    	></div>
+	    	
+	    	<div
+	            class="ace-auto-gen"
+	            type="button"
+	            value="Close All"
+	            action="closeAllAccordionTags"
+	    	></div>
+	    	
+	    	<div
+	            class="ace-auto-gen"
+	            type="button"
+	            value="Freeze / Unfreeze"
+	            action="toggleFreezeAccordion"
+	    	></div>
+	    
+	    </div>
+	    
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 3 - Checkboxes</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>Accordions may also have checkboxes.</li>
+					<li>Anytime a checkbox is checked or unchecked, an event is generated, which may be intercepted.</li>
+					<li>By default, the checkbox may be clicked ONLY if the checkbox is clicked. This may be changed, so that whenver an option is selected, it's checkbox is triggered as well, through the <i>tooglecheckonrowclick</i> setting. This is the case for this example.</li>
+					<li>By default, checking or unchecking a parent option will not have any affect on the check status of its children. This can be changed via the setting <i>checkall</i>. Set it to true, to enable this behaviour. This is the case for this example.</li>
+					<li>The accordion has two methods which can be used to retrieve the list of checked items:</li>
+					<li>
+						<ul>
+							<li><i>getCheckedLeaves</i> - which retrieves a list of all the items without children that are checked</li>
+							<li><i>getCheckedTags</i> - which retrieves a list of all the items that are checked</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-10 ks-target"
+	            type="accordion"
+	            handler="onAccordionSelection"
+	            activetag="opt-2-c3-gc1"
+
+	            withcheckboxes="true"
+	            tooglecheckonrowclick="true"
+	            checkall="true"
+	    >
+	    
+	    	<store>
+	            <record>
+	                <field name="name">Option 1</field>
+	                <field name="tag">opt-1</field>
+	            </record>
+	            <record>
+	                <field name="name">Option 2</field>
+	                <field name="tag">opt-2</field>
+	                <field name="children" type="array">
+	                    <array>
+	                        <record>
+	                            <field name="name">Option 2, Child 1</field>
+	                            <field name="tag">opt-2-c1</field>
+	                        </record>
+	                        <record>
+	                            <field name="name">Option 2, Child 2</field>
+	                            <field name="tag">opt-2-c2</field>
+	                            <field name="iconcls">fal fa-user</field>
+	                        </record>
+	                        <record>
+	                            <field name="name">Option 2, Child 3</field>
+	                            <field name="tag">opt-2-c3</field>
+	                            
+	                            <field name="children" type="array">
+				                    <array>
+				                        <record>
+				                            <field name="name">Granchild 1</field>
+				                            <field name="tag">opt-2-c3-gc1</field>
+				                        </record>
+				                        <record>
+				                            <field name="name">Granchild 2</field>
+				                            <field name="tag">opt-2-c3-gc2</field>
+				                        </record>
+				                    </array>
+				                </field>
+	                            
+	                            
+	                        </record>
+	                    </array>
+	                </field>
+	            </record>
+	            <record>
+	                <field name="name">Option 3</field>
+	                <field name="tag">opt-3</field>
+	                <field name="children" type="array">
+                    <array>
+                        <record>
+                            <field name="name">Option 3, Child 1</field>
+                            <field name="tag">opt-3-c1</field>
+                        </record>
+                    </array>
+                </field>
+	            </record>
+	        </store>
+	    
+	    </div>
+	    
+	    <div class="ace-col-2 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+	    
+	    	<div
+	            class="ace-auto-gen"
+	            type="button"
+	            value="Get All Checked Options"
+	            action="getCheckedTags"
+	    	></div>
+	    	
+	    	<div
+	            class="ace-auto-gen"
+	            type="button"
+	            value="Get Only Checked Leaves"
+	            action="getCheckedLeaves"
+	    	></div>
+	    
+	    </div>
+	    
+	</div>
+	
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 4 - Horizontal Accordion - V1</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>An Accordion may also be displayed horizontally.</li>
+					<li>There are two methods to achive this. For the second one, see the next example.</li>
+					<li>To create a horizontal accordion, add the to it the class <i>ace-horizontal-menu</i>.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-12 ace-horizontal-menu ks-target"
+	            type="accordion"
+	            handler="onAccordionSelection"
+	    >
+	    
+	    	<store>
+	            <record>
+	                <field name="name">Option 1</field>
+	                <field name="tag">opt-1</field>
+	                <field name="iconcls">fal fa-tag</field>
+	            </record>
+	            <record>
+	                <field name="name">Option 2</field>
+	                <field name="tag">opt-2</field>
+	                <field name="iconcls">fal fa-star</field>
+	            
+	            	<field name="children" type="array">
+	                    <array>
+	                        <record>
+	                            <field name="name">Option 2, Child 1</field>
+	                            <field name="tag">opt-2-c1</field>
+	                        </record>
+	                        <record>
+	                            <field name="name">Option 2, Child 2</field>
+	                            <field name="tag">opt-2-c2</field>
+	                            <field name="iconcls">fal fa-user</field>
+	                        </record>
+	                        <record>
+	                            <field name="name">Option 2, Child 3</field>
+	                            <field name="tag">opt-2-c3</field>
+	                            
+	                            <field name="children" type="array">
+				                    <array>
+				                        <record>
+				                            <field name="name">Granchild 1</field>
+				                            <field name="tag">opt-2-c3-gc1</field>
+				                        </record>
+				                        <record>
+				                            <field name="name">Granchild 2</field>
+				                            <field name="tag">opt-2-c3-gc2</field>
+				                        </record>
+				                    </array>
+				                </field>
+	                            
+	                            
+	                        </record>
+	                    </array>
+	                </field>
+	            
+	            </record>
+	            <record>
+	                <field name="name">Option 3</field>
+	                <field name="tag">opt-3</field>
+	                <field name="iconcls">fal fa-folder</field>
+	            </record>
+	        </store>
+	    
+	    </div>
+	    
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 5 - Horizontal Accordion - V2</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>An Accordion may also be displayed horizontally.</li>
+					<li>There are two methods to achive this. For the first one, see the previous example.</li>
+					<li>To create a horizontal accordion, add to the element the classes<i>ace-submenu ace-horizontal-tabs</i>.</li>
+					<li>This method works best with accordions whose elements do not have sub-children.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-12 ks-target ace-submenu ace-horizontal-tabs"
+	            type="accordion"
+	            handler="onAccordionSelection"
+	    >
+	    
+	    	<store>
+	            <record>
+	                <field name="name">Option 1</field>
+	                <field name="tag">opt-1</field>
+	                <field name="iconcls">fal fa-tag</field>
+	            </record>
+	            <record>
+	                <field name="name">Option 2</field>
+	                <field name="tag">opt-2</field>
+	                <field name="iconcls">fal fa-star</field>
+	            </record>
+	            <record>
+	                <field name="name">Option 3</field>
+	                <field name="tag">opt-3</field>
+	                <field name="iconcls">fal fa-folder</field>
+	            </record>
+	        </store>
+	    
+	    </div>
+	    
+	</div>
+	
+	
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container ace-hide">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 4 - Accordion with remote data.</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li><span style="color:red">Attention</span> - There are some problems with this one... WIP, TODO: <span style="color:red">fix</span></li>
+					<li>When the students option is selected, the data displayed is loaded from the database.</li>
+					<li>Clicking the plus sign will opened up a form which allows the user to add a new studen, sending the information to the server to be saved</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-10 ks-target"
+	            type="accordion"
+	            handler="onAccordionSelection"
+	            
+	            remoteidfield="student_id"
+	            remotenamefield="student_name"
+	    >
+	    
+	    	<store>
+	            <record>
+	                <field name="name">Option 1</field>
+	                <field name="tag">opt-1</field>
+	            </record>
+	            <record>
+	                <field name="name">Students</field>
+	                <field name="tag">opt-2</field>
+	                <field name="editable">true</field>
+	                <field name="net" type="record">
+	                    <record>
+	                        <field name="fid">loadstudents</field>
+	                        <field name="remote">true</field>
+	                        <field name="autoload">false</field>
+	                    </record>
+                	</field>
+	                <field name="editform" type="record">
+	                    <record>
+	                        <field name="template">simple-accordion-add-student-form</field>
+	                        <field name="validate">true</field>
+	                    </record>
+                	</field>
+	            </record>
+	            <record>
+	                <field name="name">Option 3</field>
+	                <field name="tag">opt-3</field>
+	            </record>
+	        </store>
+	    
+	    </div>
+	    
+	</div>
+	
+</div>
+
+<div class="ace-hide" id="simple-accordion-add-student-form">
+	
+	<div class="ace-col-12">
+	
+		<div class="ace-auto-gen ace-col-12"
+			 fieldname="student_name"
+			 label="What is the name of the new student?"
+			 validation="allowempty=false">
+		</div>
+	
+	</div>
+	
+</div>	
+
+<script>
+
+    function accordion_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/elements/js/accordion.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

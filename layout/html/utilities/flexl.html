@@ -1,0 +1,283 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-col-2 ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Flex Classes - Examples"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>CSS Flexbox Layout makes it easier to design flexible responsive layout structure without using float or positioning.</p>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 1 - Flex Layout System</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li><i>ACE</i> comes with a set of classes which are wrappers over various flex layout settings.</li>
+					<li>There are a set of classes that apply on the container in which the flexible elements find themsleves, and another set of classes that apply on the flexible elements themselevs:</li>
+					<li>Properties of the container:
+						<ul>
+							<li>direction: ace-flex-column, ace-flex-row,ace-flex-column-reverse, ace-flex-row-reverse</li>
+							<li>wrap: ace-flex-wrap-no, ace-flex-wrap-yes, ace-flex-wrap-yes-reverse</li>
+							<li>justify content: ace-flex-justify-end, ace-flex-justify-start, ace-flex-justify-center, ace-flex-justify-spacebetween, ace-flex-justify-spacearound.</li>
+						</ul>
+					</li>
+					<li>Properties of the elements in the container:
+						<ul>
+							<li>align self: ace-flex-align-self-strech, ace-flex-align-self-center, ace-flex-align-self-start, ace-flex-align-self-end. This <b>OVERRIDES</b> the align <i>items property</i> of the container.</li>
+							<li>flex-grow: ace-flex-1, ... to ace-flex-12, ace-flex-20</li>
+							<li>flex-shrink: ace-flex-shrink-1, ... to ace-flex-shrink-10</li>
+						</ul>
+					</li>
+					<li><b>Attention, </b> in the example bellow:
+						<ul>
+							<li>allign self classes are applied only on the elements on even numbered positions: 2,4,6,8,10.</li>
+							<li>flex grow and flex shrink classes, apply 1 to each of the 10 elements inside, from 1 to 10.</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="ace-col-12 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+		
+			<div
+	            class="ace-auto-gen ace-col-2"
+	            type="combobox"
+	            label="Direction"
+	            onchange="onChangeFLEXLDirection"
+	    	>
+		    	<store>
+		            <record>
+		                <field name="name">ace-flex-row</field>
+		                <field name="id">ace-flex-row</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-flex-column</field>
+		                <field name="id">ace-flex-column</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-flex-row-reverse</field>
+		                <field name="id">ace-flex-row-reverse</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-flex-column-reverse</field>
+		                <field name="id">ace-flex-column-reverse</field>
+		            </record>
+		        </store>
+		   	</div>
+		   	
+		   	<div
+	            class="ace-auto-gen ace-col-2"
+	            type="combobox"
+	            label="Wrap"
+	            onchange="onChangeFLEXLWrap"
+	    	>
+		    	<store>
+		    		<record>
+		                <field name="name">ace-flex-wrap-yes</field>
+		                <field name="id">ace-flex-wrap-yes</field>
+		            </record>
+		    		<record>
+		                <field name="name">ace-flex-wrap-yes-reverse</field>
+		                <field name="id">ace-flex-wrap-yes-reverse</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-flex-wrap-no</field>
+		                <field name="id">ace-flex-wrap-no</field>
+		            </record>
+		        </store>
+		   	</div>
+		   	
+		   	<div
+	            class="ace-auto-gen ace-col-2"
+	            type="combobox"
+	            label="Justify Content"
+	            onchange="onChangeFLEXLJustifyContent"
+	    	>
+		    	<store>
+		    		<record>
+		                <field name="name">ace-flex-justify-center</field>
+		                <field name="id">ace-flex-justify-center</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-flex-justify-start</field>
+		                <field name="id">ace-flex-justify-start</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-flex-justify-end</field>
+		                <field name="id">ace-flex-justify-end</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-flex-justify-spacebetween</field>
+		                <field name="id">ace-flex-justify-spacebetween</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-flex-justify-spacearound</field>
+		                <field name="id">ace-flex-justify-spacearound</field>
+		            </record>
+		        </store>
+		   	</div>
+		   	
+		   	<div
+	            class="ace-auto-gen ace-col-2"
+	            type="combobox"
+	            label="Align Items"
+	            onchange="onChangeFLEXLAlignItems"
+	    	>
+		    	<store>
+		    		<record>
+		                <field name="name">ace-flex-align-center</field>
+		                <field name="id">ace-flex-align-center</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-flex-strech</field>
+		                <field name="id">ace-flex-strech</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-flex-align-start</field>
+		                <field name="id">ace-flex-align-start</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-flex-align-end</field>
+		                <field name="id">ace-flex-align-end</field>
+		            </record>
+		        </store>
+		   	</div>
+		   	
+		   	<div
+	            class="ace-auto-gen ace-col-2"
+	            type="combobox"
+	            label="Align Self"
+	            onchange="onChangeFLEXLAlignSelf"
+	    	>
+		    	<store>
+		    		<record>
+		                <field name="name">auto</field>
+		                <field name="id">&nbsp;</field>
+		            </record>
+		    		<record>
+		                <field name="name">ace-flex-align-self-center</field>
+		                <field name="id">ace-flex-align-self-center</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-flex-strech</field>
+		                <field name="id">ace-flex-strech</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-flex-align-self-start</field>
+		                <field name="id">ace-flex-align-self-start</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-flex-align-self-end</field>
+		                <field name="id">ace-flex-align-self-end</field>
+		            </record>
+		        </store>
+		   	</div>
+		   	
+		   	<div class="ace-auto-gen"
+		   		 type="checkbox"
+		   		 label="Toggle Groth"
+		   		 onchange="toggleFlexGroth">
+	   		</div>
+	   		
+	   		<div class="ace-auto-gen"
+		   		 type="checkbox"
+		   		 label="Toggle Shrink"
+		   		 onchange="toggleFlexShrink">
+	   		</div>
+	    	
+    	</div>
+	
+		<div id="ex-1-flex-container" class="ace-scrollview ace-col-12 ace-dark-green-bg ace-small-padding-top ace-vcol-3 ace-flex">
+			<div class="ks-fixed-width-200 ace-blue-bg ace-small-margin ace-ta-center ace-font-size-200p"><b>1</b></div>
+			<div class="ks-fixed-width-200 ace-yellow-bg ace-small-margin ace-ta-center ace-font-size-200p"><b>2</b></div>
+			<div class="ks-fixed-width-200 ace-orange-bg ace-small-margin ace-ta-center ace-font-size-200p"><b>3</b></div>
+			<div class="ks-fixed-width-200 ace-black-bg ace-white ace-small-margin ace-ta-center ace-font-size-200p"><b>4</b></div>
+			<div class="ks-fixed-width-200 ace-gray50-bg ace-small-margin ace-ta-center ace-font-size-200p"><b>5</b></div>
+			<div class="ks-fixed-width-200 ace-dark-red-bg ace-small-margin ace-ta-center ace-font-size-200p"><b>6</b></div>
+			<div class="ks-fixed-width-200 ace-green-bg ace-small-margin ace-ta-center ace-font-size-200p"><b>7</b></div>
+			<div class="ks-fixed-width-200 ace-gray50-bg ace-small-margin ace-ta-center ace-font-size-200p"><b>8</b></div>
+			<div class="ks-fixed-width-200 ace-blue-bg ace-small-margin ace-ta-center ace-font-size-200p"><b>9</b></div>
+			<div class="ks-fixed-width-200 ace-yellow-bg ace-small-margin ace-ta-center ace-font-size-200p"><b>10</b></div>
+	    </div>
+	    
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 2 - Additional Helper classes</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>The following classes should be added to a container to arange its children in various ways
+						<ul>
+							<li>ace-center</li>
+							<li>ace-centered-blocks</li>
+							<li>ace-center-columns</li>
+							<li>ace-center-right-columns</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="ace-col-12 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+		
+			<div
+	            class="ace-auto-gen ace-col-2"
+	            type="combobox"
+	            label="Helper Classes"
+	            onchange="onChangeFLEXLHelperClasses"
+	    	>
+		    	<store>
+		            <record>
+		                <field name="name">none</field>
+		                <field name="id"></field>
+		            </record>
+		            <record>
+		                <field name="name">ace-center</field>
+		                <field name="id">ace-center</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-centered-blocks</field>
+		                <field name="id">ace-centered-blocks</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-center-columns</field>
+		                <field name="id">ace-center-columns</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-center-right-columns</field>
+		                <field name="id">ace-center-right-columns</field>
+		            </record>
+		        </store>
+		   	</div>
+    	</div>
+	
+		<div id="ex-2-flex-container" class="ace-scrollview ace-col-12 ace-dark-green-bg ace-small-padding-top ace-vcol-3">
+			<div class="ks-fixed-width-200 ace-blue-bg ace-small-margin ace-ta-center ace-font-size-200p"><b>1</b></div>
+			<div class="ks-fixed-width-200 ace-yellow-bg ace-small-margin ace-ta-center ace-font-size-200p"><b>2</b></div>
+			<div class="ks-fixed-width-200 ace-orange-bg ace-small-margin ace-ta-center ace-font-size-200p"><b>3</b></div>
+	    </div>
+	    
+	</div>
+	
+</div>
+
+<script>
+
+    function flexl_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/utilities/js/flexl.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

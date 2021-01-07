@@ -1,0 +1,199 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Chips Elements - Examples"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>Elements of tip <b>chips</b> help users enter a multiple selection from an unspecified set.</p>
+		<p>The user may enter a text, press enter, and the text will be added as a new chip to the selection.</p>
+		<p>Chips may be deleted by pressing their X button</p>
+		<p>Chips don't have a label component</p>
+		<p>Forms ignore chips.</p>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 1 - The simples chip element.</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>By default, the chip does not allow duplicates.</li>
+					<li>Each chip added receives an unique id, within the dataset of the chip.</li>
+					<li>The default max number of chips is 100.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-8 ks-target"
+	            type="chips"
+	            placeholder="type something here and press enter"
+	    >
+	    </div>
+	    
+	    <div class="ace-col-4 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Toggle Readonly"
+		            action="toggleReadonlyChips"
+		    ></div>
+		    
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Get value"
+		            action="getValueChips"
+		    ></div>
+	    </div>
+	    
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 2 - Other functionality.</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>This chip allows duplicate texts.</li>
+					<li>The maximum chips number is set to 5.</li>
+					<li>The chips already has a set of data on creation.</li>
+					<li>The chip may have a custom method specified, which validates the input field. In this case, only short text are allowed to be added as chips: max length of 3 characters.</li>
+					<li>Two events are generated each time a new chip is added, or removed. This events may be intercepted.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-8 ks-target"
+	            type="chips"
+	            placeholder="type something here and press enter"
+	            
+	            allowduplicates="true"
+	            maxchipcount="5"
+	            customallowadd="allowChipTextToBeAdded"
+	            onadd="onChipAdded"
+	            onremove="onChipRemoved"
+	    >
+	    
+	    	<store>
+	            <record>
+	                <field name="name">C1</field>
+	                <field name="value">1</field>
+	            </record>
+	            <record>
+	                <field name="name">C2</field>
+	                <field name="value">2</field>
+	            </record>
+	            <record>
+	                <field name="name">C3</field>
+	                <field name="value">3</field>
+	            </record>
+	        </store>
+	    
+	    </div>
+	    
+	    <div class="ace-col-4 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+	    
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Toggle Readonly"
+		            action="toggleReadonlyChips"
+		    ></div>
+		    
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Get value"
+		            action="getValueChips"
+		    ></div>
+		    
+	    </div>
+	    
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 3 - Chips with combobox selector.</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>The user may type the texts manually, or the texts may be chosen from a combobox.</li>
+					<li>Once an element is selected from the combobox, that element will no longer appear there.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-8 ks-target"
+	            type="chips"
+	            placeholder="type something here and press enter"
+	            
+	            maxchipcount="5"
+
+	            onadd="onChipAdded"
+	            onremove="onChipRemoved"
+	            
+	            inputtype="combobox"
+	    >
+	    
+	    	<storecombo>
+	            <record>
+	                <field name="name">Option 1</field>
+	                <field name="id">1</field>
+	            </record>
+	            <record>
+	                <field name="name">Option 2</field>
+	                <field name="id">2</field>
+	            </record>
+	            <record>
+	                <field name="name">Option 3</field>
+	                <field name="id">3</field>
+	            </record>
+	            <record>
+	                <field name="name">Option 4</field>
+	                <field name="id">4</field>
+	            </record>
+	            <record>
+	                <field name="name">Option 5</field>
+	                <field name="id">5</field>
+	            </record>
+	        </storecombo>
+	    
+	    </div>
+	    
+	    <div class="ace-col-4 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Toggle Readonly"
+		            action="toggleReadonlyChips"
+		    ></div>
+		    
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Get value"
+		            action="getValueChips"
+		    ></div>
+	    </div>
+	    
+	</div>
+		
+</div>
+
+<script>
+
+    function chips_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/elements/js/chips.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

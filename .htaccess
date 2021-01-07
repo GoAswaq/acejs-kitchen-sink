@@ -1,0 +1,7 @@
+Options -Indexes +FollowSymLinks
+RewriteEngine on
+
+RewriteCond %{QUERY_STRING} (.*)
+RewriteRule ^html/(.*)(\.html)$ utils/get_html.php?&__html=$1 [QSA,L]
+RewriteRule ^testview ?fid=testview [QSA,L]
+RewriteRule ^appview ?fid=appview [QSA,L]

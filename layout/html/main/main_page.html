@@ -1,0 +1,191 @@
+<html style="direction:{__PH_ALGN}" dir="{__PH_ALGN}">
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<!-- make it SO that these PATHS are correctly loaded on your local machine -->
+	
+	<link href="https://cdn.jsdelivr.net/gh/GoAswaq/acejs/css/ace.css" type="text/css" rel="stylesheet" />
+	
+	{__PH_THEMES}
+	
+	<link href="./layout/css/fontawesome-pro-5.10.0-11-web/css/all.min.css" type="text/css" rel="stylesheet" >
+	<link href="./layout/css/ks.css" type="text/css" rel="stylesheet" >
+
+	<script src="./layout/libs/jquery-ui-1.10.3.custom/js/jquery-1.9.1.js" type="text/javascript"></script>
+	<script src="./layout/libs/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+	<script src="./layout/libs/moment/moment.min.js" type="text/javascript"></script>
+	
+	<script src="https://cdn.jsdelivr.net/gh/GoAswaq/acejs/lang/en.js" type="text/javascript"></script>
+	<script src="https://cdn.jsdelivr.net/gh/GoAswaq/acejs/ace.js" type="text/javascript"></script>
+	
+	<script src="https://cdn.jsdelivr.net/gh/GoAswaq/acejs/ace-app.js" type="text/javascript"></script>
+	<script src="https://cdn.jsdelivr.net/gh/GoAswaq/acejs/ace-init.js" type="text/javascript"></script>
+	
+	<script src="./layout/html/main/js/utils.js" type="text/javascript"></script>
+	<script src="./layout/html/main/js/main_page.js" type="text/javascript"></script>
+	
+</head>
+
+<body>
+
+<div class="ace-col-12 ace-full-height-vh">
+
+	<div class="ace-col-2 ace-full-height-100vh ace-show" style="background-image:url(./layout/imgs/bk-pattern.png)" id="ks-example-selector">
+		<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+			<h2 class="ace-auto-gen" type="display" value="Controls"></h2>
+		</div>
+		
+		<div class="ace-col-12 ace-height-minus-100 ace-scrollview">
+			<div
+	            class="ace-auto-gen ace-col-12 ace-medium-padding-top"
+	            id="page-alignament-combo"
+	            type="combobox"
+	            label="Alignament"
+	            onchange="onPageAlignamentChange"
+	    	>
+		    	<store>
+		            <record>
+		                <field name="name">Left To Right</field>
+		                <field name="id">ltr</field>
+		            </record>
+		            <record>
+		                <field name="name">Right to Left</field>
+		                <field name="id">rtl</field>
+		            </record>
+		        </store>
+		   	</div>
+		   	
+		   	<div
+	            class="ace-auto-gen ace-col-12 ace-small-padding-top"
+	            id="page-theme-combo"
+	            type="combobox"
+	            label="Theme"
+	            onchange="onPageThemeChange"
+	    	>
+		    	<store>
+		            <record>
+		                <field name="name">None</field>
+		                <field name="id">none</field>
+		            </record>
+		            <record>
+		                <field name="name">Beyond</field>
+		                <field name="id">beyond</field>
+		            </record>
+		            <record>
+		                <field name="name">Deep Sea</field>
+		                <field name="id">deepsea</field>
+		            </record>
+		            <record>
+		                <field name="name">Flex</field>
+		                <field name="id">flex</field>
+		            </record>
+		            <record>
+		                <field name="name">Ruby Stone</field>
+		                <field name="id">rubystone</field>
+		            </record>
+		            <record>
+		                <field name="name">White Stone</field>
+		                <field name="id">whitestone</field>
+		            </record>
+		            <record>
+		                <field name="name">Waterflow</field>
+		                <field name="id">waterflow</field>
+		            </record>
+		            <record>
+		                <field name="name">Amethyst</field>
+		                <field name="id">amethyst</field>
+		            </record>
+		        </store>
+		   	</div>
+			
+			<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+				<h2 class="ace-auto-gen" type="display" value="Ace Field Types"></h2>
+			</div>
+			<div class="ace-col-12" id="ace-elements-navigator"></div>
+			
+			<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+				<h2 class="ace-auto-gen" type="display" value="Ace Utilities"></h2>
+			</div>
+			<div class="ace-col-12" id="ace-utilities-navigator"></div>
+		</div>
+	</div>
+	
+	<div class="ace-col-10" id="ks-example-details">
+		<div class="ace-col-12 ace-height-minus-50 ace-scroll-view ace-hide" id="ks-elements-container">
+			
+			<div class="ace-col-12 element-type-container ace-hide" tag="no-element-selected">
+				<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+					<div class="ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+					<h2 class="ace-auto-gen" type="display" value="Nothing Selected"></h2>
+				</div>
+				<p>Please select a field type from the list on the side!</p>
+			</div>
+			
+			<!-- verious ace elements examples will be loaded here, as needed -->
+		</div>
+		
+		<div class="ace-col-12 ace-height-minus-50 ace-scroll-view ace-hide" id="ks-utilities-container">
+			
+			<div class="ace-col-12 utility-type-container ace-hide" tag="no-utility-selected">
+				<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+					<div class="ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+					<h2 class="ace-auto-gen" type="display" value="Nothing Selected"></h2>
+				</div>
+				<p>Please select an utility type from the list on the side!</p>
+			</div>
+			
+			<!-- verious ace utilities examples will be loaded here, as needed -->
+		</div>
+	</div>
+
+</div>
+
+<div id="element-template">
+	<div class="ace-col-12 element-type-container ace-hide ace-collapsible" tag="[PLACEHOLDER]" url="html/elements" tpl="[PLACEHOLDER]" tplloadedcallback="[PLACEHOLDER]_loaded" tplloadedbeforecallback="translate">[PLACEHOLDER]</div>
+</div>
+<div id="utility-template">
+	<div class="ace-col-12 utility-type-container ace-hide ace-collapsible" tag="[PLACEHOLDER]" url="html/utilities" tpl="[PLACEHOLDER]" tplloadedcallback="[PLACEHOLDER]_loaded" tplloadedbeforecallback="translate">[PLACEHOLDER]</div>
+</div>
+
+<div id="test-view" class="ace-independent-form ace-lateral-form ace-hide" style="width:80vh !important; max-width:80vh !important;">
+	<div class="ace-col-12 ace-title-bar">
+	
+		<div class="ace-auto-gen"
+			 type="button"
+			 value=""
+			 iconcls="fal fa-chevron-circle-left"
+			 action="hideTestView"
+		>
+		
+		</div>
+
+		<h2 id="test-view-title">Test View</h2>
+		
+	</div>
+	
+	<div class="ace-col-12 ace-centered-blocks">
+		
+		 <div id="test-view-res-selector" ></div>
+		 <div>
+			 <div id="test-width" class="ace-auto-gen ace-small-padding-left" type="display"></div>
+			 <div class="ace-auto-gen ace-bold ace-small-padding-left ace-small-padding-right" type="display" value="x"></div>
+			 <div id="test-height" class="ace-auto-gen" type="display"></div>
+		 </div>
+	
+	</div>
+	
+	
+	<div class="ace-col-12 ace-centered-blocks ace-height-minus-300 ace-scollview ace-medium-padding-top">
+	
+		<iframe id="test-iframe" class="ace-scollview" src="./testview"></iframe>
+		
+	</div>
+	
+	
+</div>
+
+
+</body>
+</html>

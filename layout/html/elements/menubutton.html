@@ -1,0 +1,249 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Menubutton Elements - Examples"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>Elements of tip <b>menubutton</b> are buttons, which when press will display a vertical menu, with several options</p>
+		<p>Whenver one of these options is pressed, something may happen.</p>
+		<p>Clicking anyway outside of the vertical menu closes the menu without triggering any other operation.</p>
+		<p>The elements displayed may have some of the fields</p>
+		<ul>
+			<li><i>label</i> - the text being displayed</li>
+			<li><i>value</i> - a value which is passed to the cusom handler function when the label is selected from the vertical menu.</li>
+			<li><i>tag</i> - a value which is passed to the cusom handler function when the label is selected from the vertical menu. Also, it is used for various other operations</li>
+			<li><i>type</i> - the type of option displayed; by default it is a simple text, but it can also be: a radio button, a checkbox, a separator, group label or image. Simple items may have an icon displayed as well.</li>
+		</ul>
+		<p>
+		<p>The menubutton has two other customizable element: an icon, and a text</p>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 1 - A simple example</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>When pressing this button, a menu button with 3 options will present itself.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-10 ks-target"
+	            type="menubutton"
+	            value="Press me to see a simple menu"
+	            onselect="onMenubuttonSelection"
+	    >
+	    
+	    	<items>
+	            <record>
+	                <field name="label">Option 1</field>
+	                <field name="value">opt-1</field>
+	                <field name="tag">opt-1-tag</field>
+	            </record>
+	            <record>
+	                <field name="label">Option 2</field>
+	                <field name="value">opt-2</field>
+	                <field name="tag">opt-2-tag</field>
+	            </record>
+	            <record>
+	                <field name="label">Option 3</field>
+	                <field name="value">opt-3</field>
+	                <field name="tag">opt-3-tag</field>
+	            </record>
+	        </items>
+	    
+	    </div>
+	    
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 2 - Explicit option action</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>In addition to the on <i>onselect</i> event that is triggered whenever a menu entry is selected ( with the expection of separators and group label), each element may also have a specific <i>action</i> defined.</li>
+					<li>Actions are custom functions that are called only for the elements for which they are specified</li>
+					<li>For this example, a general <i>onselect</i> method has not been defined, but the option 1 and 3 have an <i>action</i> specified</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-10 ks-target"
+	            type="menubutton"
+	            value="Press me to test explicit actions"
+	    >
+	    
+	    	<items>
+	            <record>
+	                <field name="label">Option 1</field>
+	                <field name="value">opt-1</field>
+	                <field name="tag">opt-1-tag</field>
+	                <field name="action">onMenubuttonSelection</field>
+	            </record>
+	            <record>
+	                <field name="label">Option 2</field>
+	                <field name="value">opt-2</field>
+	                <field name="tag">opt-2-tag</field>
+	            </record>
+	            <record>
+	                <field name="label">Option 3</field>
+	                <field name="value">opt-3</field>
+	                <field name="tag">opt-3-tag</field>
+	                <field name="action">onMenubuttonSelection</field>
+	            </record>
+	        </items>
+	    
+	    </div>
+	    
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 3 - Menu button with options of different types</h3>
+			<ul>
+				<li>Each menu item presents various type options.</li>
+				<li>There are two checkbox items, one of which is checked by default.</li>
+				<li>There are 2 radio groups. The second radio group has one option checked by default.</li>
+				<li>Items of type: grouplabel and separators do not generate <i>onselect</i> events when they are clicked.</li>
+				<li></li>
+			</ul>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-10 ks-target"
+	            type="menubutton"
+	            value="Press me see various data menu item types"
+	            onselect="onMenubuttonSelection"
+	    >
+	    
+	    	<items>
+	            <record>
+	                <field name="label">Simple Menu Entry</field>
+	                <field name="value">opt-simple</field>
+	                <field name="tag">opt-opt-simple-tag</field>
+	            </record>
+	            <record>
+	            	<field name="label">Simple Menu Entry with icon</field>
+	                <field name="iconcls">fa fa-star</field>
+	                <field name="value">opt-simple-star</field>
+	                <field name="tag">opt-simple-star-tag</field>
+	            </record>
+	            <record>
+	                <field name="label">Checkbox 01</field>
+	                <field name="type">checkbox</field>
+	                <field name="value">opt-checkbox</field>
+	                <field name="tag">opt-checkbox-tag</field>
+	            </record>
+	            <record>
+	                <field name="label">Checkbox 02</field>
+	                <field name="type">checkbox</field>
+	                <field name="value">opt-checkbox</field>
+	                <field name="checked">true</field>
+	                <field name="tag">opt-checkbox-checked-tag</field>
+	            </record>
+	            <record>
+	                <field name="label">Separator</field>
+	                <field name="type">separator</field>
+	                <field name="value">opt-separator</field>
+	                <field name="tag">opt-separator-tag</field>
+	            </record>
+	            <record>
+	                <field name="label">Radio Option 1</field>
+	                <field name="type">radio</field>
+	                <field name="value">opt-radio-1</field>
+	                <field name="tag">opt-radio-1-tag</field>
+	                <field name="name">radio group 1</field>
+	            </record>
+	            <record>
+	                <field name="label">Radio Option 2</field>
+	                <field name="type">radio</field>
+	                <field name="value">opt-radio-2</field>
+	                <field name="tag">opt-radio-2-tag</field>
+	                <field name="name">radio group 1</field>
+	            </record>
+	            <record>
+	                <field name="label">Separator</field>
+	                <field name="type">separator</field>
+	                <field name="value">opt-separator</field>
+	                <field name="tag">opt-separator-tag</field>
+	            </record>
+	            <record>
+	                <field name="label">Radio Option 3</field>
+	                <field name="type">radio</field>
+	                <field name="value">opt-radio-3</field>
+	                <field name="tag">opt-radio-3-tag</field>
+	                <field name="name">radio group 2</field>
+	            </record>
+	            <record>
+	                <field name="label">Radio Option 4</field>
+	                <field name="type">radio</field>
+	                <field name="value">opt-radio-4</field>
+	                <field name="tag">opt-radio-4-tag</field>
+	                <field name="checked">true</field>
+	                <field name="name">radio group 2</field>
+	            </record>
+	            <record>
+	                <field name="label">Group Label</field>
+	                <field name="type">grouplabel</field>
+	                <field name="value">opt-group</field>
+	                <field name="tag">opt-group-tag</field>
+	            </record>
+	            <record>
+	                <field name="label">Image field</field>
+	                <field name="type">image</field>
+	                <field name="image">https://d29fhpw069ctt2.cloudfront.net/icon/image/84674/preview.svg</field>
+	                <field name="value">opt-image</field>
+	                <field name="tag">opt-image-tag</field>
+	            </record>
+	        </items>
+	    
+	    </div>
+	    
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 4 - Menu items manipulations</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>more than one menu items may have the same tag.</li>
+					<li>Based on the tag value the menu items may be modified in certain wais</li>
+					<li>
+						<ul>
+							<li>menu items may be hidden</li>
+							<li>menu items may be displayed</li>
+							<li>some may be removed</li>
+							<li>some may be added</li>
+						</ul>
+					</li>
+					<li>the menu may also be toggled progamatically</li>
+				</ul>
+			</div>
+		</div>
+		
+		<span style="color:red">TODO</span>
+		
+	</div>
+	
+</div>
+
+<script>
+
+    function menubutton_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/elements/js/menubutton.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

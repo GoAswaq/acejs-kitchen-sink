@@ -1,0 +1,309 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Display Elements - Examples"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>Elements of tip <b>display</b> are used to display a large readonly text, which may be formated in one way or another</p>
+		<p>They consist of two main components:</p>
+		<ul>
+			<li>a label text</li>
+			<li>a display area</li>
+		</ul>
+		<p>Forms ignore the information from these fields.</p>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 1 - Display element, with label aligned top</h3>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-10"
+	            type="display"
+	            value="Hello World! - Ex 1"
+	            label="Label"
+	    ></div>
+	    
+	    <div class="ace-col-2 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+	    
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Get value"
+		            action="getValueDisplay"
+		    ></div>
+		    
+	    </div>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 2 - Display element, with label aligned left</h3>
+		</div>
+	
+		<div
+	            class="ace-auto-gen ace-col-10"
+	            type="display"
+	            value="Hello World! - Ex 2"
+	            placeholder="type something here"
+	            label="Label"
+	            labelalign="left"
+	            labelwidth="400px"
+	    ></div>
+	    
+	    <div class="ace-col-2 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+	    
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Get value"
+		            action="getValueDisplay"
+		    ></div>
+		    
+	    </div>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 3 - Display element, with custom label sufix</h3>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-8"
+	            type="display"
+	            value="Hello World! - Ex 3"
+	            placeholder="type something here"
+	            label="Label"
+	            labelsuffix=">"
+	            labelalign="left"
+	            labelwidth="400px"
+	    ></div>
+	    
+	    <div class="ace-col-4 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+	    
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Toggle Label Placement"
+		            action="toggleLabelPlacementDisplay"
+		    ></div>
+		    
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Get value"
+		            action="getValueDisplay"
+		    ></div>
+		    
+	    </div>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 4 - Display element, badge example</h3>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-10"
+	            type="display"
+	            value="Hello World! - Ex 4"
+	            placeholder="type something here"
+	            label="Label"
+	            labelalign="left"
+	            labelwidth="400px"
+	            
+	            badge="INFO"
+	    ></div>
+	    
+	    <div class="ace-col-2 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+	    
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Get value"
+		            action="getValueDisplay"
+		    ></div>
+		    
+	    </div>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 4 - Renderer example</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>each display element may have a custom function attached, called a renderer</li>
+					<li>in this example, each the <i>Toogle</i> button bellow changes the value of the field between 1 and 0.</li>
+					<li>Instead of displaying 1 or 0, the field displays <span style="color:green">Yes</span> or <span style="color:red">No</span>.</li>
+				</ul>
+			</div>
+			
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-8"
+	            type="display"
+	            value="1"
+	            placeholder="type something here"
+	            label="Label"
+	            labelalign="left"
+	            labelwidth="400px"
+	            
+	            renderer="rendererYesNo"
+	    ></div>
+	    
+	    <div class="ace-col-4 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+	    
+		    <div
+		            class="ace-auto-gen ace-col-2"
+		            type="button"
+		            value="Toggle"
+		            action="toggleDisplayYNRendererValue"
+		    ></div>
+		    <div
+		            class="ace-auto-gen ace-col-2"
+		            type="button"
+		            value="Get value"
+		            action="getValueDisplay"
+		    ></div>
+		    
+	    </div>
+	    
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 5 - Style Modifiers</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>stlye modifiers are classes that may be given to display elements to alter their appearance.</li>
+					<li>bellow are examples of how these classes affect the display field</li>
+				</ul>
+			</div>
+			
+		</div>
+		
+		<div class="ace-col-12">
+			
+			<div class="ace-col-12 ace-medium-padding">
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-bold" type="display" value="&nbsp;"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-bold" type="display" value="No Label"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-bold" type="display" value="Label Top"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-bold" type="display" value="Label Left"></div>
+			</div>
+			
+			<div class="ace-col-12 ace-medium-padding">
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-bold" type="display" value="no modifier"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right" type="display" value="Hello world!"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right" type="display" label="Label" value="Hello world!"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right" type="display" label="Label" labelalign="left" value="Hello world!"></div>
+			</div>
+			
+			<div class="ace-col-12 ace-medium-padding">
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-bold" type="display" value="ace-h2"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-h2" type="display" value="Hello world!"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-h2" type="display" label="Label" value="Hello world!"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-h2" type="display" label="Label" labelalign="left" value="Hello world!"></div>
+			</div>
+			
+			<div class="ace-col-12 ace-medium-padding">
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-bold" type="display" value="ace-h3"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-h3" type="display" value="Hello world!"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-h3" type="display" label="Label" value="Hello world!"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-h3" type="display" label="Label" labelalign="left" value="Hello world!"></div>
+			</div>
+			
+			<div class="ace-col-12 ace-medium-padding">
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-bold" type="display" value="ace-h4"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-h4" type="display" value="Hello world!"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-h4" type="display" label="Label" value="Hello world!"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-h4" type="display" label="Label" labelalign="left" value="Hello world!"></div>
+			</div>
+			
+			<div class="ace-col-12 ace-medium-padding">
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-bold" type="display" value="ace-bold"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-bold" type="display" value="Hello world!"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-bold" type="display" label="Label" value="Hello world!"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-bold" type="display" label="Label" labelalign="left" value="Hello world!"></div>
+			</div>
+			
+			<div class="ace-col-12 ace-medium-padding">
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-bold" type="display" value="ace-state-checked"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-state-checked" type="display" value="Hello world!"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-state-checked" type="display" label="Label" value="Hello world!"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-state-checked" type="display" label="Label" labelalign="left" value="Hello world!"></div>
+			</div>
+			
+			<div class="ace-col-12 ace-medium-padding">
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-bold" type="display" value="ace-state-unchecked"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-state-unchecked" type="display" value="Hello world!"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-state-unchecked" type="display" label="Label" value="Hello world!"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-state-unchecked" type="display" label="Label" labelalign="left" value="Hello world!"></div>
+			</div>
+		
+		
+		</div>
+		
+	</div>
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 6 - Internal Padding modifiers</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>In some cases, depending on where the field is displayed, an internal padding might be applied.</li>
+					<li>These classes can be used to remove the padding.</li>
+				</ul>
+			</div>
+			
+		</div>
+		
+		<div class="ace-col-12 ks-display-internal-padding">
+			
+			<div class="ace-col-12 ace-medium-padding">
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-bold" type="display" value="with padding"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-blue-bg" type="display" value="Hello world!"></div>
+			</div>
+			
+			<div class="ace-col-12 ace-medium-padding">
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-bold" type="display" value="ace-fld-no-padding-top"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen  ace-blue-bg ace-fld-no-padding-top" type="display" value="Hello world!"></div>
+			</div>
+			<div class="ace-col-12 ace-medium-padding">
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-bold" type="display" value="ace-fld-no-padding-bottom"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen  ace-blue-bg ace-fld-no-padding-bottom" type="display" value="Hello world!"></div>
+			</div>
+			<div class="ace-col-12 ace-medium-padding">
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-medium-padding-right ace-bold" type="display" value="ace-fld-no-padding"></div>
+				<div class="ace-col-3 ace-col-fm-3 ace-auto-gen ace-blue-bg ace-fld-no-padding" type="display" value="Hello world!"></div>
+			</div>
+			
+		
+		</div>
+		
+	</div>
+</div>
+
+<script>
+
+    function display_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/elements/js/display.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

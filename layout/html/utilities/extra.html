@@ -1,0 +1,49 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Ace Field Modifiers - Examples"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>These are additional classes, which when applied over specific page elements or ACE fields, it modified the way they look, or behave.</p>
+	</div>
+	
+	<div class="ace-col-12 example-container ace-medium-padding-top">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 1 - Various</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>These classes modify the appearance or functionality of labels.</li>
+					<li>The <i>first</i> section of ace elements, marked with <b>none</b> have no custom classes applied, and no explicit label length set.</li>
+					<li>On all the other sections, the label length has been set to 100px.</li>
+					<li>The modifier classes are:
+						<ul>
+							<li><i>ace-label-width-auto</i>: the explicit label length will be ignored.</li>
+							<li><i>ace-label-max</i>: the explicit label length will be ignored, and the label will stretch so that the entire text will be visible.</li>
+							<li><i>ace-label-text-left</i>: forces the text in the label to be aligned left</li>
+							<li><i>ace-label-text-right</i>: forces the text in the label to be aligned right</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+	</div>
+
+</div>
+
+<script>
+
+    function extra_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/utilities/js/extra.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

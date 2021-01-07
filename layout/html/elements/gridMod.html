@@ -1,0 +1,406 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Ace Field Modifiers - Examples"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>These are additional classes, which when applied over specific ACE fields, it modified the way they look, or behave.</p>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 1 - Table Grid Modifier Classes</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>These classes modify the appearance or functionality of table grids:</li>
+					<li>The following classes modify the height of the grid. All of these decrease the given amount from the maximum height of the grid:
+						<ul>
+							<li><i>ace-grid-height-minus-250</i>,<i>ace-grid-height-minus-230</i>,<i>ace-grid-height-minus-200</i></li>
+							<li><i>ace-grid-height-minus-150</i>,<i>ace-grid-height-minus-120</i>,<i>ace-grid-height-minus-110</i>,<i>ace-grid-height-minus-100</i></li>
+							<li><i>ace-grid-height-minus-80</i>,<i>ace-grid-height-minus-60</i>,<i>ace-grid-height-minus-50</i></li>
+						</ul>
+					</li>
+					<li>The following classes modify the height of the internal body(the section containing the rows) of the grid. All of these decrease the given amount from the maximum height of the body:
+						<ul>
+							<li><i>ace-grd-body-height-minus-250</i>,<i>ace-grd-body-height-minus-230</i>,<i>ace-grd-body-height-minus-200</i></li>
+							<li><i>ace-grd-body-height-minus-150</i>,<i>ace-grd-body-height-minus-120</i>,<i>ace-grd-body-height-minus-110</i>,<i>ace-grd-body-height-minus-100</i></li>
+							<li><i>ace-grd-body-height-minus-80</i>,<i>ace-grd-body-height-minus-60</i>,<i>ace-grd-body-height-minus-50</i></li>
+						</ul>
+					</li>
+					<li><i>ace-grid-hide-header</i>: the class hides the column headers, and the totals row.</li>
+					<li><i>ace-grid-hide-toolbar</i>: the class hides the toolbar of the grid</li>
+					<li><i>ace-grid-only-row</i>: the class hides the footer, the toolbars, and any br tags present in the body of the grid</li>
+					<li><i>ace-minimal-grid</i>: the class hides the toolbar, the header, and the footer totals.</li>
+					<li><i>ace-compact-grid</i>: lowers the padding and hight of all rows and cells in the grid</li>
+					<li><i>ace-thin-row</i>: <b>as oposed</b> to all the other classes here, this one must be applied as an additional class on the column descriptor, and it affects only the cells belonging to those columns. It makes the cells thiner. In the example bellow the class is added to all user defined columns.</li> 
+					<li><i>ace-thin-rows-grid</i>: <b>do not</b> confuse it with <i>ace-thin-row</i>. This one makes the grid more compact than ace-compact-gird. Can be combined with: <i>ace-thin-rows-grid-with-header</i> to keep the header visible.</li>
+					<li><i>ace-flex-grid</i>: If no internal height classes are defined, make it so that the footer will be displayed immidietly after the last row.
+						 Also, it can be easily combined with classes that modify the max internal height of the grid. 
+						 Examples of classes that set the max internal height of the grid with a <b>FIXED</b> amount in pixels:
+						 <ul>
+							<li><i>ace-flex-grid-height-600</i></li>
+							<li><i>ace-flex-grid-height-400</i></li>			
+							<li><i>ace-flex-grid-height-300</i></li>				
+							<li><i>ace-flex-grid-height-250</i></li>				
+							<li><i>ace-flex-grid-height-200</i></li>
+						</ul>
+					</li>
+					<li><i>ace-responsive-grid</i>: This class is activated at resolutions bellow 680px. It hides the header, and on each row, for each column it displayes the column header text in front of the displayed value.</li>
+					<li><i>ace-grid-absolute-footer</i>: Makes it so that the footer, if visible, will be displayed at the bottom of the grid container's element.</li>
+					<li><i>ace-white-space-normal</i>:This is NOT a grid specific class, but a global text related one. Use this class to force the grid to display the entire text of its cells, even thouhg this might lead to thicker rows.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="ace-col-12 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+		
+			<div
+	            class="ace-auto-gen"
+	            type="combobox"
+	            label="Grid Height"
+	            onchange="onGridModEx1GridHeight"
+	            value="ace-grid-height-minus-250"
+	    	>
+		    	<store>
+		            
+		            <record>
+		                <field name="name">ace-grid-height-minus-250</field>
+		                <field name="id">ace-grid-height-minus-250</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-grid-height-minus-230</field>
+		                <field name="id">ace-grid-height-minus-230</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-grid-height-minus-200</field>
+		                <field name="id">ace-grid-height-minus-200</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-grid-height-minus-150</field>
+		                <field name="id">ace-grid-height-minus-150</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-grid-height-minus-120</field>
+		                <field name="id">ace-grid-height-minus-120</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-grid-height-minus-110</field>
+		                <field name="id">ace-grid-height-minus-110</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-grid-height-minus-100</field>
+		                <field name="id">ace-grid-height-minus-100</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-grid-height-minus-80</field>
+		                <field name="id">ace-grid-height-minus-80</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-grid-height-minus-60</field>
+		                <field name="id">ace-grid-height-minus-60</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-grid-height-minus-50</field>
+		                <field name="id">ace-grid-height-minus-50</field>
+		            </record>
+		            
+		            <record>
+		                <field name="name">nothing</field>
+		                <field name="id"></field>
+		            </record>
+		        </store>
+		   	</div>
+		   	
+			<div
+	            class="ace-auto-gen"
+	            type="combobox"
+	            label="body Height"
+	            onchange="onGridModEx1BodyHeight"
+	    	>
+		    	<store>
+		    	
+		            <record>
+		                <field name="name">ace-grid-body-height-minus-250</field>
+		                <field name="id">ace-grid-body-height-minus-250</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-grid-body-height-minus-230</field>
+		                <field name="id">ace-grid-body-height-minus-230</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-grid-body-height-minus-200</field>
+		                <field name="id">ace-grid-body-height-minus-200</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-grid-body-height-minus-150</field>
+		                <field name="id">ace-grid-body-height-minus-150</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-grid-body-height-minus-120</field>
+		                <field name="id">ace-grid-body-height-minus-120</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-grid-body-height-minus-110</field>
+		                <field name="id">ace-grid-body-height-minus-110</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-grid-body-height-minus-100</field>
+		                <field name="id">ace-grid-body-height-minus-100</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-grid-body-height-minus-80</field>
+		                <field name="id">ace-grid-body-height-minus-80</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-grid-body-height-minus-60</field>
+		                <field name="id">ace-grid-body-height-minus-60</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-grid-body-height-minus-50</field>
+		                <field name="id">ace-grid-body-height-minus-50</field>
+		            </record>
+		            
+		            <record>
+		                <field name="name">nothing</field>
+		                <field name="id"></field>
+		            </record>
+		            
+		        </store>
+		   	</div>
+		
+			<div
+	            class="ace-auto-gen "
+	            type="checkbox"
+	            label="ace-grid-hide-header"
+	            onchange="toggleGridModEx1Classes"
+	    	></div>
+			<div
+	            class="ace-auto-gen "
+	            type="checkbox"
+	            label="ace-grid-hide-toolbar"
+	            onchange="toggleGridModEx1Classes"
+	    	></div>
+			<div
+	            class="ace-auto-gen "
+	            type="checkbox"
+	            label="ace-grid-only-row"
+	            onchange="toggleGridModEx1Classes"
+	    	></div>
+			<div
+	            class="ace-auto-gen "
+	            type="checkbox"
+	            label="ace-minimal-grid"
+	            onchange="toggleGridModEx1Classes"
+	    	></div>
+			<div
+	            class="ace-auto-gen "
+	            type="checkbox"
+	            label="ace-compact-grid"
+	            onchange="toggleGridModEx1Classes"
+	    	></div>
+	    	
+	    	<div
+	            class="ace-auto-gen "
+	            type="checkbox"
+	            label="ace-thin-row"
+	            onchange="toggleGridModEx1ClassesThinRows"
+	    	></div>
+	    	
+	    	<div
+	            class="ace-auto-gen "
+	            type="checkbox"
+	            label="ace-thin-rows-grid"
+	            onchange="toggleGridModEx1ClassesThin"
+	    	></div>
+	    	
+	    	<div
+	    		id="thin-grid-with-headers"
+	            class="ace-auto-gen ace-hide"
+	            type="checkbox"
+	            label="ace-thin-rows-grid-with-header"
+	            onchange="toggleGridModEx1Classes"
+	    	></div>
+	    	
+			<div
+	            class="ace-auto-gen "
+	            type="checkbox"
+	            label="ace-flex-grid"
+	            onchange="toggleGridModEx1ClassesFlex"
+	    	></div>
+	    	
+	    	<div
+	    		id="flex-grid-max-height"
+	            class="ace-auto-gen ace-hide"
+	            type="combobox"
+	            label="Max Internal Height"
+	            onchange="onGridModEx1MaxHeight"
+	    	>
+		    	<store>
+		            <record>
+		                <field name="name">nothing</field>
+		                <field name="id"></field>
+		            </record>
+		            <record>
+		                <field name="name">ace-flex-grid-height-600</field>
+		                <field name="id">ace-flex-grid-height-600</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-flex-grid-height-400</field>
+		                <field name="id">ace-flex-grid-height-400</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-flex-grid-height-300</field>
+		                <field name="id">ace-flex-grid-height-300</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-flex-grid-height-250</field>
+		                <field name="id">ace-flex-grid-height-250</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-flex-grid-height-200</field>
+		                <field name="id">ace-flex-grid-height-200</field>
+		            </record>
+		        </store>
+		   	</div>
+	    	
+	    	<div
+	            class="ace-auto-gen "
+	            type="checkbox"
+	            label="ace-responsive-grid"
+	            onchange="toggleGridModEx1Classes"
+	    	></div>
+	    	
+	    	<div
+	            class="ace-auto-gen "
+	            type="checkbox"
+	            label="ace-grid-absolute-footer"
+	            onchange="toggleGridModEx1Classes"
+	    	></div>
+	    	
+	    	<div
+	            class="ace-auto-gen "
+	            type="checkbox"
+	            label="ace-white-space-normal"
+	            onchange="toggleGridModEx1Classes"
+	    	></div>
+	    	
+    	</div>
+    	
+    	<div id="gridmod-ex1-grid" class="ace-auto-gen ace-col-12 ace-large-margin-bottom ace-large-padding-bottom ace-grid-height-minus-250"></div>
+	
+	</div>
+	
+	<div class="ace-col-12 ace-large-padding-top example-container">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 2 - Panel Grid Modifier Classes</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>These classes modify the appearance or functionality of panel grids.</li>
+					<li>These classes change how many row panels will be displayed on one row:
+						<ul>
+							<li><i>ace-grid-cols-3</i>: 3 panels will be displayed on one row.</li>
+							<li><i>ace-grid-cols-2</i>: 2 panels will be displayed on one row.</li>
+							<li><i>ace-grid-cols-4</i>: 4 panels will be displayed on one row.</li>
+							<li><i>ace-grid-cols-6</i>: 6 panels will be displayed on one row.</li>
+							<li><i>ace-grid-cols-auto</i>: auto determined by the hight of each panel.</li>
+						</ul>
+					</li>
+					<li><i>ace-compact-row-panel</i>: makes the panel more compact, by making the default paddings between some elements smaller.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="ace-col-12 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+		
+			<div
+	            class="ace-auto-gen"
+	            type="combobox"
+	            label="Grid Height"
+	            onchange="onGridModEx2Cols"
+	    	>
+		    	<store>
+		    	
+		    		<record>
+		                <field name="name">nothing</field>
+		                <field name="id"></field>
+		            </record>
+		            
+		            <record>
+		                <field name="name">ace-grid-cols-3</field>
+		                <field name="id">ace-grid-cols-3</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-grid-cols-2</field>
+		                <field name="id">ace-grid-cols-2</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-grid-cols-4</field>
+		                <field name="id">ace-grid-cols-4</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-grid-cols-6</field>
+		                <field name="id">ace-grid-cols-6</field>
+		            </record>
+		            <record>
+		                <field name="name">ace-grid-cols-auto</field>
+		                <field name="id">ace-grid-cols-auto</field>
+		            </record>
+		            
+		            <record>
+		                <field name="name">nothing</field>
+		                <field name="id"></field>
+		            </record>
+		        </store>
+		   	</div>
+		   	
+		   	<div
+	            class="ace-auto-gen "
+	            type="checkbox"
+	            label="ace-compact-row-panel"
+	            onchange="toggleGridModEx2Classes"
+	    	></div>
+	    	
+    	</div>
+    	
+    	<div id="gridmod-ex2-grid" class="ace-auto-gen ace-col-12 ace-grid-height-minus-250"></div>
+	
+	</div>
+	
+</div>
+
+<div id="gridmod-ex2-row-tpl" class="ace-hide">
+
+	<div class="ace-text-cut-elipsis">
+	
+		<div class="ace-transparent-title-bar ace-independent-style ace-col-12">
+			<h4 class="ace-auto-gen" type="display" fieldname="student_name"></h4>
+		</div>
+		<div class="ace-col-12 ace-medium-padding-top">
+			<div class="ace-auto-gen ace-col-12" type="display" fieldname="student_birthday" label="Birthday" labelalign="left" labelwidth="100px"></div>
+			<div class="ace-auto-gen ace-col-12" type="display" fieldname="student_sex" label="Sex" labelalign="left" labelwidth="100px"></div>
+			<div class="ace-auto-gen ace-col-12" type="display" fieldname="student_country" label="Country" labelalign="left" labelwidth="100px"></div>
+			<div class="ace-auto-gen ace-col-12" type="display" fieldname="student_id" label="Id" labelalign="left" labelwidth="100px"></div>
+		</div>
+		
+	</div>
+
+</div>
+
+<script>
+
+    function gridmod_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/elements/js/gridmod.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

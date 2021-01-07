@@ -1,0 +1,178 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-col-2 ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Validations Classes - Examples"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>All ACE fields can validate themselves.</p>
+		<p>Through validation, the ACE fields compare their current value to a set conditions.</p>
+		<p>If all the conditions are met, the field is valid, otherwise it is invalid, and a warning icon, with a text will be displayed.</p>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 1 - Validations</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>Each field can display a warning in the form of an asterix, notifying the user that the value within will be validated.</li>
+					<li>After displaying the warning, on the next validation attempt, the invalid fields will be highlighted in some obvious way, and a warning icon will be displayed.</li>
+					<li>If the warning icon is clicked, a toast message will appear, that will contain a clue as to why the field value was not validated.</li>
+					<li>The fields know automatically to verify the following conditions
+						<ul>
+							<li><i>minval</i>: the value of the field needs to be numerical, and greater or equal than the specified amount.</li>
+							<li><i>maxval</i>: the value of the field needs to be numerical, and less or equal than the specified amount.</li>
+							<li><i>minlength</i>: the value of the field needs to be a string, whose lenght is at least the specified amount.</li>
+							<li><i>maxlength</i>: the value of the field needs to be a string, whose lenght is at least the specified amount.</li>
+							<li><i>allowempty</i>: something, anything, needs to be written inside.</li>
+							<li><i>customvalidation</i>: a function, or the name of a function in which custom validation logic may be implemented.</li>
+						</ul>
+					</li>
+					<li>Other validation modifiers:
+						<ul>
+							<li><i>onlywhenvisible</i>: the validation will be triggered only when the field is visible.</li>
+							<li><i>forceerror</i>: if true, the field will never display the warning asterix, but will instead display the full error notification.</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="ace-col-12 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+		
+			<div class="ace-auto-gen" type="button" value="Validate" action="toggleValidations"></div>
+			<div class="ace-auto-gen" type="button" value="Reset" action="resetValidationFields"></div>
+			
+    	</div>
+	
+		<div id="ex-1-validations" class="ace-col-12 ace-medium-padding-top">
+			
+			<div class="ace-col-3">
+			
+				<div
+			            class="ace-auto-gen ace-hide ace-col-12 ace-small-padding"
+			            type="autocomplete"
+			            label="Find a student"
+			            labelwidth="200px"
+			            searchname="student_name"
+			            valuename="student_id"
+			            net="remote=true;autoload=false;fid='loadstudentsfilter';size=5"
+			            minlength="0"
+	            		autosearchonfocus="true"
+	            		validation="allowempty=false;"
+			    ></div>
+			    
+			    <div id="aa" class="ace-auto-gen ace-hide ace-col-12 ace-small-padding"
+			    	type="text"
+			    	label="E-Mail"
+			    	validation="allowempty=false;email=true"
+		    	></div>
+			
+			</div>
+			
+			<div class="ace-col-3">
+			    
+		    	<div id="aa" class="ace-auto-gen ace-hide ace-col-12 ace-small-padding"
+			    	type="password"
+			    	label="Password"
+			    	validation="allowempty=false;"
+		    	></div>
+			    
+			    <div
+		            class="ace-auto-gen ace-hide ace-col-12 ace-small-padding"
+		            type="combobox"
+		            label="Student"
+		            renderer="rendererSimpleComboValueId"
+		            validation="allowempty=false;customvalidation='customValidationJohnDoe'"
+		    	>
+			    	<store>
+			            <record>
+			                <field name="name">John Doe</field>
+			                <field name="id">20</field>
+			            </record>
+			            <record>
+			                <field name="name">Sarah Finigen</field>
+			                <field name="id">40</field>
+			            </record>
+			            <record>
+			                <field name="name">Billy Jeans</field>
+			                <field name="id">3</field>
+			            </record>
+			        </store>
+		   		</div>
+			    
+			</div>
+			
+			<div class="ace-col-3">
+			
+				<div
+			            class="ace-auto-gen ace-hide ace-col-12 ace-small-padding"
+			            type="datepicker"
+			            label="Date"
+			            validation="allowempty=false;"
+			    ></div>
+			    
+			    <div
+			            class="ace-auto-gen ace-hide ace-col-12 ace-small-padding"
+			            type="checkbox"
+			            label="Label"
+			            validation="allowempty=false;customvalidation='customValidationOne'"
+			    ></div>
+			    
+			    <div
+			            class="ace-auto-gen ace-hide ace-col-12 ace-small-padding"
+			            type="switch"
+			            label="Label"
+			            validation="allowempty=false;customvalidation='customValidationOne'"
+			    ></div>
+			
+			</div>
+			
+			<div class="ace-col-3">
+			
+				<div
+			            class="ace-auto-gen ace-hide ace-col-12"
+			            type="radiogroup"
+			            label="Student"
+			            validation="allowempty=false;customvalidation='customValidationJohnDoe'"
+			    	>
+			    	<store>
+			            <record>
+			                <field name="name">John Doe</field>
+			                <field name="id">20</field>
+			            </record>
+			            <record>
+			                <field name="name">Sarah Finigen</field>
+			                <field name="id">40</field>
+			            </record>
+			            <record>
+			                <field name="name">Billy Jeans</field>
+			                <field name="id">3</field>
+			            </record>
+			        </store>
+			   	</div>
+			   	
+			</div>
+			
+			
+	    </div>
+	    
+	</div>
+	
+</div>
+
+<script>
+
+    function validations_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/utilities/js/validations.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

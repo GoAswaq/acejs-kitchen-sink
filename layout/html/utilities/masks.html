@@ -1,0 +1,211 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-col-2 ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Masks Classes - Examples"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>There are two types of masks:</p>
+		<ul>
+			<li>Masks that block the access to an ACE field.</li>
+			<li>Masks that block the access to the entire screen.</li>
+		</ul>
+		<p>Each ace element when it's performing an ajax call will block itselef with a mask. But these masks may also be triggered programatically, like in the examples bellow.</p>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 1 - Screen Mask</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>The screen mask prevents any user access to the page elements.</li>
+					<li>Optionally a text, and / or a loading animation might be presented.</li>
+					<li>After the screen mask is displayed, it will hide itself after 3 seconds</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="ace-col-12 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+	
+
+			<div class="ace-auto-gen" type="text" label="Optional Text" value="Please wait..." id="ex1-masks-text"></div>
+			<div class="ace-auto-gen" type="button" value="Display With Loader" action="displayScreenMaskWithLoader"></div>
+			<div class="ace-auto-gen" type="button" value="Display Without Loader" action="displayScreenMaskWithoutLoader"></div>	
+	    	
+    	</div>
+	
+	    
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 2 - Ace Elements Masks</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>Each element triggers its mask when performing an ajax call.</li>
+					<li>The masks can also be triggered programaticaly, like in this example.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="ace-col-12 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+		
+			<div class="ace-auto-gen" type="button" value="Toggle Masks" action="toggleMasks"></div>
+			
+    	</div>
+	
+		<div id="ex-2-masks" class="ace-col-12 ace-medium-padding-top">
+			
+			<div class="ace-col-3">
+			
+				<div
+			            class="ace-auto-gen ace-col-12 ace-small-padding"
+			            type="autocomplete"
+			            label="Find a student"
+			            labelwidth="200px"
+			            searchname="student_name"
+			            valuename="student_id"
+			            net="remote=true;autoload=false;fid='loadstudentsfilter';size=5"
+			            minlength="0"
+	            		autosearchonfocus="true"
+			    ></div>
+			
+				<div
+			            class="ace-auto-gen ace-col-12 ace-small-padding"
+			            type="accordion"
+			            handler="onAccordionSelection"
+			    >
+			    
+			    	<store>
+			            <record>
+			                <field name="name">Option 1</field>
+			                <field name="tag">opt-1</field>
+			            </record>
+			            <record>
+			                <field name="name">Option 2</field>
+			                <field name="tag">opt-2</field>
+			            </record>
+			            <record>
+			                <field name="name">Option 3</field>
+			                <field name="tag">opt-3</field>
+			            </record>
+			        </store>
+			    
+			    </div>
+			
+			</div>
+			
+			<div class="ace-col-3">
+				<div
+			            class="ace-auto-gen ace-col-12 ace-small-padding"
+			            type="button"
+			            value="Press me"
+			    ></div>
+			    
+			    <div class="ace-auto-gen ace-col-12 ace-small-padding" type="text" label="Label" value="something"></div>
+			    
+			    <div
+		            class="ace-auto-gen ace-col-12 ace-small-padding"
+		            type="combobox"
+		            label="Student"
+		            renderer="rendererSimpleComboValueId"
+		            onchange="onChangeCombobox"
+		    	>
+			    	<store>
+			            <record>
+			                <field name="name">John Doe</field>
+			                <field name="id">20</field>
+			            </record>
+			            <record>
+			                <field name="name">Sarah Finigen</field>
+			                <field name="id">40</field>
+			            </record>
+			            <record>
+			                <field name="name">Billy Jeans</field>
+			                <field name="id">3</field>
+			            </record>
+			        </store>
+		   		</div>
+			    
+			</div>
+			
+			<div class="ace-col-3">
+			
+				<div
+			            class="ace-auto-gen ace-col-12 ace-small-padding"
+			            type="datepicker"
+			            label="Date"
+			    ></div>
+			    
+			    <div
+			            class="ace-auto-gen ace-col-12 ace-small-padding"
+			            type="checkbox"
+			            label="Label"
+			            labelwidth="200px"
+			    ></div>
+			    
+			    <div
+			            class="ace-auto-gen ace-col-12 ace-small-padding"
+			            type="switch"
+			            label="Label"
+			            labelwidth="200px"
+			    ></div>
+			
+			</div>
+			
+			<div class="ace-col-3">
+			
+				<div
+			            class="ace-auto-gen ace-col-12"
+			            type="radiogroup"
+			            label="Student"
+			    	>
+			    	<store>
+			            <record>
+			                <field name="name">John Doe</field>
+			                <field name="id">20</field>
+			            </record>
+			            <record>
+			                <field name="name">Sarah Finigen</field>
+			                <field name="id">40</field>
+			            </record>
+			            <record>
+			                <field name="name">Billy Jeans</field>
+			                <field name="id">3</field>
+			            </record>
+			        </store>
+			   	</div>
+			   	
+			   	<div
+			            class="ace-auto-gen ace-col-10"
+			            type="display"
+			            value="Hello World! - Ex 1"
+			            label="Label"
+			    ></div>
+			
+			</div>
+			
+			
+	    </div>
+	    
+	</div>
+	
+</div>
+
+<script>
+
+    function masks_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/utilities/js/masks.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

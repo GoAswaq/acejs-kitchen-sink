@@ -1,0 +1,280 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Combobox Elements - Examples"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>Elements of tip <b>combobox</b> are used to display a select element, with customized data.</p>
+		<p>Comboboxes are using arrays of data as a datasource, in which each element in the array is an object, with one or more fields:</p>
+		<p>One of these fields will be used to determine the TEXT which is displayed, and another field is chosen to become the actual VALUE of the current selection</p>
+		<p>The combobox may be give a set of static data, or it may be configured to load it's own data from the server automatiaclly.</p>
+		<p>If the element is in a form, and it is porperly configured, the form will automatically retrive its value on the save operation, if the combobox has been changed.</p>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 1 - Combobox with data loaded directly from HTML</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>the label placement may be changed, between left and top</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-8"
+	            type="combobox"
+	            label="Student"
+	            labelwidth="300px"
+	    	>
+	    	<store>
+	            <record>
+	                <field name="name">John Doe</field>
+	                <field name="id">20</field>
+	            </record>
+	            <record>
+	                <field name="name">Sarah Finigen</field>
+	                <field name="id">40</field>
+	            </record>
+	            <record>
+	                <field name="name">Billy Jeans</field>
+	                <field name="id">3</field>
+	            </record>
+	        </store>
+	   	</div>
+	   	
+	   	<div class="ace-col-4 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+	   	
+		   	<div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Toggle Label Placement"
+		            action="toggleLabelPlacementCombobox"
+		    ></div>
+		   	
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Get value"
+		            action="getValueCombobox"
+		    ></div>
+	    </div>
+	    
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 2 - Combobox like in Ex.1, with renderer and onchange callback</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>each combobox may be configured with a custom function called renderer, which might modify how the information is displayed in the select box.</li>
+					<li>in this case, the renderer adds the value of the <i>id</i> field after the names of the students.</li>
+					<li>when the combobox is readonly, its value may not be modified anymore through the GUI</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-8"
+	            type="combobox"
+	            label="Student"
+	            renderer="rendererSimpleComboValueId"
+	            onchange="onChangeCombobox"
+	    	>
+	    	<store>
+	            <record>
+	                <field name="name">John Doe</field>
+	                <field name="id">20</field>
+	            </record>
+	            <record>
+	                <field name="name">Sarah Finigen</field>
+	                <field name="id">40</field>
+	            </record>
+	            <record>
+	                <field name="name">Billy Jeans</field>
+	                <field name="id">3</field>
+	            </record>
+	        </store>
+	   	</div>
+	   	
+	   	<div class="ace-col-4 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+	   	
+		   	<div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Toggle Readonly"
+		            action="toggleReadonlyCombobox"
+		    ></div>
+		   	
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Get value"
+		            action="getValueCombobox"
+		    ></div>
+	    </div>
+	    
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 3 - Dynamic Combobox - setData</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>Initially, the combobox does not have any items. </li>
+					<li>To add a new select option, write something, and press enter into the <b>text</b> element bellow. </li>
+					<li>when the combobox is readonly, its value may not be modified anymore through the GUI</li>
+					<li>If the text has not already been added to the combobox, it will.</li>
+					<li>A new element will be added to the combobox through the <b>setData</b> method.</li>
+					<li>For this example, the value of the selected item will be the same as the value of the entered text.</li>
+					<li>If the checkbox <i>autoswitch</i> is checked, each time a new text is added, the combobbox will automatically swith to the new element.</li>
+					<li>Even if the <i>autoswitch</i> is not-checked, when the first element is added, the checkbox will switch to that value.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            id="combobox-example-3"
+	            class="ace-auto-gen ace-col-6"
+	            type="combobox"
+	            label="Label"
+	            labelalign="left"
+	            labelwidth="200px"
+	    	>
+	   	</div>
+	   	
+	   	<div class="ace-col-6 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+	   	
+		   	<div
+		            id="checkbox-example-3"
+		            class="ace-auto-gen"
+		            type="checkbox"
+		            label="auto switch"
+		    ></div>
+		   	
+		   	<div
+		   			id="text-example-3"
+		            class="ace-auto-gen"
+		            type="text"
+		            label="Entere something"
+		            onenter="onEnterDynamicComboText"
+		    ></div>
+		   	
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Get value"
+		            action="getValueCombobox"
+		    ></div>
+	    </div>
+	    
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 4 - Dynamic Combobox - getData</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>Initially, the combobox does not have any items.</li>
+					<li>If you press <b>import</b> all the data from the Ex 3 combobox will be moved to the combobox here.</li>
+					<li>This is an example for the <b>getData</b> functionality. </li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            id="combobox-example-4"
+	            class="ace-auto-gen ace-col-8"
+	            type="combobox"
+	            labelalign="left"
+	            labelwidth="200px"
+	    	>
+	   	</div>
+	   	
+	   	<div class="ace-col-4 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+	   	
+		   	<div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Import from Ex. 3"
+		            action="importDataFromEx3"
+		    ></div>
+		   	
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Get value"
+		            action="getValueCombobox"
+		    ></div>
+		    
+	    </div>
+	    
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 5 - Combobox, with data from Server + renderer</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>Initially, the combobox does not have any items.</li>
+					<li>Press the <b>Load</b> button, and the combobox will send am ajax request to the server, to retrive some data.</li>
+					<li>The data retrieved needs to have a specific format, encoded in a json.</li>
+					<li>Each loaded element has several fields, in addition to the name and id field.</li>
+					<li>Use <b>getRecord</b> to retrieve all of them.</li>
+					<li>A renderer function has been used which displayed additional stundent information.</li>
+					<li>Please note that a loading animation appears over the combobox for the duration of the server request.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            id="combobox-example-5"
+	            class="ace-auto-gen ace-col-8"
+	            type="combobox"
+	            label="Student"
+	            labelalign="left"
+	            labelwidth="200px"
+	            net="remote=true;autoload=false;fid='loadstudents'"
+	            displayname="student_name"
+	            valuename="student_id"
+	            renderer="rendererStudent"
+	    	>
+	   	</div>
+	   	
+	   	<div class="ace-col-4 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+		   	<div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Load Data from Server"
+		            action="loadComboboxFromServer"
+		    ></div>
+		   	
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Get Record"
+		            action="getRecordCombobox"
+		    ></div>
+	    </div>
+	    
+	</div>
+</div>
+
+<script>
+
+    function combobox_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/elements/js/combobox.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

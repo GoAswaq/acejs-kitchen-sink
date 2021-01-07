@@ -1,0 +1,250 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Breadcrumbs Elements - Examples"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>Elements of tip <b>breadcrumbs</b> may be used to display a location / position in a site, or in a wizard type form.</p>
+		<p>Forms will ignore breadcrumbs.</p>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex1 - Wizard Type Breadcrumbs</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>Breadcrumbs of type <b>Wizard</b> can be used to guide the user through a set of given steps.</li>
+					<li>From a given position the user may navigate to any of the previous steps.</li>
+					<li>but to go forword, the user needs to perform some sort of verification / validation procedure.</li> 
+					<li>In this case, this is acomplished by pressing the <i>move forword</i> button.</li>
+					<li>Every time a a new step is activated, a <i>click</i> event is triggered, which can be interecepted.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-10 ks-target"
+	            type="breadcrumbs"
+	            iswizard="true"
+	            deletenextonesonclick="false"
+	            breadcrumbclick="onWizardBreadcrumbsClick"
+	            homename="Sleeping"
+	            
+	            autoselect="true"
+	            currentindex="1"
+	    >
+	    
+	    	<store>
+	            <record>
+	                <field name="name">Wake up</field>
+	                <field name="value">morning-part-1</field>
+	            </record>
+	            <record>
+	                <field name="name">Grab a Shower</field>
+	                <field name="value">morning-part-2</field>
+	            </record>
+	            <record>
+	                <field name="name">Get Dressed</field>
+	                <field name="value">morning-part-3</field>
+	            </record>
+	            <record>
+	                <field name="name">Eat Breakfast</field>
+	                <field name="value">morning-part-4</field>
+	            </record>
+	            <record>
+	                <field name="name">Go To Work</field>
+	                <field name="value">morning-part-5</field>
+	            </record>
+	        </store>
+	    
+	    </div>
+	    
+	    <div class="ace-col-2 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+	    	
+	    	<div
+	            class="ace-auto-gen"
+	            type="button"
+	            iconcls="far fa-step-backward"
+	            action="gotoBCPrevious"
+	    	></div>
+	    	
+	    	<div
+	            class="ace-auto-gen"
+	            type="button"
+	            iconcls="far fa-step-forward"
+	            action="gotoBCNext"
+	    	></div>
+	    	
+	    </div>
+	    
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex2 - Dynamic Breadcrumbs, wiht renderer</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>In this example, the breadcrumb starts without any data.</li>
+					<li>Only the <i>home</i> step is displayed. This step is not part of the breadcrumb's dataset.</li>
+					<li>Only one step is the active one, and that is the latest step added.</li> 
+					<li>Every time a previous step is activated, all other newer steps are deleted.</li>
+					<li>This type of behaviour may be useful in cases where multiple selections or scenarios exist.</li>
+					<li>A renderer function has been designed in this case, which colors the text of each step in red or green.</li>
+					<li>Also, the custom separator between two steps has been replaced with: <b>-</b></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-8 ks-target"
+	            type="breadcrumbs"
+	            
+	            iswizard="false"
+	            deletenextonesonclick="true"
+	            
+	            homename="Itinerary"
+	            enablehomelink = "true"
+	            
+	            autoselect="true"
+	            currentindex="-1"
+	            
+	            renderer="rendererBCEvenRedColor"
+	            
+	            separator="-"
+	    >
+	    </div>
+	    
+	    <div class="ace-col-4 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+	    
+	    	<div
+	            class="ace-auto-gen"
+	            type="button"
+	            value="Add new Destination"
+	            action="addNewDestination"
+	    	></div>
+	    
+	    	<div
+	            class="ace-auto-gen"
+	            type="button"
+	            iconcls="far fa-step-backward"
+	            action="gotoBCPrevious"
+	    	></div>
+	    	
+	    	<div
+	            class="ace-auto-gen"
+	            type="button"
+	            iconcls="far fa-step-forward"
+	            action="gotoBCNext"
+	    	></div>
+	    	
+	    </div>
+	    
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex 3 - Visibility</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>Depending on the situation, some steps may be made visible, or invisible.</li>
+					<li>The standard <i>move next</i>, or <i>move previous</i> functionality will ignore the invisible steps, and simple jump over them.</li>
+					<li>In this example all steps are clickable (except the <i>home</i>), and they are not deleted.</li> 
+					<li>Use the <i>Toggle Visibility</i> button to change the visibialy of some fields.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-10 ks-target"
+	            type="breadcrumbs"
+	            
+	            iswizard="false"
+	            deletenextonesonclick="false"
+	            breadcrumbclick="onWizardBreadcrumbsClick"
+	            
+	            homename="Can't click me"
+	            enablehomelink="false"
+	            
+	            autoselect="true"
+	            currentindex="1"
+	    >
+	    
+	    	<store>
+	            <record>
+	                <field name="name">Step-1</field>
+	            </record>
+	            <record>
+	                <field name="name">Step-2</field>
+	            </record>
+	            <record>
+	                <field name="name">Step-3</field>
+	            </record>
+	            <record>
+	                <field name="name">Step-4</field>
+	            </record>
+	            <record>
+	                <field name="name">Step-5</field>
+	            </record>
+	            <record>
+	                <field name="name">Step-6</field>
+	            </record>
+	            <record>
+	                <field name="name">Step-7</field>
+	            </record>
+	            <record>
+	                <field name="name">Step-8</field>
+	            </record>
+	            <record>
+	                <field name="name">Step-9</field>
+	            </record>
+	        </store>
+	    
+	    </div>
+	    
+	    <div class="ace-col-2 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+	    
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Toggle Visibility"
+		            action="toggleBCVisibility"
+	    	></div>
+	    
+	    	<div
+	            class="ace-auto-gen"
+	            type="button"
+	            iconcls="far fa-step-backward"
+	            action="gotoBCPrevious"
+	    	></div>
+	    	
+	    	<div
+	            class="ace-auto-gen"
+	            type="button"
+	            iconcls="far fa-step-forward"
+	            action="gotoBCNext"
+	    	></div>
+	    	
+	    </div>
+	    
+	</div>
+	
+	
+</div>	
+
+<script>
+
+    function breadcrumbs_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/elements/js/breadcrumbs.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

@@ -1,0 +1,184 @@
+.example-container {
+	margin-top: 10px;
+}
+
+.example-container .ks-example-header h3{
+    border: 1px solid lightblue;
+    padding: 5px;
+    margin: 5px;
+}
+
+.simple-banner{
+    display: flex;
+    justify-content: space-between;
+    background-colorr: #e2f6ff !important;
+    border-bottom: 1px solid #46c3ff !important;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.info-toggle-button button{
+	padding: 0px 10px;
+}
+
+.info-container{
+	border-bottom: 1px solid lightgray;
+	padding-bottom:5px;
+	margin-bottom: 5px;
+	font-size: small;
+}
+
+.ks-example-controls{
+	/*border-bottom: 1px solid lightgray;*/
+	font-size: small;	
+}
+
+.small-text{
+	font-size: small;
+}
+
+.ks-test-color-1{
+	background-color:red;
+	color:white;
+}
+.ks-test-color-2{
+	background-color:blue;
+	color:white;
+}
+.ks-test-color-3{
+	background-color:black;
+	color:white;
+}
+.ks-test-color-4{
+	background-color:orange;
+	color:white;
+}
+.ks-test-color-5{
+	background-color:green;
+	color:white;
+}
+.ks-test-color-6{
+	background-color:turquoise;
+	color:white;
+}
+.ks-test-color-7{
+	background-color:gray;
+	color:white;
+}
+.ks-test-color-8{
+	background-color:pink;
+	color:white;
+}
+.ks-test-color-9{
+	background-color:violet;
+	color:white;
+}
+.ks-test-color-10{
+	background-color:brown;
+	color:white;
+}
+.ks-test-color-11{
+	background-color:tan;
+	color:white;
+}
+.ks-test-color-12{
+	background-color:olive;
+	color:white;
+}
+
+.ks-test-color-13{
+	background-color:blueviolet;
+	color:white;
+}
+.ks-test-color-14{
+	background-color:coral;
+	color:white;
+}
+.ks-test-color-15{
+	background-color:aquamarine;
+	color:white;
+}
+.ks-test-color-16{
+	background-color:beige;
+	color:white;
+}
+.ks-test-color-17{
+	background-color:bisque;
+	color:white;
+}
+.ks-test-color-18{
+	background-color:burlywood;
+	color:white;
+}
+.ks-test-color-19{
+	background-color:cadetblue;
+	color:white;
+}
+.ks-test-color-20{
+	background-color:chocolate;
+	color:white;
+}
+.ks-test-color-21{
+	background-color:darkblue;
+	color:white;
+}
+.ks-test-color-22{
+	background-color:thistle;
+	color:white;
+}
+.ks-test-color-23{
+	background-color:springgreen;
+	color:white;
+}
+.ks-test-color-24{
+	background-color:olive;
+	color:white;
+}
+
+.ks-highlight-border{
+	border:1px solid red;
+}
+
+.ks-fixed-width-200 {
+	width:200px;
+}
+
+.ks-change-example-button{
+	display:none;
+}
+
+.ks-display-internal-padding .ace-display-field{
+	padding:20px 0px;	
+}
+
+.ks-hide-uncollapsed {
+	display:none;
+}
+.ace-colapsed .ks-hide-uncollapsed {
+	display:block;
+}
+
+
+#test-iframe {
+	border: 1px solid blue;
+	padding: 5px;
+	margin:5px;
+}
+
+@media screen and (max-width: 680px){
+	#ks-example-selector {
+		display:none;
+	}
+	#ks-example-selector.ace-show {
+		display:block;
+	}
+	#ks-example-details {
+		display:none;
+	}
+	#ks-example-details.ace-show {
+		display:block;
+	}
+	.ks-change-example-button{
+		display:block;
+	}
+}

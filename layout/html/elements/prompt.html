@@ -1,0 +1,91 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Prompt Elements - Examples"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>Elements of tip <b>prompt</b> display a popup message to the user:</p>
+		<ul>
+			<li>a simple message, an alert</li>
+			<li>a question, which may be answerd with yes / now, or ok / cancel, etc</li>
+			<li>a request for the user to type a text</li>
+		</ul>
+		<p>While the popup is visible, the user may not interact with the rest of the GUI until the popup is dismissed</p>
+		
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class="">Ex 1 - Display a Simple Alert</h3>
+		</div>
+		
+		<div
+	            id="alert-prompt"
+	            class="ace-auto-gen"
+	            type="button"
+	            value="Press me!"
+	            action="displayAlert"
+	    ></div>
+	    
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class="">Ex 2 - Display a yes/no question to the user</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>This example includes custom callbacks which are called when the OK and CANCEL buttons are pressed.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            id="alert-prompt"
+	            class="ace-auto-gen"
+	            type="button"
+	            value="Press me!"
+	            action="displayQuestion"
+	    ></div>
+	    
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class="">Ex 3 - Display a prompt, in which the user is required to type something</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>This example also shows custom texts for the buttons, and also, implicit value entered in the input field.</li>
+					<li>This is a simple game of <i>guess the number!</i></li>
+				</ul>
+			</div>
+			
+		</div>
+		
+		<div
+	            id="alert-prompt"
+	            class="ace-auto-gen"
+	            type="button"
+	            value="Press me!"
+	            action="displayQuestionWithTextPrompt"
+	    ></div>
+	    
+	</div>
+</div>
+
+<script>
+
+    function prompt_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/elements/js/prompt.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

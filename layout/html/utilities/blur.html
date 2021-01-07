@@ -1,0 +1,183 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-col-2 ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Blur - Examples"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>Blur Effects are used to hide, or show elements on the page using an effect of some kind.</p>
+		<p>The bluring is performed using a combination of classes and java script.</p>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 1 - Bluring</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>The blured elements are marked with the class <i>ace-blur-zone</i>.</li>
+					<li>The blured elements are moved on the Y axis, bellow the height of their parent container.</li>
+					<li>To ensure that they are not visible, the parent should have for example it's <i>overflow-y</i> property set to none.</li>
+					<li>When they should be displayed, the class <i>ace-show</i> should be added to the blured elements. This will cause the elements to be animated into their visible position.</li>
+					<li>To hide them again, simply remove the <i>ace-show</i> class.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="ace-col-12 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+	
+
+			<div class="ace-col-12 ace-vcol-3 ace-no-overflow">
+			
+				<div class="ace-auto-gen ace-col-2" type="button" value="Toggle Blur Elements" action="toggleBlur"></div>
+				
+				<div class="ace-col-8 ace-green-bg ace-centered-blocks ks-target ace-blur-zone">
+				
+					<div class="ace-col-3 ace-blue-bg">Hello</div>
+					<div class="ace-col-3 ace-orange-bg">World!</div>
+				
+				</div>
+			
+			</div>
+				
+	    	
+    	</div>
+	
+	    
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 2 - Deblur Zone</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>The <i>blur</i> zones may be combined with <i>deblur</i> zone, which could act as titles/header.</li>
+					<li>Deblur zones are marked with <i>ace-deblur-zone</i> class.</li>
+					<li>By default, they extent to 100% width, and have a distinct border</li>
+					<li>When the class <i>ace-show</i> is added to them, they constrict themselves</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="ace-col-12 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+	
+
+			<div class="ace-col-12 ace-vcol-3 ace-no-overflow">
+			
+				<div class="ace-auto-gen ace-col-2" type="button" value="Toggle Blur Elements" action="toggleBlurAndDeblur"></div>
+				
+				<div class="ace-col-8">
+				
+					<div class="ace-col-12 ace-center">
+						
+						<div class="ace-deblur-zone ks-target-2">
+							<i class="x fad fa-plus"></i>
+							<div class="ace-auto-gen ace-blue-bg" type="display" value="Deblur Zone"></div>
+							<div class="ace-auto-gen" type="button" value="Toggle" action="toggleBlurAndDeblur" iconcls="fal fa-star-half-alt"></div>
+						</div>
+						
+					</div>
+				
+					<div class="ace-col-12 ace-green-bg ace-centered-blocks ks-target ace-blur-zone">
+					
+						<div class="ace-col-3 ace-blue-bg">Hello</div>
+						<div class="ace-col-3 ace-orange-bg">World!</div>
+					
+					</div>
+				</div>
+			
+			</div>
+				
+	    	
+    	</div>
+	
+	    
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 3 - Deblur Zone + Autocomplete</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>The deblur zones have explicit styles for autocomple elements.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="ace-col-12 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+	
+
+			<div class="ace-col-12 ace-vcol-3">
+			
+				<div class="ace-auto-gen ace-col-2" type="button" value="Toggle Blur Elements" action="toggleBlurAndDeblur"></div>
+				
+				<div class="ace-col-8">
+				
+					<div class="ace-col-12 ace-center">
+						
+						<div class="ace-deblur-zone ks-target-2">
+							<i class="x fad fa-plus"></i>
+							<div
+					            class="ace-auto-gen ace-col-10"
+					            type="autocomplete"
+				
+					            label="Find a student"
+					            labelwidth="200px"
+					            
+					            searchname="student_name"
+					            valuename="student_id"
+					            
+					            net="remote=true;autoload=false;fid='loadstudentsfilter';size=5"
+					            
+					            minlength="0"
+					            autosearchonfocus="true"
+					            displayrenderer="rendererStudent"
+					            gridrowrenderer="rendererStudentV2"
+					            onselect="onBlurACSelect"
+					    	></div>
+							<div class="ace-auto-gen" type="button" value="Toggle" action="toggleBlurAndDeblur" iconcls="fal fa-star-half-alt"></div>
+						</div>
+						
+					</div>
+				
+					<div class="ace-col-12 ace-no-overflow">
+						<div class="ace-col-12 ace-green-bg ace-centered-blocks ks-target ace-blur-zone">
+						
+							<div class="ace-col-3 ace-blue-bg">Hello</div>
+							<div class="ace-col-3 ace-orange-bg">World!</div>
+						
+						</div>
+					</div>
+				</div>
+			
+			</div>
+				
+	    	
+    	</div>
+	
+	    
+	</div>
+	
+	<div class="ace-col-12 ace-vcol-6">&nbsp;</div>
+	
+	
+</div>
+
+<script>
+
+    function blur_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/utilities/js/blur.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

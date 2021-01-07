@@ -1,0 +1,117 @@
+<div class="ace-transparent-title-bar ace-independent-style">
+
+	<h2>Students</h2>
+	
+	<div class="ace-buttons-groups">
+	
+		<div
+			class="ace-auto-gen student-grid-buttons"
+			type="button"
+			value="Refresh"
+			action="refreshStudents"
+			iconcls="fad fa-sync"
+		></div>
+
+		<div
+			class="ace-auto-gen student-form-buttons"
+			type="button"
+			value="Save"
+			action="saveStudent"
+			iconcls="fad fa-save"
+		></div>
+		
+		<div
+			class="ace-auto-gen student-form-buttons"
+			type="button"
+			value="Cancel"
+			action="cancelStudent"
+			iconcls="fad fa-ban"
+		></div>
+	
+	</div>
+
+</div>
+
+<div class="ace-info-side ace-col-12">
+	<div id="students-grid" class="ace-auto-gen ace-col-12 ace-height-minus-80 ace-no-padding-right ace-responsive-grid"></div>
+	<div id="students-grid-form" class="ace-independent-form"></div>
+</div>
+			
+
+<div id="students-grid-template" class="ace-hide">
+
+	<div class="ace-col-12">
+	
+		<div class="ace-col-12 ace-small-padding-top ace-center">
+			<div class="ace-auto-gen ace-col-5 ace-small-padding"
+				 type="text"
+				 fieldname="student_name"
+			 	 validation="allowempty=false"
+			 	 label="Name">
+		 	 </div>
+			<div class="ace-auto-gen ace-col-5  ace-small-padding"
+				 type="datepicker"
+				 fieldname="student_birthday"
+			 	 validation="allowempty=false"
+			 	 label="Birthday">
+		 	 </div>
+	 	 </div>
+	 	 
+	 	 <div class="ace-col-12 ace-center">
+		 	 <div class="ace-auto-gen ace-col-5 ace-small-padding"
+				 type="combobox"
+				 fieldname="student_sex"
+			 	 validation="allowempty=false"
+			 	 label="Sex">
+			 	 
+			 	 <store>
+		            <record>
+		                <field name="name">Female</field>
+		                <field name="id">F</field>
+		            </record>
+		            <record>
+		                <field name="name">Male</field>
+		                <field name="id">M</field>
+		            </record>
+		        </store>
+			 	 
+		 	 </div>
+		 	 
+		 	 <div class="ace-auto-gen ace-col-5 ace-small-padding"
+				 type="autocomplete"
+				 fieldname="student_country"
+			 	 validation="allowempty=false"
+			 	 label="Country"
+			 	 
+	             displayname="student_country"
+	             
+	             searchname="country_name"
+	             valuename="country_id"
+	            
+	             net="remote=true;autoload=false;fid='loadcountriesfilter';size=5"
+	            
+	             minlength="0"
+	             autosearchonfocus="true"
+	             usequeries="true"
+	             
+	             >
+		 	 </div>
+		 	 
+	 	 </div>
+	 	 
+	
+	</div>
+
+</div>
+
+<script>
+
+    function students_tpl_loaded(target){
+        $.aceOverWatch.template.loadScripts("./layout/html/app/js/students.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

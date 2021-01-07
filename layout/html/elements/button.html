@@ -1,0 +1,973 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Button Elements - Examples"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>Elements of tip <b>button</b> are there so you can push them, in order to triger an action.</p>
+		<p>They don't have labels.</p>
+		<p>Their value is their text.</p>
+		<p>Forms will ignore buttons.</p>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>E1 - Press me, and nothing will happen!</h3>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-10 ks-target"
+	            type="button"
+	            value="Press me, and nothing will happen!"
+	    ></div>
+	    
+	    <div class="ace-col-2 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+	    
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Get value"
+		            action="getValueButton"
+		    ></div>
+		    
+	    </div>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>E2 - Press me, to do something!</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>The buttons may be pressed only as long as they are not readonly.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-8 ks-target"
+	            type="button"
+	            value="Press me, to do something!"
+	            action="actionButtonTest"
+	    ></div>
+	    
+	    <div class="ace-col-4 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+	    
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Toggle Readonly"
+		            action="toggleReadonlyButton"
+		    ></div>
+		    
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Get value"
+		            action="getValueButton"
+		    ></div>
+	    </div>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>E3 - Icon buttons</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>Buttons may have icons.</li>
+					<li>The icons may be displayed to the left or to the right of the text</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-6 ks-target"
+	            type="button"
+	            value="Nice icon!"
+	            iconcls='fa fa-star'
+	    ></div>
+	    
+	    <div class="ace-col-6 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+	    
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Toggle Icon Position"
+		            action="toggleIconPositionButton"
+		    ></div>
+		    
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Toggle Readonly"
+		            action="toggleReadonlyButton"
+		    ></div>
+		    
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Get value"
+		            action="getValueButton"
+		    ></div>
+		    
+	    </div>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 4 - Buttons displayed inside other ACE fields.</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>Up to 2 buttons may be displayed within other fields, with the help of 2 helper classes.</li>
+					<li>How to do this:
+						<ul>
+							<li>Create a div to contain the target ACE element, and the additional button field, or fields.</li>
+							<li>Create the ACE field: textbox, combobox, autocomplete, etc.</li>
+							<li>Create the button field immidietly after.</li>
+							<li>Give the button field the class <i>ace-inside</i>.</li>
+							<li>If a second button is present, give the second button both this classes: <i>ace-inside</i> and <i>ace-inside-double</i>. </li> 
+						</ul>
+					</li>
+					<li>In this example, we have placed one or two buttons in a few fields of different types.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="ace-col-12">
+			
+			<div class="ace-col-4 ace-medium-padding-right">
+			
+				<div class="ace-auto-gen ace-col-12 _t_placeholder" label="Label"></div>
+				<div class="ace-auto-gen ace-inside" type="button" iconcls="fad fa-star" tooltip="Search"></div>
+				<div class="ace-auto-gen ace-inside ace-inside-double" type="button" iconcls="fad fa-search" tooltip="Other"></div>
+			
+			</div>
+			
+			<div class="ace-col-4 ace-medium-padding-right">
+			
+				<div
+			            class="ace-auto-gen ace-col-12"
+			            type="combobox"
+			            label="Student"
+			            labelwidth="300px"
+			    	>
+			    	<store>
+			            <record>
+			                <field name="name">John Doe</field>
+			                <field name="id">20</field>
+			            </record>
+			            <record>
+			                <field name="name">Sarah Finigen</field>
+			                <field name="id">40</field>
+			            </record>
+			            <record>
+			                <field name="name">Billy Jeans</field>
+			                <field name="id">3</field>
+			            </record>
+			        </store>
+			   	</div>
+				<div class="ace-auto-gen ace-inside ace-inside-double" type="button" iconcls="fad fa-star" tooltip="Search"></div>
+			
+			</div>
+			
+			<div class="ace-col-4 ace-medium-padding-right">
+			
+				<div class="ace-auto-gen ace-col-12"
+					 type="autocomplete"
+					 fieldname="student_country"
+				 	 validation="allowempty=false"
+				 	 label="Country"
+				 	 
+		             displayname="student_country"
+		             
+		             searchname="country_name"
+		             valuename="country_id"
+		            
+		             net="remote=true;autoload=false;fid='loadcountriesfilter';size=5"
+		            
+		             minlength="0"
+		             autosearchonfocus="true"
+		             usequeries="true"
+		             
+		             >
+			 	 </div>
+				<div class="ace-auto-gen ace-inside ace-inside-double" type="button" iconcls="fad fa-star" tooltip="Search"></div>
+			
+			</div>
+			
+			<div class="ace-col-4 ace-medium-padding-right">
+			
+				<div class="ace-auto-gen ace-col-12 ace-button-full-width" type="button" value="Parent Button"></div>
+				<div class="ace-auto-gen ace-inside" type="button" iconcls="fad fa-star" tooltip="Search"></div>
+				<div class="ace-auto-gen ace-inside ace-inside-double" type="button" iconcls="fad fa-search" tooltip="Other"></div>
+			
+			</div>
+			
+			<div class="ace-col-4 ace-medium-padding-right">
+			
+				<div class="ace-auto-gen ace-col-12 ace-button-full-width" type="checkbox" label="Label"></div>
+				<div class="ace-auto-gen ace-inside" type="button" iconcls="fad fa-star" tooltip="Search"></div>
+				<div class="ace-auto-gen ace-inside ace-inside-double" type="button" iconcls="fad fa-search" tooltip="Other"></div>
+			
+			</div>
+			
+		</div>
+		
+	</div>
+	
+	<div class="ace-col-12 example-container ace-large-padding-top">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 5 - Button Modifier Classes</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>These classes modify the appearance or functionality of buttons:</li>
+				</ul>
+			</div>
+		</div>
+		
+    	<div class="ace-col-12 ace-white-space-normal">
+    	
+    		<div class="ace-col-12  ace-small-padding-top">
+    		
+    			<div class="ace-col-2 ace-col-fm-12">
+    				no modifier
+    				<br><span class="ace-font-75">ace-field</span>
+    			</div>
+    			
+    			<div class="ace-col-10 ace-col-fm-10">
+    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12"
+	    				type="button"
+	    				value="button"
+	    			></div></div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12"
+	    				type="button"
+	    				value="button"
+	    				iconcls="fa fa-star"
+	    			></div></div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12"
+	    				type="button"
+	    				value="button"
+	    				readonly="true"
+	    			></div></div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12"
+	    				type="button"
+	    				value="button"
+	    				iconcls="fa fa-star"
+	    				readonly="true"
+	    			></div></div>
+    			
+    			</div>
+    		
+    		</div>
+    		
+    		<div class="ace-col-12  ace-small-padding-top">
+    		
+    			<div class="ace-col-2 ace-col-fm-12">
+    				ace-flat-button
+    				<br><span class="ace-font-75">ace-field</span>
+    			</div>
+    			
+    			<div class="ace-col-10 ace-flat-button">
+    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12"
+	    				type="button"
+	    				value="button"
+	    			></div></div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12"
+	    				type="button"
+	    				value="button"
+	    				iconcls="fa fa-star"
+	    			></div></div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12"
+	    				type="button"
+	    				value="button"
+	    				readonly="true"
+	    			></div></div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12"
+	    				type="button"
+	    				value="button"
+	    				iconcls="fa fa-star"
+	    				readonly="true"
+	    			></div></div>
+    			
+    			</div>
+    		
+    		</div>
+    		
+    		<div class="ace-col-12  ace-small-padding-top">
+    		
+    			<div class="ace-col-2 ace-col-fm-12">
+    				ace-no-border-button
+    				<br><span class="ace-font-75">ace-field</span>
+    			</div>
+    			
+    			<div class="ace-col-10 ace-no-border-button">
+    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12"
+	    				type="button"
+	    				value="button"
+	    			></div></div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12"
+	    				type="button"
+	    				value="button"
+	    				iconcls="fa fa-star"
+	    			></div></div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12"
+	    				type="button"
+	    				value="button"
+	    				readonly="true"
+	    			></div></div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12"
+	    				type="button"
+	    				value="button"
+	    				iconcls="fa fa-star"
+	    				readonly="true"
+	    			></div></div>
+    			
+    			</div>
+    		
+    		</div>
+    		
+    		<hr class="ace-col-12 ace-medium-margin">
+    		
+    		<div class="ace-col-12  ace-small-padding-top">
+    		
+    			<div class="ace-col-2 ace-col-fm-12">
+    				ace-normal-button
+    				<br><span class="ace-font-75">ace-field</span>
+    			</div>
+    			
+    			<div class="ace-col-10 ace-normal-button">
+    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12"
+	    				type="button"
+	    				value="button"
+	    			></div></div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12"
+	    				type="button"
+	    				value="button"
+	    				iconcls="fa fa-star"
+	    			></div></div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12"
+	    				type="button"
+	    				value="button"
+	    				readonly="true"
+	    			></div></div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12"
+	    				type="button"
+	    				value="button"
+	    				iconcls="fa fa-star"
+	    				readonly="true"
+	    			></div></div>
+    			
+    			</div>
+    		
+    		</div>
+    		
+    		<div class="ace-col-12 ace-small-padding-top">
+    		
+    			<div class="ace-col-2 ace-col-fm-12">
+    				ace-normal-button
+    				<br><span class="ace-font-75">simple <b>a</b> tag</span>
+    			</div>
+    			
+    			<div class="ace-col-10 ace-col-fm-10">
+    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<a class="ace-normal-button"> button </a>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<a class="ace-normal-button"> <i class="fa fa-star"></i> button </a>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<a class="ace-normal-button" disabled="disabled"> button </a>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<a class="ace-normal-button" disabled="disabled"> <i class="fa fa-star"></i> button </a>
+	    				
+	    			</div>
+	    			
+    			
+    			</div>
+    		
+    		</div>
+    		
+    		<div class="ace-col-12 ace-small-padding-top">
+    		
+    			<div class="ace-col-2 ace-col-fm-12">
+    				ace-normal-button +<br> ace-tiny-button
+    				<br><span class="ace-font-75">simple <b>a</b> tag</span>
+    			</div>
+    			
+    			<div class="ace-col-10 ace-col-fm-10">
+    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<a class="ace-normal-button ace-tiny-button"> button </a>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<a class="ace-normal-button ace-tiny-button"> <i class="fa fa-star"></i> button </a>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<a class="ace-normal-button ace-tiny-button" disabled="disabled"> button </a>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<a class="ace-normal-button ace-tiny-button" disabled="disabled"> <i class="fa fa-star"></i> button </a>
+	    				
+	    			</div>
+	    			
+    			
+    			</div>
+    		
+    		</div>
+    		
+    		<div class="ace-col-12 ace-small-padding-top">
+    		
+    			<div class="ace-col-2 ace-col-fm-12">
+    				ace-normal-button
+    				<br><span class="ace-font-75">simple <b>button</b> tag</span>
+    			</div>
+    			
+    			<div class="ace-col-10 ace-col-fm-10">
+    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-normal-button"> button </button>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-normal-button"> <i class="fa fa-star"></i> button </button>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-normal-button" disabled="disabled"> button </button>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-normal-button" disabled="disabled"> <i class="fa fa-star"></i> button </button>
+	    				
+	    			</div>
+	    			
+    			
+    			</div>
+    		
+    		</div>
+    		
+    		<div class="ace-col-12 ace-small-padding-top">
+    		
+    			<div class="ace-col-2 ace-col-fm-12">
+    				ace-normal-button +<br> ace-tiny-button
+    				<br><span class="ace-font-75">simple <b>button</b> tag</span>
+    			</div>
+    			
+    			<div class="ace-col-10 ace-col-fm-10">
+    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-normal-button ace-tiny-button"> button </button>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-normal-button ace-tiny-button"> <i class="fa fa-star"></i> button </button>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-normal-button ace-tiny-button" disabled="disabled"> button </button>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-normal-button ace-tiny-button" disabled="disabled"> <i class="fa fa-star"></i> button </button>
+	    				
+	    			</div>
+	    			
+    			
+    			</div>
+    		
+    		</div>
+    		
+    		<hr class="ace-col-12 ace-medium-margin">
+    		
+    		<div class="ace-col-12 ace-small-padding-top">
+    		
+    			<div class="ace-col-2 ace-col-fm-12">
+    				ace-button
+    				<br><span class="ace-font-75">simple <b>a</b> tag</span>
+    			</div>
+    			
+    			<div class="ace-col-10 ace-col-fm-10">
+    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<a class="ace-button"> button </a>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<a class="ace-button"> <i class="fa fa-star"></i> button </a>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<a class="ace-button" disabled="disabled"> button </a>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<a class="ace-button" disabled="disabled"> <i class="fa fa-star"></i> button </a>
+	    				
+	    			</div>
+	    			
+    			
+    			</div>
+    		
+    		</div>
+    		
+    		<div class="ace-col-12 ace-small-padding-top">
+    		
+    			<div class="ace-col-2 ace-col-fm-12">
+    				ace-button +<br> ace-tiny-button
+    				<br><span class="ace-font-75">simple <b>a</b> tag</span>
+    			</div>
+    			
+    			<div class="ace-col-10 ace-col-fm-10">
+    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<a class="ace-button ace-tiny-button"> button </a>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<a class="ace-button ace-tiny-button"> <i class="fa fa-star"></i> button </a>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<a class="ace-button ace-tiny-button" disabled="disabled"> button </a>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<a class="ace-button ace-tiny-button" disabled="disabled"> <i class="fa fa-star"></i> button </a>
+	    				
+	    			</div>
+	    			
+    			
+    			</div>
+    		
+    		</div>
+    		
+    		<div class="ace-col-12 ace-small-padding-top">
+    		
+    			<div class="ace-col-2 ace-col-fm-12">
+    				ace-button
+    				<br><span class="ace-font-75">simple <b>button</b> tag</span>
+    			</div>
+    			
+    			<div class="ace-col-10 ace-col-fm-10">
+    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-button"> button </button>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-button"> <i class="fa fa-star"></i> button </button>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-button" disabled="disabled"> button </button>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-button" disabled="disabled"> <i class="fa fa-star"></i> button </button>
+	    				
+	    			</div>
+	    			
+    			
+    			</div>
+    		
+    		</div>
+    		
+    		<div class="ace-col-12 ace-small-padding-top">
+    		
+    			<div class="ace-col-2 ace-col-fm-12">
+    				ace-button +<br> ace-tiny-button
+    				<br><span class="ace-font-75">simple <b>button</b> tag</span>
+    			</div>
+    			
+    			<div class="ace-col-10 ace-col-fm-10">
+    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-button ace-tiny-button"> button </button>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-button ace-tiny-button"> <i class="fa fa-star"></i> button </button>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-button ace-tiny-button" disabled="disabled"> button </button>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-button ace-tiny-button" disabled="disabled"> <i class="fa fa-star"></i> button </button>
+	    				
+	    			</div>
+	    			
+    			
+    			</div>
+    		
+    		</div>
+    		
+    		<div class="ace-col-12 ace-small-padding-top">
+    		
+    			<div class="ace-col-2 ace-col-fm-12">
+    				ace-floating-button<br> 
+    				<br><span class="ace-font-75">simple <b>button</b> tag</span>
+    			</div>
+    			
+    			<div class="ace-col-10 ace-col-fm-10">
+    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-floating-button "> button </button>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-floating-button "> <i class="fa fa-star"></i> button </button>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-floating-button " disabled="disabled"> button </button>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-floating-button " disabled="disabled"> <i class="fa fa-star"></i> button </button>
+	    				
+	    			</div>
+	    			
+    			
+    			</div>
+    		
+    		</div>
+    		
+    		<div class="ace-col-12 ace-small-padding-top">
+    		
+    			<div class="ace-col-2 ace-col-fm-12">
+    				ace-floating-button +<br> ace-tiny-button
+    				<br><span class="ace-font-75">simple <b>button</b> tag</span>
+    			</div>
+    			
+    			<div class="ace-col-10 ace-col-fm-10">
+    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-floating-button ace-tiny-button"> button </button>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-floating-button ace-tiny-button"> <i class="fa fa-star"></i> button </button>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-floating-button ace-tiny-button" disabled="disabled"> button </button>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-floating-button ace-tiny-button" disabled="disabled"> <i class="fa fa-star"></i> button </button>
+	    				
+	    			</div>
+	    			
+    			
+    			</div>
+    		
+    		</div>
+    		
+    		<div class="ace-col-12 ace-small-padding-top">
+    		
+    			<div class="ace-col-2 ace-col-fm-12">
+    				ace-button-full-width
+    				<br><span class="ace-font-75">ace-field</span>
+    			</div>
+    			
+    			<div class="ace-col-10">
+    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12 ace-button-full-width"
+	    				type="button"
+	    				value="button"
+	    			></div></div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12 ace-button-full-width"
+	    				type="button"
+	    				value="button"
+	    				iconcls="fa fa-star"
+	    			></div></div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12 ace-button-full-width"
+	    				type="button"
+	    				value="button"
+	    				readonly="true"
+	    			></div></div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12 ace-button-full-width"
+	    				type="button"
+	    				value="button"
+	    				iconcls="fa fa-star"
+	    				readonly="true"
+	    			></div></div>
+    			
+    			</div>
+    		
+    		</div>
+    		
+    		<div class="ace-col-12 ace-small-padding-top">
+    		
+    			<div class="ace-col-2 ace-col-fm-12">
+    				ace-filled-button
+    				<br><span class="ace-font-75">ace-field</span>
+    			</div>
+    			
+    			<div class="ace-col-10">
+    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12 ace-filled-button"
+	    				type="button"
+	    				value="button"
+	    			></div></div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12 ace-filled-button"
+	    				type="button"
+	    				value="button"
+	    				iconcls="fa fa-star"
+	    			></div></div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12 ace-filled-button"
+	    				type="button"
+	    				value="button"
+	    				readonly="true"
+	    			></div></div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12 ace-filled-button"
+	    				type="button"
+	    				value="button"
+	    				iconcls="fa fa-star"
+	    				readonly="true"
+	    			></div></div>
+    			
+    			</div>
+    		
+    		</div>
+    		
+    		<div class="ace-col-12 ace-small-padding-top">
+    		
+    			<div class="ace-col-2 ace-col-fm-12">
+    				ace-filled-button
+    				<br><span class="ace-font-75">simple <b>button</b> tag</span>
+    			</div>
+    			
+    			<div class="ace-col-10 ace-col-fm-10">
+    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-filled-button"> button </button>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-filled-button"> <i class="fa fa-star"></i> button </button>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-filled-button" disabled="disabled"> button </button>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<button class="ace-filled-button" disabled="disabled"> <i class="fa fa-star"></i> button </button>
+	    				
+	    			</div>
+	    			
+    			
+    			</div>
+    		
+    		</div>
+    		
+    		<div class="ace-col-12 ace-small-padding-top">
+    		
+    			<div class="ace-col-2 ace-col-fm-12">
+    				ace-cancel-button
+    				<br><span class="ace-font-75">ace-field</span>
+    			</div>
+    			
+    			<div class="ace-col-10">
+    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12 ace-cancel-button"
+	    				type="button"
+	    				value="button"
+	    			></div></div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12 ace-cancel-button"
+	    				type="button"
+	    				value="button"
+	    				iconcls="fa fa-star"
+	    			></div></div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12 ace-cancel-button"
+	    				type="button"
+	    				value="button"
+	    				readonly="true"
+	    			></div></div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3"><div class="ace-auto-gen ace-col-12 ace-cancel-button"
+	    				type="button"
+	    				value="button"
+	    				iconcls="fa fa-star"
+	    				readonly="true"
+	    			></div></div>
+    			
+    			</div>
+    		
+    		</div>
+    		
+    		<div class="ace-col-12 ace-small-padding-top">
+    		
+    			<div class="ace-col-2 ace-col-fm-12">
+    				ace-cancel-button<br> 
+    				<br><span class="ace-font-75">simple <b>a</b> tag</span>
+    			</div>
+    			
+    			<div class="ace-col-10 ace-col-fm-10">
+    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<a class="ace-cancel-button "> button </a>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<a class="ace-cancel-button "> <i class="fa fa-star"></i> button </a>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<a class="ace-cancel-button " disabled="disabled"> button </a>
+	    				
+	    			</div>
+	    			
+	    			<div class="ace-col-3 ace-col-fm-3">
+	    			
+	    				<a class="ace-cancel-button " disabled="disabled"> <i class="fa fa-star"></i> button </a>
+	    				
+	    			</div>
+	    			
+    			
+    			</div>
+    		
+    		</div>
+    	
+    	</div>
+	
+	</div>
+	
+	
+</div>
+
+<script>
+
+    function button_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/elements/js/button.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

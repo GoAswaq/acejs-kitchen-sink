@@ -1,0 +1,254 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Autocomplete Elements - Examples"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>Elements of tip <b>autocomplete</b> are used to help filtering a selection from a large set of data.</p>
+		<p>They consist of two main components:</p>
+		<ul>
+			<li>a label autocomplete</li>
+			<li>an input element</li>
+			<li>a grid which displayes a filtered result of what you have searched</li>
+			<li>a clear selection button</li>
+		</ul>
+		<p>This ace element always sends a query to the server, with your typed text, or search criteris.</p>
+		<p>Based on what you have types, the server needs to return a list of items matching your search elements.</p>
+		<p>By default, the minimum search criteria length is 5. This can be changed.</p>
+		<p>When configuring an autocomplete, the following settings need to be specified:</p>
+		<ul>
+			<li>valuename: this field will give the actual value of the field, when an item is selected </li>
+			<li>searchname: by default, the information from this field will be displayed when an item is selected; if valuename is missing, this field will be used as valuename instead</li>
+			<li>displayname: when in a form, the value from this record field will be displayed in the input element after a loadRecord operation</li>
+		</ul>
+		<p>If the element is in a form, and it is porperly configured, the form will automatically retrive its value on the save operation, if the text has been changed.</p>
+		
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 1 - Simple Autocomplete with default min search criteria length: 3</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>In order for the field to send a search query to the server, a text of at least 3 characters needs to be entered.</li>
+					<li>The default search length is 5. All other examples here will have this limit set to 0.</li>
+				</ul>
+			</div>
+		</div>
+	
+		<div
+	            class="ace-auto-gen ace-col-8"
+	            type="autocomplete"
+	            label="Find a student"
+	            labelwidth="200px"
+	            searchname="student_name"
+	            valuename="student_id"
+	            
+	            net="remote=true;autoload=false;fid='loadstudentsfilter';size=5"
+	    ></div>
+	    
+	    <div class="ace-col-4 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+	    
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Toggle Label Placement"
+		            action="toggleLabelPlacementAutocomplete"
+		    ></div>
+		    
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Get value"
+		            action="getValueAutocomplete"
+		    ></div>
+		    
+	    </div>
+	    
+	</div> 
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 2 - Min criteria search: 0, autosearchonfocus, and renderers: both selection result, and search grid row</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>The autocomplete field has access to two custom renderer methods.</li>
+					<li>
+						<ul>
+							<li><i>displayrenderer</i> determins how the selected information is displayed</li>
+							<li><i>gridrowrenderer</i> determins how the information is displayed on each row of the search grid</li>
+						</ul>
+					</li>
+					<li>How the search works in this case:</li>
+					<li>
+						<ul>
+							<li>every word written is treated as a search criteria</li>
+							<li>the server returns a list of all entities, which have fields that match to at least one of the written criterias</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-10"
+	            type="autocomplete"
+	            placeholder="type something here"
+
+	            label="Find a student"
+	            labelwidth="200px"
+	            
+	            searchname="student_name"
+	            valuename="student_id"
+	            
+	            net="remote=true;autoload=false;fid='loadstudentsfilter';size=5"
+	            
+	            minlength="0"
+	            autosearchonfocus="true"
+	            displayrenderer="rendererStudent"
+	            gridrowrenderer="rendererStudentV2"
+	    ></div>
+	    
+	    <div class="ace-col-2 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Get value"
+		            action="getValueAutocomplete"
+		    ></div>
+	    </div>
+	    
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 3 - like Ex.2, plus onselect event, and chips</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>This examples works similar with the Ex. 2 with a few modifications / additions.</li>
+					<li>Each time a new value is selected, or, when the current selected value is cleared, an event is triggered: <i>onselect</i>. This event may be intercepted and customized.</li>
+					<li>
+						<ul>
+							<li>The search in this case differes from that from Ex. 2: each element returned by the server must match ALL the search criterias.</li>
+							<li>Type a search criteria. After each enter, or after pressing space, the existing written word, if it hasn't been types previously will be added as a search criteria, and displayed as a <b>chip</b>.</li>
+							<li>In this scenario, the autocomplete will return a list, in which every item matches all given criterias.</li>
+							<li>You may delete a chip by pressing their X button, or if you double tap fast the backspace key when there is nothing written in the input area, this will delete the latest chip, if at least one exists.</li>
+						</ul>
+					</li>
+					
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-8"
+	            type="autocomplete"
+	            placeholder="type something here"
+	            
+	            label="Find a student"
+	            labelwidth="200px"
+	            
+	            searchname="student_name"
+	            valuename="student_id"
+	            
+	            net="remote=true;autoload=false;fid='loadstudentsfilter';size=5"
+	            
+	            minlength="0"
+	            autosearchonfocus="true"
+	            displayrenderer="rendererStudent"
+	            gridrowrenderer="rendererStudentV2"
+	            
+	            usequeries="true"
+	            
+	            onselect="onAutocompleteChange"
+	    ></div>
+	    
+	    <div class="ace-col-4ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Toggle Readonly"
+		            action="toggleReadonlyAutocomplete"
+		    ></div>
+		    
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Get value"
+		            action="getValueAutocomplete"
+		    ></div>
+	    </div>
+	    
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container ace-full-height-vh">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 4 - like Ex.3, BUT, the grid rows are displayed in panel form, with a dedicated template</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>This examples works similar with the Ex. 3 with one modification:</li>
+					<li>The rows of the search grid are <b>not</b>b customized through the renderer <i>gridrowrenderer</i>.</li>
+					<li>Instead, the search grid is set to be of type panel, with a custom row template specified.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-10"
+	            type="autocomplete"
+	            placeholder="type something here"
+	            label="Find a student"
+	            labelwidth="200px"
+	            	            
+	            searchname="student_name"
+	            valuename="student_id"
+	            
+	            net="remote=true;autoload=false;fid='loadstudentsfilter';size=5"
+	            
+	            minlength="0"
+	            autosearchonfocus="true"
+	            displayrenderer="rendererStudent"
+	            gridsettings="gtype='panel';rowtpl='autocomplete-student-row-tpl'"
+	            
+	            usequeries="true"
+	            
+	            onselect="onAutocompleteChange"
+	    ></div>
+	    
+	    <div
+	            class="ace-auto-gen ace-col-2"
+	            type="button"
+	            value="Get value"
+	            action="getValueAutocomplete"
+	    ></div>
+	    
+	</div>
+	
+	<div class="ace-hide" id="autocomplete-student-row-tpl">
+		<div class="ace-col-12">
+			<h2 class="ace-auto-gen" type="display" fieldname="student_name"></h2>
+			<div class="ace-col-12 ace-auto-gen small-text" type="display" fieldname="student_sex" renderer="rendererSex"></div>
+		</div>
+	
+	</div>
+</div>
+<script>
+
+    function autocomplete_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/elements/js/autocomplete.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

@@ -1,0 +1,111 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Switch Elements - Examples"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>Elements of tip <b>switch</b> are used to display an element, whose value may be changed between two states: on, and off.</p>
+		<p>By default, the on state is associated with 1, and the off state is associated with 0</p>
+		<p>The value for the two states may be customly defined.</p>
+		<p>Its functionality is extremely similar to that of the <b>checkbox</b> control. They differ from one another only visually.</p>
+		<p>If the element is in a form, and it is porperly configured, the form will automatically retrive its value on the save operation, if the switch has been changed.</p>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 1 - Simple Switch Element</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>The on state returns the value 1, and the off state returns the value 0.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-8"
+	            type="switch"
+	            label="Label"
+	            labelwidth="200px"
+	    ></div>
+	    
+	    <div class="ace-col-4 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+	    
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Toggle Label Placement"
+		            action="toggleLabelPlacementSwitch"
+		    ></div>
+		    
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Get value"
+		            action="getValueSwitch"
+		    ></div>
+	    </div>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 2 - custom on and off values, initial value, onchange event</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>In this example, the default values for on and off have been replaced with custom ones.</li>
+					<li>Press <i>Get value</i> to discover them.</li>
+					<li>If the field is readonly, its value may not be modified.</li> 
+					<li>Each time the value is switched, an onchange event is triggered, which can be interecepted.</li>
+					<li>In this example, the field is initially in its on state.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-8"
+	            type="switch"
+	            
+	            label="Label"
+	            labelwidth="200px"
+	            
+	            on="123"
+	            off="321"
+	            
+	            checked="true"
+	            onchange="onSwitchChange"
+	    ></div>
+	    
+	    <div class="ace-col-4 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+	    
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Toggle Readonly"
+		            action="toggleReadonlySwitch"
+		    ></div>
+		    
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Get value"
+		            action="getValueSwitch"
+		    ></div>
+	    </div>
+	</div>
+	
+</div>
+
+<script>
+
+    function switch_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/elements/js/switch.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

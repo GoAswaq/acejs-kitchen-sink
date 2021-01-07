@@ -1,0 +1,191 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Labels - Examples"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>Labels are not stand alone elements.</p>
+		<p>They could be considered pseudo-elements, which are used by other ACE Fields.</p>
+	</div>
+	
+	<div class="ace-col-12 example-container ace-medium-padding-top">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 1 - Label Modifier Classes</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>These classes modify the appearance or functionality of labels.</li>
+					<li>The <i>first</i> section of ace elements, marked with <b>none</b> have no custom classes applied, and no explicit label length set.</li>
+					<li>On all the other sections, the label length has been set to 100px.</li>
+					<li>The modifier classes are:
+						<ul>
+							<li><i>ace-no-label</i>: hides the labels.</li>
+							<li><i>ace-label-width-auto</i>: the explicit label length will be ignored.</li>
+							<li><i>ace-label-max</i>: the explicit label length will be ignored, and the label will stretch so that the entire text will be visible.</li>
+							<li><i>ace-label-text-left</i>: forces the text in the label to be aligned left</li>
+							<li><i>ace-label-text-right</i>: forces the text in the label to be aligned right</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+    	<div class="ace-col-12">
+    	
+    		<div class="ace-col-12">
+	    		<div class="ace-col-2 ace-col-fm-2">&nbsp</div>
+	    		<div class="ace-col-10 ace-col-fm-10">
+		    		<div class="ace-col-4"><h4>Display</h4></div>
+		    		<div class="ace-col-4"><h4>Text</h4></div>
+		    		<div class="ace-col-4"><h4>Combobox</h4></div>
+	    		</div>
+    		</div>
+    		
+    		<hr class="ace-col-12 ace-medium-margin">
+    		
+    		<div class="ace-col-12">
+	    		<div class="ace-col-2 ace-col-fm-2"><h4>none</h4></div>
+	    		<div class="ace-col-10 ace-col-fm-10">
+		    		<div class="ace-col-4 ace-auto-gen" type="display" label="Longish Label" value="hello world" labelalign="left"></div>
+		    		<div class="ace-col-4 ace-auto-gen" type="text" label="Longish Label" value="hello world" labelalign="left"></div>
+		    		<div class="ace-col-4 ace-auto-gen" type="combobox" label="Longish Label" value="hello world" labelalign="left">
+		    			<store>
+		    				<record>
+		    					<field name="id">1</field>
+		    					<field name="name">hello world</field>
+		    				</record>
+		    			</store>
+		    		</div>
+	    		</div>
+    		</div>
+    		
+    		<hr class="ace-col-12 ace-medium-margin">
+    		
+    		<div class="ace-col-12">
+	    		<div class="ace-col-2 ace-col-fm-2"><h4>ace-no-label</h4></div>
+	    		<div class="ace-col-10 ace-col-fm-10">
+		    		<div class="ace-col-4 ace-auto-gen ace-no-label" type="display" label="Longish Label" value="hello world" labelalign="left"></div>
+		    		<div class="ace-col-4 ace-auto-gen ace-no-label" type="text" label="Longish Label" value="hello world" labelalign="left"></div>
+		    		<div class="ace-col-4 ace-auto-gen ace-no-label" type="combobox" label="Longish Label" value="hello world" labelalign="left">
+		    			<store>
+		    				<record>
+		    					<field name="id">1</field>
+		    					<field name="name">hello world</field>
+		    				</record>
+		    			</store>
+		    		</div>
+	    		</div>
+    		</div>
+    		
+    		<hr class="ace-col-12 ace-medium-margin">
+    		
+    		<div class="ace-col-12">
+	    		<div class="ace-col-2 ace-col-fm-2"><h4>explicit length</h4></div>
+	    		<div class="ace-col-10 ace-col-fm-10">
+		    		<div class="ace-col-4 ace-auto-gen" type="display" label="Longish Label" value="hello world" labelalign="left" labelwidth="100px"></div>
+		    		<div class="ace-col-4 ace-auto-gen" type="text" label="Longish Label" value="hello world" labelalign="left" labelwidth="100px"></div>
+		    		<div class="ace-col-4 ace-auto-gen" type="combobox" label="Longish Label" value="hello world" labelalign="left" labelwidth="100px">
+		    			<store>
+		    				<record>
+		    					<field name="id">1</field>
+		    					<field name="name">hello world</field>
+		    				</record>
+		    			</store>
+		    		</div>
+	    		</div>
+    		</div>
+    		
+    		<hr class="ace-col-12 ace-medium-margin">
+    		
+    		<div class="ace-col-12">
+	    		<div class="ace-col-2 ace-col-fm-2"><h4>ace-label-width-auto</h4></div>
+	    		<div class="ace-col-10 ace-col-fm-10">
+		    		<div class="ace-col-4 ace-auto-gen ace-label-width-auto" type="display" label="Longish Label" value="hello world" labelalign="left" labelwidth="100px"></div>
+		    		<div class="ace-col-4 ace-auto-gen ace-label-width-auto" type="text" label="Longish Label" value="hello world" labelalign="left" labelwidth="100px"></div>
+		    		<div class="ace-col-4 ace-auto-gen ace-label-width-auto" type="combobox" label="Longish Label" value="hello world" labelalign="left" labelwidth="100px">
+		    			<store>
+		    				<record>
+		    					<field name="id">1</field>
+		    					<field name="name">hello world</field>
+		    				</record>
+		    			</store>
+		    		</div>
+	    		</div>
+    		</div>
+    		
+    		<hr class="ace-col-12 ace-medium-margin">
+    		
+    		<div class="ace-col-12">
+	    		<div class="ace-col-2 ace-col-fm-2"><h4>ace-label-max</h4></div>
+	    		<div class="ace-col-10 ace-col-fm-10">
+		    		<div class="ace-col-4 ace-auto-gen ace-label-max" type="display" label="Longish Label" value="hello world" labelalign="left" labelwidth="100px"></div>
+		    		<div class="ace-col-4 ace-auto-gen ace-label-max" type="text" label="Longish Label" value="hello world" labelalign="left" labelwidth="100px"></div>
+		    		<div class="ace-col-4 ace-auto-gen ace-label-max" type="combobox" label="Longish Label" value="hello world" labelalign="left" labelwidth="100px">
+		    			<store>
+		    				<record>
+		    					<field name="id">1</field>
+		    					<field name="name">hello world</field>
+		    				</record>
+		    			</store>
+		    		</div>
+	    		</div>
+    		</div>
+    		
+    		<hr class="ace-col-12 ace-large-margin">
+    		
+    		<div class="ace-col-12">
+	    		<div class="ace-col-2 ace-col-fm-2"><h4>ace-label-text-left</h4></div>
+	    		<div class="ace-col-10 ace-col-fm-10">
+		    		<div class="ace-col-4 ace-auto-gen ace-label-text-left" type="display" label="L" value="hello world" labelalign="left" labelwidth="100px"></div>
+		    		<div class="ace-col-4 ace-auto-gen ace-label-text-left" type="text" label="L" value="hello world" labelalign="left" labelwidth="100px"></div>
+		    		<div class="ace-col-4 ace-auto-gen ace-label-text-left" type="combobox" label="L" value="hello world" labelalign="left" labelwidth="100px">
+		    			<store>
+		    				<record>
+		    					<field name="id">1</field>
+		    					<field name="name">hello world</field>
+		    				</record>
+		    			</store>
+		    		</div>
+	    		</div>
+    		</div>
+    		
+    		<hr class="ace-col-12 ace-medium-margin">
+    		
+    		<div class="ace-col-12">
+	    		<div class="ace-col-2 ace-col-fm-2"><h4>ace-label-text-right</h4></div>
+	    		<div class="ace-col-10 ace-col-fm-10">
+		    		<div class="ace-col-4 ace-auto-gen ace-label-text-right" type="display" label="L" value="hello world" labelalign="left" labelwidth="100px"></div>
+		    		<div class="ace-col-4 ace-auto-gen ace-label-text-right" type="text" label="L" value="hello world" labelalign="left" labelwidth="100px"></div>
+		    		<div class="ace-col-4 ace-auto-gen ace-label-text-right" type="combobox" label="L" value="hello world" labelalign="left" labelwidth="100px">
+		    			<store>
+		    				<record>
+		    					<field name="id">1</field>
+		    					<field name="name">hello world</field>
+		    				</record>
+		    			</store>
+		    		</div>
+	    		</div>
+    		</div>
+    		
+    	
+    	</div>
+	
+	</div>
+
+</div>
+
+<script>
+
+    function label_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/utilities/js/label.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

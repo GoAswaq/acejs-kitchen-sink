@@ -1,0 +1,196 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Datepicker Elements - Examples"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>Elements of tip <b>grid</b> are designed to display and manipulate sets of date, where each element in the set has similar properties.</p>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex 1 - Simple Grid</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>This example displays the <b>basic display</b> functionality of the grid.</li>
+					<li>Please use the controls on the right to enable or disable some of the available functionality.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="ace-col-12 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+		
+			<div
+	            class="ace-auto-gen "
+	            type="checkbox"
+	            label="Header"
+	            checked="true"
+	            onchange="toggleHeader"
+	    	></div>
+			<div
+	            class="ace-auto-gen "
+	            type="checkbox"
+	            label="Header Icons"
+	            onchange="toggleHeaderIcons"
+	    	></div>
+			<div
+	            class="ace-auto-gen "
+	            type="checkbox"
+	            label="Header Groups"
+	            onchange="toggleGroupHeader"
+	    	></div>
+			<div
+	            class="ace-auto-gen "
+	            type="checkbox"
+	            label="Sorting"
+	            onchange="toggleSort"
+	    	></div>
+	    	<div
+	            class="ace-auto-gen "
+	            type="checkbox"
+	            label="Pagination"
+	            checked="true"
+	            onchange="togglePagination"
+	    	></div>
+	    	<div
+	            class="ace-auto-gen "
+	            type="checkbox"
+	            label="Row Lines"
+	            checked="true"
+	            onchange="toggleRowLines"
+	    	></div>
+	    	<div
+	            class="ace-auto-gen "
+	            type="checkbox"
+	            label="Column Lines"
+	            checked="true"
+	            onchange="toggleColumnLines"
+	    	></div>
+	    	<div
+	            class="ace-auto-gen "
+	            type="checkbox"
+	            label="Delete"
+	            onchange="toggleDelete"
+	    	></div>
+	    	<div
+	    		id="delete-end-grid"
+	            class="ace-auto-gen ace-hide"
+	            type="checkbox"
+	            label="Delete at End"
+	            onchange="toggleDeleteEnd"
+	    	></div>
+	    	<div
+	            class="ace-auto-gen "
+	            type="checkbox"
+	            label="Add"
+	            onchange="toggleAdd"
+	    	></div>
+	    	<div
+	            class="ace-auto-gen "
+	            type="checkbox"
+	            label="Edit Inline"
+	            onchange="toggleEdit"
+	    	></div>
+	    	<div
+	            class="ace-auto-gen "
+	            type="checkbox"
+	            label="Refresh"
+	            onchange="toggleRefresh"
+	    	></div>
+	    	
+	    	<div
+	            class="ace-auto-gen"
+	            type="checkbox"
+	            label="Infinite Scroll"
+	            onchange="toggleInfiniteScroll"
+	    	></div>
+	    	<div
+	            class="ace-auto-gen "
+	            type="checkbox"
+	            label="Check Columns"
+	            onchange="toggleCheckColumns"
+	    	></div>
+	    	<div
+	    		id="get-checked-items"
+	            class="ace-auto-gen ace-hide ace-flat-button"
+	            type="button"
+	            value="Get Checked"
+	            action="getCheckedItems"
+	    	></div>
+	    	
+	    	<div
+	            class="ace-auto-gen "
+	            type="checkbox"
+	            label="Renderers"
+	            onchange="toggleRenderers"
+	    	></div>
+	    	
+	    	<div
+	            class="ace-auto-gen "
+	            type="checkbox"
+	            label="Totals"
+	            onchange="toggleTotals"
+	    	></div>
+	    	<div
+	    		id="custom-totals-grid"
+	            class="ace-auto-gen ace-hide"
+	            type="checkbox"
+	            label="Totals Custom"
+	            onchange="toggleTotalsCustom"
+	    	></div>
+	    	<div
+	            class="ace-auto-gen"
+	            type="checkbox"
+	            label="Raw Header"
+	            onchange="toggleRowHeader"
+	    	></div>
+	    	<div
+	            class="ace-auto-gen"
+	            type="checkbox"
+	            label="Raw Footer"
+	            onchange="toggleRowFooter"
+	    	></div>
+	    	
+	    	
+	    	
+	    	<div
+	            class="ace-auto-gen ace-flat-button"
+	            type="button"
+	            value="Clear Data"
+	            action="clearGridData"
+	    	></div>
+	    	<div
+	            class="ace-auto-gen ace-flat-button"
+	            type="button"
+	            value="Replace All Data"
+	            action="replaceAllGridData"
+	    	></div>
+
+		</div>
+		
+		
+		<div id="simple-grid" class="ace-auto-gen ace-col-12 ace-height-minus-200"></div>
+	    
+	</div>
+	
+</div>
+
+<div class="ace-col-12 ace-hide" id="simple-grid-no-records-tpl">
+	<h4>This simple grid has no data to display!</h4>
+</div>
+
+<script>
+
+    function simplegrid_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/elements/js/simplegrid.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

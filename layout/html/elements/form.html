@@ -1,0 +1,334 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Form Elements - Examples"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>Elements of tip <b>form</b> containers: they can contain and display more ACE fields.</p>
+		<p>If the ACE fields are configured corectly, the form will know how to properly display a set of data.</p>
+		<p>The forms iterates through all fields of the data set, and attempts to match them to an existing ACE field.</p>
+		<p>If such a field is found, the data from the field will be passed to the ACE field.</p>
+		<p>The matching is done through the property <i>fieldname</i> of the ACE fields, which needs to corespond to a field property name from a dataset</p>
+		<p>It is recomended that there be no multiple fields with the same <i>fieldname</i> in the same form</p>  
+		<p>The form is also able to gather the information which has changed, and send it over to the server, or to another operation for processing</p>
+		<p>The form knows how to work automatically with most ACE fields of <i>Data Input</i> type, except <i>chips</i>.</p>
+		<p>There are two major types of forms:</p>
+		<ul>
+			<li><i>popup</i> - the form will be displayed as a hovering window OVER all other existing window content.</li>
+			<li><i>custom</i> - the form will be displayed differntly, its exact method being left to the programmer to specify</li>
+		</ul>
+		<p>All forms must have a template specified: a template in this case represents the ID of a DIV, which will be used to create the contents of the form itself.</p>
+		<p>Because the content of a template is cloned each time the template is used, all elements from a template should not have an <i>id</i> property defined.</p>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class="">Ex 1 - The simplest form ever</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>this form is of type popup</li>
+					<li>the form uses an empty template</li>
+					<li>the form has nothing else configured</li>
+					<li>to close the form, press the <i>cancel</i> button</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-10 ks-target"
+	            type="button"
+	            value="Press me, to see the simples popup form ever!"
+	            action="showFormEx1"
+	    ></div>
+	    
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class="">Ex 2 - A useful form</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>this form has functionality to create new students, and to edit existing ones.</li>
+					<li>Every time a stundent is created, that student will be added to the combobox bellow.</li>
+					<li>By pressing the edit button, you will be able to edit the data of student.</li>
+					<li>The form performs a validation on some of the fields. If the current value is not correct, the data in the form may not be saved.</li>
+					<li>All ACE fields from the template are created before the form itself is created, with one exception: the autocomplete field: student country. This field is created explictdly by the form during its creation process, via the method <i>onninit</i>. All autocomplete fields that appear in templates should be created in this manner, to ensure there are no problems.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div
+	            class="ace-auto-gen ace-col-3 ace-small-padding"
+	            type="button"
+	            value="Create a new student"
+	            action="createNewStudentEx2"
+	    ></div>
+	    
+	    <div
+	    		id="stundent-combo-ex-2"
+	            class="ace-auto-gen ace-col-4 ace-small-padding"
+	            type="combobox"
+	            label="Students"
+	            displayname="student_name"
+	            valuename="student_id"
+	            renderer="rendererStudent"
+	    ></div>
+	    
+	    <div
+	            class="ace-auto-gen ace-col-3 ace-small-padding"
+	            type="button"
+	            value="Edit a student"
+	            action="editCurrentStudentEx2"
+	    ></div>
+	    
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class="">Ex. 3 - The same as Ex.2, only instead of a popup form, this form is of type <b>custom</b></h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="ace-col-12" id="example-controls-ex3">
+			<div
+		            class="ace-auto-gen ace-col-3 ace-small-padding"
+		            type="button"
+		            value="Create a new student"
+		            action="createNewStudentEx3"
+		    ></div>
+		    
+		    <div
+		    		id="stundent-combo-ex-3"
+		            class="ace-auto-gen ace-col-4 ace-small-padding"
+		            type="combobox"
+		            label="Students"
+		            displayname="student_name"
+		            valuename="student_id"
+		            renderer="rendererStudent"
+		    ></div>
+		    
+		    <div
+		            class="ace-auto-gen ace-col-3 ace-small-padding"
+		            type="button"
+		            value="Edit a student"
+		            action="editCurrentStudentEx3"
+		    ></div>
+	    </div>
+	    
+	    <div id="ace-form-ex-3" class="ace-hide">
+	    
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class="">Ex. 4 - The same as Ex.3, with a few specialized classes</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>The default ace css contains a few classes which help display forms in certain ways</li>
+					<li>This classes need to be added manually where needed to the div in which the form will be rendered</li>
+					<li>When this class combinations are used, the form will be rendered OVER the existing content, without disturbing it.</li>
+					<li>This classes are (the top, bottom, and side indications are relative to the container in which the form finds itself):</li>
+					<li>
+						<ul>
+							<li><i>ace-independent-form</i> - to display the form from the top to bottom, using it's full width.</li>
+							<li><i>ace-independent-form ace-lateral-form</i> - to display the form from the top to bottom, on the side</li>
+							<li><i>ace-advanced-panel from-top</i> - the form will be displayed at the top</li>
+							<li><i>ace-advanced-panel from-bottom</i> - the form will be displayed at the bottom</li>
+						</ul>
+					</li>
+					<li>Chose from the combobox bellow how the form should be displayed.</li>
+					<li>In this example, the form is moved right before creation from its current location to the page body.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="ace-col-12">
+			
+			<div id="display-mode-form-ex4"
+			     class="ace-auto-gen ace-col-12 ace-small-padding"
+				 type="combobox"
+				 fieldname="student_sex"
+			 	 validation="allowempty=false"
+			 	 label="Select display position"
+			 	 labelalign="left"
+			 	 labelwidth="200px"
+			 	 onchange="onChangeFormDisplayEx4">
+			 	 
+			 	 <store>
+		            <record>
+		                <field name="name">independed</field>
+		                <field name="id">ace-independent-form</field>
+		            </record>
+		            <record>
+		                <field name="name">independed lateral</field>
+		                <field name="id">ace-independent-form ace-lateral-form</field>
+		            </record>
+		            <record>
+		                <field name="name">from-top</field>
+		                <field name="id">ace-advanced-panel from-top</field>
+		            </record>
+		            <record>
+		                <field name="name">from-bottom</field>
+		                <field name="id">ace-advanced-panel from-bottom</field>
+		            </record>
+		        </store>
+			 	 
+		 	 </div>
+					
+		</div>
+		
+		<div class="ace-col-12" id="example-controls-ex4">
+		
+			<div
+		            class="ace-auto-gen ace-col-3 ace-small-padding"
+		            type="button"
+		            value="Create a new student"
+		            action="createNewStudentEx4"
+		    ></div>
+		    
+		    <div
+		    		id="stundent-combo-ex-4"
+		            class="ace-auto-gen ace-col-4 ace-small-padding"
+		            type="combobox"
+		            label="Students"
+		            displayname="student_name"
+		            valuename="student_id"
+		            renderer="rendererStudent"
+		    ></div>
+		    
+		    <div
+		            class="ace-auto-gen ace-col-3 ace-small-padding"
+		            type="button"
+		            value="Edit a student"
+		            action="editCurrentStudentEx4"
+		    ></div>
+	    </div>
+	    
+	    <div id="ace-form-ex-4"></div>
+	    
+	</div>
+	
+</div>
+
+<div class="ace-hide" id="empty-form-template">
+	<!-- it's empty -->
+</div>
+
+<div class="ace-hide" id="student-editing-form-template">
+	
+	<div class="ace-col-12 ace-transparent-title-bar">
+	
+		<h2 class="ace-auto-gen ace-center" type="display" fieldname="title"></h2>
+		
+	</div>
+	
+	<div class="ace-col-12">
+	
+		<div class="ace-col-12 ace-small-padding-top ace-center">
+			<div class="ace-auto-gen ace-col-5 ace-small-padding"
+				 type="text"
+				 fieldname="student_name"
+			 	 validation="allowempty=false"
+			 	 label="Name">
+		 	 </div>
+			<div class="ace-auto-gen ace-col-5  ace-small-padding"
+				 type="datepicker"
+				 fieldname="student_birthday"
+			 	 validation="allowempty=false"
+			 	 label="Birthday">
+		 	 </div>
+	 	 </div>
+	 	 
+	 	 <div class="ace-col-12 ace-center">
+		 	 <div class="ace-auto-gen ace-col-5 ace-small-padding"
+				 type="combobox"
+				 fieldname="student_sex"
+			 	 validation="allowempty=false"
+			 	 label="Sex">
+			 	 
+			 	 <store>
+		            <record>
+		                <field name="name">Female</field>
+		                <field name="id">F</field>
+		            </record>
+		            <record>
+		                <field name="name">Male</field>
+		                <field name="id">M</field>
+		            </record>
+		        </store>
+			 	 
+		 	 </div>
+		 	 
+		 	 <div class="ace-auto-gen ace-col-5 ace-small-padding"
+				 type="autocomplete"
+				 fieldname="student_country"
+			 	 validation="allowempty=false"
+			 	 label="Country"
+			 	 
+	             displayname="student_country"
+	             
+	             searchname="country_name"
+	             valuename="country_id"
+	            
+	             net="remote=true;autoload=false;fid='loadcountriesfilter';size=5"
+	            
+	             minlength="0"
+	             autosearchonfocus="true"
+	             usequeries="true"
+	             
+	             >
+		 	 </div>
+		 	 
+	 	 </div>
+	 	 
+	
+	</div>
+	
+	<div class="ace-col-12 ace-centered-blocks">
+	
+		<div
+			class="ace-auto-gen ace-small-padding"
+			type="button"
+			value="Save Student Information"
+			iconcls="far fa-save"
+			action="save"
+		></div>
+	
+		<div
+			class="ace-auto-gen ace-small-padding"
+			type="button"
+			value="Go Back"
+			iconcls="far fa-ban"
+			action="cancel"
+		></div>
+	
+	</div>
+	
+	
+</div>
+
+<div id="ace-form-ex-1" class="" type="form" template="empty-form-template"></div>
+<div id="ace-form-ex-2"></div>
+
+
+<script>
+
+    function form_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/elements/js/form.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>
