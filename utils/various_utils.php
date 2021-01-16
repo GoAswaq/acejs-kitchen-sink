@@ -1,67 +1,67 @@
 <?php
 /**
- * 
+ *
  * the method returns an array, containig all the elements from source_arr which met the given criteria
  * a criteria is validated, if an element of source_arr has at least one field, which is equal, or which contains the given criteria
- * 
+ *
  * @param array $source_arr an array, in which each element is an associative array
  * @param array $search_terms an, representing a collection of search criteria
  * @param bool $all_conditions - true, if all conditions must be met
  */
 function filter_array_data(&$source_arr, &$search_terms, $all_conditions = false){
-    
+
     if( count($search_terms) == 0 ){
         return $source_arr;
     }
-    
-    $filtered_data = [];
-    
+
+    $filtered_data = array();
+
     foreach( $search_terms as &$criteria){
         $criteria = strtolower(trim($criteria));
     }
     unset($criteria);
-    
+
     foreach($source_arr as &$source ){
-        
-        $matched_criterias_map = [];
-        
+
+        $matched_criterias_map = array();
+
         foreach($source as $k => $v ){
-            
+
             $v = strtolower($v);
-            
+
             foreach( $search_terms as $criteria ){
-                
+
                 if( $criteria == '' ){
                     continue;
                 }
-                
+
                 if( $criteria == $v || strpos($v, $criteria) !== false ){
                     $matched_criterias_map[$criteria] = true;
                 }
-                
+
             }
         }
-        
+
         if(     ($all_conditions && count(array_keys($matched_criterias_map)) == count($search_terms) )
             ||  (!$all_conditions && count(array_keys($matched_criterias_map)) > 0 )
         ){
-            
+
             $filtered_data[] = $source;
         }
-        
+
     }
     unset($source);
-    
+
     return $filtered_data;
 }
 
 function get_pagination_from_array(&$source_arr, $start = 0, $limit = 25){
-    $paged_data = [];
-    
+    $paged_data = array();
+
     $actual_limit = min( count($source_arr), $start+$limit);
-    
+
     for($idx = $start; $idx < $actual_limit; $idx++){
-        
+
         $paged_data[] = $source_arr[$idx];
     }
 
@@ -109,36 +109,36 @@ function save_uploaded_file($uploaded_file_name, &$error_msg){
         $error_msg = 'The uploaded file could not be detected';
         return false;
     }
-    
+
     if (! is_dir(_uploads_dir)) {
         if (! rmkdir(_uploads_dir, 0777)) {
             $error_msg = 'Failed to create uploads directory!';
             return false;
         }
     }
-    
+
     if (!move_uploaded_file($_FILES[$uploaded_file_name]['tmp_name'], _uploads_dir.'/'.$_FILES['upload_image_file']['name'])) {
         $error_msg = 'Failed to save the uplaoded file!';
         return false;
     }
-    
-    return [
-               $uploaded_file_name.'_path' => _uploads_path.'/'.$_FILES['upload_image_file']['name'],
-               $uploaded_file_name.'_iconcls' => get_extension_iconcls($_FILES['upload_image_file']['name'])
-           ];
-    
+
+    return array(
+        $uploaded_file_name.'_path' => _uploads_path.'/'.$_FILES['upload_image_file']['name'],
+        $uploaded_file_name.'_iconcls' => get_extension_iconcls($_FILES['upload_image_file']['name'])
+    );
+
 }
 
 function get_extension_iconcls($file_name) {
-    
+
     $extension = pathinfo($file_name, PATHINFO_EXTENSION);
-    
+
     switch( $extension ){
         case 'pdf': return 'fal fa-file-pdf';
         case 'txt': return 'fal fa-file-alt';
         default: return 'fal fa-file';
     }
-    
+
 }
 
 function delete_uploaded_file($uploaded_file_name){
