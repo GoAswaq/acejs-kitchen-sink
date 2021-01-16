@@ -14,9 +14,7 @@ if (function_exists('spl_autoload_register')) {
     spl_autoload_register('__ksace_autoload', true);
 }
 else {
-    function __autoload($class_name) {
-        __ksace_autoload($class_name);
-    }
+    include("autoload.php");
 }
 
 $__unset_vars = array(
