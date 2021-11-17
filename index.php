@@ -304,6 +304,9 @@ switch( $_COOKIE['ks_theme'] ){
 }
 
 
+$css_link = 'https://cdn.jsdelivr.net/gh/GoAswaq/acejs/css/ace.css';
+if ($_GET['local']=='1')  $css_link = 'http://127.0.0.1/git/acejs-4/css/scss/ace.css';
+print_a($css_link);
 
 $page_content = str_replace([
     '{__PH_ALGN}',
@@ -311,6 +314,7 @@ $page_content = str_replace([
     '{__PH_ACE_TOP_BAR}',
     '{__PH_ACE_SIDE_MENU}',
     '{__PH_ACE_BOTTOM_BAR}',
+    '{__PH_ACE_CSS_LINK}',
 ],
     [
         $page_alignement,
@@ -318,6 +322,7 @@ $page_content = str_replace([
         $_COOKIE['ks_app_tb'] == 1 ? 1 : 0,
         $_COOKIE['ks_app_sm'] == 1 ? 1 : 0,
         $_COOKIE['ks_app_bb'] == 1 ? 1 : 0,
+        $css_link,
     ],
     $page_content);
 

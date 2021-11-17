@@ -219,7 +219,9 @@ navigatorObj = {
 		
 		this.initElementsNavigator();
 		this.initUtilitiesNavigator();
-		
+
+
+
 	},
 	
 	initElementsNavigator : function(){
@@ -526,3 +528,79 @@ $(function(){
 	navigatorObj.init();
 	testViewObj.init();
 });
+
+
+function addAfterLoadElements(tpl) {
+	var link = $('<a>', {
+		class: 'ace-hide after-auto-gen',
+		href: '#',
+	}).append("<i class='fa fa-code'>").click(function() {
+		showCode(this);
+	});
+	$("#ks-example-details").find(".ace-auto-gen").after(link);
+	$("#ks-example-details").find(".ace-auto-gen").unbind('mouseenter mouseleave').hover(function() {
+		var el = $(this).siblings('.after-auto-gen').eq(0);
+		el.removeClass('ace-hide').fadeIn(100).position({
+			my:        "left top",
+			at:       	"right-20 top+2",
+			of:        $(this),
+			collision: "fit"
+		});
+
+	}, function() {
+		var el = $(this).siblings('.after-auto-gen').eq(0);
+
+		if (el.parent().find(el.selector + ":hover").length > 0) {
+			el.hover(function() {
+
+			}, function() {
+				el.addClass('ace-hide');
+			})
+			return false;
+		}
+		el.addClass('ace-hide');
+
+	});
+}
+
+function showCode(el) {
+	console.log(arguments);
+	console.log($(el));
+	var innerHTML = $(el).prev('.ace-auto-gen').html();
+	var outerHTML = $(el).prev('.ace-auto-gen')[0].outerHTML;
+	outerStripHTML = outerHTML.replace(innerHTML, '');
+	console.log(process_html(outerHTML));
+	console.log(process_html(outerStripHTML));
+}
+
+
+
+function process_html(str) {
+
+	var div = document.createElement('div');
+	div.innerHTML = str.trim();
+
+	return format_html(div, 0).innerHTML;
+}
+
+function format_html(node, level) {
+
+	var indentBefore = new Array(level++ + 1).join('  '),
+		indentAfter  = new Array(level - 1).join('  '),
+		textNode;
+
+	for (var i = 0; i < node.children.length; i++) {
+
+		textNode = document.createTextNode('\n' + indentBefore);
+		node.insertBefore(textNode, node.children[i]);
+
+		format_html(node.children[i], level);
+
+		if (node.lastElementChild == node.children[i]) {
+			textNode = document.createTextNode('\n' + indentAfter);
+			node.appendChild(textNode);
+		}
+	}
+
+	return node;
+}

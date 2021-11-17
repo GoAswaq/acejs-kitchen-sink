@@ -5,8 +5,7 @@
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
 	<!-- make it SO that these PATHS are correctly loaded on your local machine -->
-	
-	<link href="https://cdn.jsdelivr.net/gh/GoAswaq/acejs/css/ace.css" type="text/css" rel="stylesheet" />
+	<link href="{__PH_ACE_CSS_LINK}" type="text/css" rel="stylesheet" />
 	
 	{__PH_THEMES}
 	
@@ -25,7 +24,7 @@
 	
 	<script src="./layout/html/main/js/utils.js" type="text/javascript"></script>
 	<script src="./layout/html/main/js/main_page.js" type="text/javascript"></script>
-	
+
 </head>
 
 <body>
@@ -35,8 +34,10 @@
 	<div class="ace-col-2 ace-full-height-100vh ace-show" style="background-image:url(./layout/imgs/bk-pattern.png)" id="ks-example-selector">
 		<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
 			<h2 class="ace-auto-gen" type="display" value="Controls"></h2>
+			<div class="ace-auto-gen" type="button" iconcls="fad fa-code" action="addAfterLoadElements"></div>
 		</div>
-		
+
+
 		<div class="ace-col-12 ace-height-minus-100 ace-scrollview">
 			<div
 	            class="ace-auto-gen ace-col-12 ace-medium-padding-top"
@@ -117,7 +118,7 @@
 			
 			<div class="ace-col-12 element-type-container ace-hide" tag="no-element-selected">
 				<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
-					<div class="ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+					<div class="ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector-"></div>
 					<h2 class="ace-auto-gen" type="display" value="Nothing Selected"></h2>
 				</div>
 				<p>Please select a field type from the list on the side!</p>
@@ -130,7 +131,7 @@
 			
 			<div class="ace-col-12 utility-type-container ace-hide" tag="no-utility-selected">
 				<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
-					<div class="ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+					<div class="ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector-"></div>
 					<h2 class="ace-auto-gen" type="display" value="Nothing Selected"></h2>
 				</div>
 				<p>Please select an utility type from the list on the side!</p>
