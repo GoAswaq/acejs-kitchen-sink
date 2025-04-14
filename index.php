@@ -304,9 +304,11 @@ switch( $_COOKIE['ks_theme'] ){
 }
 
 
-$css_link = 'https://cdn.jsdelivr.net/gh/GoAswaq/acejs/css/ace.css';
-if ($_GET['local']=='1')  $css_link = 'http://127.0.0.1/git/acejs-4/css/scss/ace.css';
-print_a($css_link);
+//$css_link = 'https://cdn.jsdelivr.net/gh/GoAswaq/acejs/css/ace.css';
+$css_link = 'https://sbox2.7sab.com/thinkITShared///js_csslibs/thinkITJQplugins/ace/css/wisemed_ace.css?v=2.0.1';
+//if ($_GET['local']=='1')  $css_link = 'http://127.0.0.1/git/acejs-4/css/scss/ace.css';
+//$css_link = 'http://127.0.0.1/git/acejs-github/css/scss/7sab_ace.css?v=2.0.1';
+//print_a($css_link);
 
 $page_content = str_replace([
     '{__PH_ALGN}',
