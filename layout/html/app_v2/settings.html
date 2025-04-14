@@ -1,0 +1,53 @@
+<div class="ace-transparent-title-bar ace-independent-style">
+	<h2>Settings</h2>
+</div>
+
+<div class="ace-info-side ace-col-12">
+	
+    <div class="ace-col-12 ace-height-minus-120 ace-scrollview">
+        <div class="ace-col-12 ace-centered-blocks ace-medium-padding ace-scrollview">
+			<div class="ace-col-3 ace-col-l-6 ace-col-m-6 ace-small-padding">
+                <a href="#" class="ace-simple-card ace-icon-card ace-col-12 ace-small-padding settings-action-preferences-menu">
+                    <i class="fad fa-hospital"></i>
+                    <h3>Preferences</h3>
+                    setup various preferences
+                </a>
+            </div>
+			<div class="ace-col-3 ace-col-l-6 ace-col-m-6 ace-small-padding">
+                <a href="#" class="ace-simple-card ace-icon-card ace-col-12 ace-small-padding settings-action-financial-menu">
+                    <i class="fad fa-money-bill-wave"></i>
+                    <h3>Financial Data</h3>
+                    access to various financial data
+                </a>
+            </div>
+			<div class="ace-col-3 ace-col-l-6 ace-col-m-6 ace-small-padding">
+                <a href="#" class="ace-simple-card ace-icon-card ace-col-12 ace-small-padding settings-action-personal-menu">
+                    <i class="fad fa-briefcase-medical"></i>
+                    <h3>Personal Details</h3>
+                    access your own personal details
+                </a>
+            </div>
+			<div class="ace-col-3 ace-col-l-6 ace-col-m-6 ace-small-padding">
+                <a href="#" class="ace-simple-card ace-icon-card ace-col-12 ace-small-padding settings-action-others-menu">
+                    <i class="fad fa-notes-medical"></i>
+                    <h3>Other</h3>
+                    other various elements
+                </a>
+            </div>
+    
+        </div>
+	</div>
+	
+</div>
+
+<script>
+
+    function settings_tpl_loaded(target){
+        $.aceOverWatch.template.loadScripts("./layout/html/app_v2/js/settings.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

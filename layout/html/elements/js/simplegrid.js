@@ -296,6 +296,22 @@ var simpleGridObj = {
       	   iconcls : 'fal fa-palette',
       	   groupheader : 'Appearance',
          },
+		{
+			title : 'Other',
+			fieldname : 'test',
+			align : 'center',
+			aditionalclasses : 'ace-col-1',
+			iconcls : 'fal fa-tag',
+			groupheader : 'Appearance',
+		},
+			{
+				title : 'Other 2',
+				fieldname : 'test',
+				align : 'center',
+				aditionalclasses : 'ace-col-1',
+				iconcls : 'fal fa-tag',
+				groupheader : 'Appearance',
+			},
          {
       	   title : 'Binary',
       	   fieldname : 'random_binary',

@@ -16,7 +16,7 @@ var wizardObj = {
 					fields.push(field+' = '+simpleData[field]);
 				}
 				
-				$.aceOverWatch.prompt.show('Congratulations, the wizard is at the end! This is the data you have entered:<br>'+fields.join('<br>')+'<br><b>Would you like to rest it</b>?',function(){
+				$.aceOverWatch.prompt.show('Congratulations, the wizard is at the end! This is the data you have entered:<br>'+fields.join('<br><br>')+'<br><b>Would you like to reset it</b>?',function(){
 					$.aceOverWatch.field.wizard.reset(wizardObj.ex1);
 				},{type:'question'});				
 			},

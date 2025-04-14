@@ -9,6 +9,7 @@ ksSettingsObj = {
 		ks_app_tb : 0,
 		ks_app_sm : 0,
 		ks_app_bb : 0,
+		ks_app_gmc : 0,
 	},
 	
 	currentValues : {

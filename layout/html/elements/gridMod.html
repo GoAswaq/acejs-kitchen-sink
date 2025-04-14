@@ -50,9 +50,10 @@
 							<li><i>ace-flex-grid-height-200</i></li>
 						</ul>
 					</li>
-					<li><i>ace-responsive-grid</i>: This class is activated at resolutions bellow 680px. It hides the header, and on each row, for each column it displayes the column header text in front of the displayed value.</li>
+					<li><i>ace-responsive-grid</i>: This class is activated at resolutions bellow 680px. It hides the header, and on each row, for each column it displays the column header text in front of the displayed value.</li>
 					<li><i>ace-grid-absolute-footer</i>: Makes it so that the footer, if visible, will be displayed at the bottom of the grid container's element.</li>
-					<li><i>ace-white-space-normal</i>:This is NOT a grid specific class, but a global text related one. Use this class to force the grid to display the entire text of its cells, even thouhg this might lead to thicker rows.</li>
+					<li><i>ace-white-space-normal</i>:This is NOT a grid specific class, but a global text related one. Use this class to force the grid to display the entire text of its cells, even though this might lead to thicker rows.</li>
+					<li><i>ace-no-text-wrap</i>:This is NOT a grid specific class, but a global text related one, which also has an effect on grid cells. The text will be displayed on one line, and the overflow will be hidden.</li>
 				</ul>
 			</div>
 		</div>
@@ -288,6 +289,13 @@
 	            label="ace-white-space-normal"
 	            onchange="toggleGridModEx1Classes"
 	    	></div>
+
+			<div
+					class="ace-auto-gen "
+					type="checkbox"
+					label="ace-no-text-wrap"
+					onchange="toggleGridModEx1Classes"
+			></div>
 	    	
     	</div>
     	
@@ -386,7 +394,7 @@
 			<div class="ace-auto-gen ace-col-12" type="display" fieldname="student_birthday" label="Birthday" labelalign="left" labelwidth="100px"></div>
 			<div class="ace-auto-gen ace-col-12" type="display" fieldname="student_sex" label="Sex" labelalign="left" labelwidth="100px"></div>
 			<div class="ace-auto-gen ace-col-12" type="display" fieldname="student_country" label="Country" labelalign="left" labelwidth="100px"></div>
-			<div class="ace-auto-gen ace-col-12" type="display" fieldname="student_id" label="Id" labelalign="left" labelwidth="100px"></div>
+			<div class="ace-auto-gen ace-col-12" type="text" fieldname="student_id" label="Id" labelalign="left" labelwidth="100px"></div>
 		</div>
 		
 	</div>

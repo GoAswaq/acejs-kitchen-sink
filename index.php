@@ -241,6 +241,10 @@ switch( $fid ){
         $actual_main_page = 'app_view.html';
         break;
 
+    case 'appview_v2':
+        $actual_main_page = 'app_view_v2.html';
+        break;
+
     default:
         /*
          * assumed it is a normal page request
@@ -316,7 +320,9 @@ $page_content = str_replace([
     '{__PH_ACE_TOP_BAR}',
     '{__PH_ACE_SIDE_MENU}',
     '{__PH_ACE_BOTTOM_BAR}',
+    '{__PH_ACE_GROUP_MAIN_CONTENT}',
     '{__PH_ACE_CSS_LINK}',
+    '{__APP_PATH}'
 ],
     [
         $page_alignement,
@@ -324,7 +330,9 @@ $page_content = str_replace([
         $_COOKIE['ks_app_tb'] == 1 ? 1 : 0,
         $_COOKIE['ks_app_sm'] == 1 ? 1 : 0,
         $_COOKIE['ks_app_bb'] == 1 ? 1 : 0,
+        $_COOKIE['ks_app_gmc'] == 1 ? 1 : 0,
         $css_link,
+        _base_dir
     ],
     $page_content);
 

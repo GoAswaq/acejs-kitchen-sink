@@ -14,6 +14,18 @@ function toggleReadonlyChips(button) {
     $.aceOverWatch.toast.show('success', 'The chips element is now:' + (willBeReadonly ? 'READONLY' : 'NOT Readonly'));
 }
 
+function toggleClickOnChips(button) {
+
+	let chipsElement = button.parents('.example-container').first().find('[type="chips"]');
+
+	let willBeClickable = chipsElement.data($.aceOverWatch.settings.aceSettings).clickonchips ? false : true;
+	chipsElement.ace('modify',{
+		clickonchips : willBeClickable
+	});
+
+	$.aceOverWatch.toast.show('success', 'Chips may be removed:' + (willBeClickable ? 'by clicking on X' : 'by clicking anywhere on X'));
+}
+
 function getValueChips(button) {
 	let chipsData = button.parents('.example-container').first().find('[type="chips"]').ace('value');
 	

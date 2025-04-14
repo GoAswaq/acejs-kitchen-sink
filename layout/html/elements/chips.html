@@ -63,6 +63,8 @@
 					<li>The chips already has a set of data on creation.</li>
 					<li>The chip may have a custom method specified, which validates the input field. In this case, only short text are allowed to be added as chips: max length of 3 characters.</li>
 					<li>Two events are generated each time a new chip is added, or removed. This events may be intercepted.</li>
+					<li>The chip may have a button displayed, which, when pressed, will clear the contents.</li>
+					<li>Also, if desired, clicking anywhere on a chip can remove the chip. By default, chips may be removed only when the X is pressed.</li>
 				</ul>
 			</div>
 		</div>
@@ -73,6 +75,8 @@
 	            placeholder="type something here and press enter"
 	            
 	            allowduplicates="true"
+				withclearbutton="true"
+				clickonchips="false"
 	            maxchipcount="5"
 	            customallowadd="allowChipTextToBeAdded"
 	            onadd="onChipAdded"
@@ -104,6 +108,13 @@
 		            value="Toggle Readonly"
 		            action="toggleReadonlyChips"
 		    ></div>
+
+			<div
+					class="ace-auto-gen"
+					type="button"
+					value="Toggle Click on Chips"
+					action="toggleClickOnChips"
+			></div>
 		    
 		    <div
 		            class="ace-auto-gen"

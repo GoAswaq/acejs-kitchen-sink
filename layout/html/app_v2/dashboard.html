@@ -144,8 +144,6 @@
 			
 			<div class="ace-auto-gen ace-col-12 ace-small-padding app-control" type="checkbox" label="Hide Top Bar" appcode="tb" onchange="onAppChanges"></div>
 			<div class="ace-auto-gen ace-col-12 ace-small-padding app-control" type="checkbox" label="Hide Side Menu" appcode="sm" onchange="onAppChanges"></div>
-			<div class="ace-auto-gen ace-col-12 ace-small-padding app-control" type="checkbox" label="Hide Bottom Bar" appcode="bb" onchange="onAppChanges"></div>
-			<div class="ace-auto-gen ace-col-12 ace-small-padding app-control" type="checkbox" label="Group Main Content" appcode="gmc" onchange="onAppChanges"></div>
 
 			<div class="ace-col-12 ace-white-space-normal">
 				<p class="ace-font-size-75p">(*) After each modification the page will refresh itself, and the ACE Application will be recreated with the new settings.</p>
@@ -180,7 +178,7 @@
 <script>
 
     function dashboard_tpl_loaded(target){
-        $.aceOverWatch.template.loadScripts("./layout/html/app/js/dashboard.js", function(){
+        $.aceOverWatch.template.loadScripts("./layout/html/app_v2/js/dashboard.js", function(){
             
         	dashboardObj.init();
         	/*

@@ -25,6 +25,10 @@ var formObj = {
 				this.form = $('#ace-form-ex-2').ace('create',{
 					type		: 'form',
 					ftype		: 'popup',
+
+					displayinfullscreenonmobile: true,
+					displayinfullscreencancel: true,
+
 					template 	: 'student-editing-form-template',
 					
 					autoloadfieldsonshow : false,
@@ -137,6 +141,9 @@ var formObj = {
 				this.form = $('#ace-form-ex-3').ace('create',{
 					type		: 'form',
 					ftype		: 'custom',
+
+					displayinfullscreenonmobile: true,
+
 					template 	: 'student-editing-form-template',
 					renderto	: 'ace-form-ex-3',
 					

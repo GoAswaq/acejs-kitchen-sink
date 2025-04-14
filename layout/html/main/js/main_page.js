@@ -171,7 +171,11 @@ navigatorObj = {
 			name : 'Advanced Panel',
 			category : 'Panels',
 		},
-		
+		presentation : {
+			name : 'Presentation Panel',
+			category : 'Panels',
+		},
+
 		iform : {
 			name : 'Independent Form',
 			category : 'Panels',
@@ -199,6 +203,10 @@ navigatorObj = {
 		},
 		app : {
 			name : 'App',
+			category : 'Panels',
+		},
+		app_v2 : {
+			name : 'App v2',
 			category : 'Panels',
 		},
 	},

@@ -2,10 +2,10 @@
 
 	<h2>Students</h2>
 	
-	<div class="ace-buttons-groups">
+	<div class="ace-buttons-groups" id="ace-students-button-group">
 	
 		<div
-			class="ace-auto-gen ace-right student-grid-buttons"
+			class="ace-auto-gen ace-right student-grid-buttons ace-grid-operation-button"
 			type="button"
 			value="Refresh"
 			action="refreshStudents"
@@ -13,7 +13,7 @@
 		></div>
 
 		<div
-			class="ace-auto-gen ace-right student-form-buttons"
+			class="ace-auto-gen ace-right student-form-buttons ace-form-operation-button"
 			type="button"
 			value="Save"
 			action="saveStudent"
@@ -21,7 +21,7 @@
 		></div>
 		
 		<div
-			class="ace-auto-gen ace-right student-form-buttons"
+			class="ace-auto-gen ace-right student-form-buttons ace-form-operation-button"
 			type="button"
 			value="Cancel"
 			action="cancelStudent"
@@ -104,10 +104,71 @@
 
 </div>
 
+<div id="students-grid-presentation-template" class="ace-hide">
+
+	<div class="ace-col-12">
+
+		<div class="ace-auto-gen ace-col-12 ace-medium-padding"
+			 type="text"
+			 fieldname="student_name"
+			 validation="allowempty=false"
+			 label="Name">
+		</div>
+		<div class="ace-auto-gen ace-col-12  ace-medium-padding"
+			 type="datepicker"
+			 fieldname="student_birthday"
+			 validation="allowempty=false"
+			 label="Birthday">
+		</div>
+
+		<div class="ace-auto-gen ace-col-12 ace-medium-padding"
+			 type="combobox"
+			 fieldname="student_sex"
+			 validation="allowempty=false"
+			 label="Sex">
+
+			<store>
+				<record>
+					<field name="name">Female</field>
+					<field name="id">F</field>
+				</record>
+				<record>
+					<field name="name">Male</field>
+					<field name="id">M</field>
+				</record>
+			</store>
+
+		</div>
+
+		<div class="ace-auto-gen ace-col-12 ace-medium-padding"
+			 type="autocomplete"
+			 fieldname="student_country"
+			 validation="allowempty=false"
+			 label="Country"
+
+			 displayname="student_country"
+
+			 searchname="country_name"
+			 valuename="country_id"
+
+			 net="remote=true;autoload=false;fid='loadcountriesfilter';size=5"
+
+			 minlength="0"
+			 autosearchonfocus="true"
+			 usequeries="true"
+
+		>
+		</div>
+
+
+	</div>
+
+</div>
+
 <script>
 
     function students_tpl_loaded(target){
-        $.aceOverWatch.template.loadScripts("./layout/html/app/js/students.js", function(){
+        $.aceOverWatch.template.loadScripts("./layout/html/app_v2/js/students.js", function(){
             /*
              * TO DO: other stuff, as needed
              */
