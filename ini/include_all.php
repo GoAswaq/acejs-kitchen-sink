@@ -48,14 +48,14 @@ $_uploads_dir = $dir_prefix.'/uploads';
 $_uploads_path = $_base_dir.'/uploads';
 
 
-define(__app_session_prefix, 'KSACE_');
-define(_base_dir, $_base_dir);
-define(_sources_base_dir, $_sources_base_dir);
-define(_resources_base_dir, $_resources_base_dir);
-define(_uploads_dir, $_uploads_dir);
-define(_uploads_path, $_uploads_path);
-define(_path_dir, $_path_dir);
-define(_resources_dir, $_resources_dir);
+define('__app_session_prefix', 'KSACE_');
+define('_base_dir', $_base_dir);
+define('_sources_base_dir', $_sources_base_dir);
+define('_resources_base_dir', $_resources_base_dir);
+define('_uploads_dir', $_uploads_dir);
+define('_uploads_path', $_uploads_path);
+define('_path_dir', $_path_dir);
+define('_resources_dir', $_resources_dir);
 
 ini_set('include_path', '.');
 ini_set('session.auto_start', '1');

@@ -14,7 +14,7 @@ $key_prefix_length = 1;
 foreach($_POST as $key=>$val){
     $$key = $val;
     if (!is_array($val)) {
-        if ($key{0}===$key_prefix) $APP_data[substr($key,$key_prefix_length)] = $val;
+        if ($key[0]===$key_prefix) $APP_data[substr($key,$key_prefix_length)] = $val;
     }
     //print_a("$key = $val;");
 }
@@ -23,7 +23,7 @@ foreach($_GET as $key=>$val)
 {
     $$key = $val;
     if (!is_array($val)) {
-        if ($key{0}===$key_prefix) $APP_data[substr($key,$key_prefix_length)] = $val;
+        if ($key[0]===$key_prefix) $APP_data[substr($key,$key_prefix_length)] = $val;
     }
 }
 
@@ -52,7 +52,7 @@ if (isset($payload)) {
         foreach($arr_payload as $key=>$val) {
             $$key = $val;
             if (!is_array($val)) {
-                if ($key{0}===$key_prefix) $APP_data[substr($key,$key_prefix_length)] = $val;
+                if ($key[0]===$key_prefix) $APP_data[substr($key,$key_prefix_length)] = $val;
             }
         }
     }
