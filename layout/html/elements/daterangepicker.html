@@ -1,0 +1,59 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Daterangepicker Elements - Examples"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>Elements of tip <b>daterangepicker</b> are used to display and select a date range.</p>
+		<p>By default, the date format used is: yy-mm-dd. Currently it cannot be changed (It the future it will).</p>
+		<p>The value returned on an *.ace('value')* will be a comma separated string, of the period start and end dates: YYYY-MM-DD,YYYY-MM-DD. </p>
+		<p>When the value is set on the field, the value must be formatted exactly as described above.</p>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 1 - Simple Daterangepicker, default format: yy-mm-dd</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+				</ul>
+			</div>
+		</div>
+		
+		
+		<div
+	            class="ace-auto-gen ace-col-8"
+	            type="daterangepicker"
+	            label="Period"
+	            labelwidth="200px"
+				onchange="onDaterangepickerChange"
+	    ></div>
+	    
+	    <div class="ace-col-4 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Get value"
+		            action="getValueDaterangepicker"
+		    ></div>
+		    
+	    </div>
+	</div>
+	
+
+</div>
+
+<script>
+
+    function daterangepicker_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/elements/js/daterangepicker.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

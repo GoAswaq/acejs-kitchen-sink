@@ -1,0 +1,149 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Multicheck Elements - Examples"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>Elements of tip <b>multicheck</b> are used to select one or more elements from a list of elements.</p>
+		<p>Multicheck fields are using arrays of data as a datasource, in which each element in the array is an object, with one or more fields:</p>
+		<p>One of these fields will be used to determine the TEXT which is displayed (default field: name), and another field is chosen to become the actual VALUE (default field: value) of the current selection</p>
+		<p>The multicheck may be give a set of static data, or it may be configured to load it's own data from the server automatiaclly.</p>
+		<p>If the element is in a form, and it is porperly configured, the form will automatically retrive its value on the save operation, if the multicheck has been changed.</p>
+		<p>When displaying the selector box the style of the selection columns may be changed through the *customtoptionsselectionclasses* setting, through which the desired CSS class may be set. For example, by using the ace-col-6 class, the number of colums will be 2, and through ace-col-4, the number of columns will be 3. </p>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+		
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 1 - Multicheck with data loaded directly from HTML</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>the selection list is given explicidley directly in the html</li>
+					<li>the value returned is a comma separated string of all the selected ids</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="ace-auto-gen ace-col-6 ace-small-padding"
+			 type="multicheck"
+			 label="Tipuri Servicii"
+			 labelalign="top"
+			 customtoptionsselectionclasses="ace-col-4"
+			 onchange="onChangeMulticheck"
+		>
+			<store>
+				<record>
+					<field name="name">Servicii medicale consult</field>
+					<field name="id">1</field>
+				</record>
+				<record>
+					<field name="name">Servicii medicale aditionale</field>
+					<field name="id">2</field>
+				</record>
+				<record>
+					<field name="name">Investigatii laborator</field>
+					<field name="id">3</field>
+				</record>
+				<record>
+					<field name="name">Investigatii imagistice</field>
+					<field name="id">4</field>
+				</record>
+				<record>
+					<field name="name">Alte investigatii</field>
+					<field name="id">5</field>
+				</record>
+				<record>
+					<field name="name">Consumuri materiale sanitare</field>
+					<field name="id">6</field>
+				</record>
+				<record>
+					<field name="name">Medicatie de urgenta</field>
+					<field name="id">7</field>
+				</record>
+				<record>
+					<field name="name">Medicatie curenta</field>
+					<field name="id">8</field>
+				</record>
+				<record>
+					<field name="name">Interventii chirurgicale</field>
+					<field name="id">9</field>
+				</record>
+				<record>
+					<field name="name">Servicii hoteliere</field>
+					<field name="id">10</field>
+				</record>
+			</store>
+
+		</div>
+		
+	   	<div class="ace-col-4 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+
+			<div
+					class="ace-auto-gen"
+					type="button"
+					value="Toogle Number of Selection Columns (1,2, or 3)"
+					action="toogleSelectionColumnsNumberMulticheck"
+			></div>
+	   	
+		    <div
+		            class="ace-auto-gen"
+		            type="button"
+		            value="Get value"
+		            action="getValueMulticheck"
+		    ></div>
+
+	    </div>
+	    
+	</div>
+
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 2 - Multicheck, with data from Server</h3>
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>initially, the multicheck does not have any items.</li>
+					<li>the first time the selection box is open, the field detects that it has no items, and becuse of this it will attempt to load the data from the server</li>
+					<li>use the <i>displayname</i> and <i>valuename</i> to specify the record fields used for value and display </li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="ace-auto-gen ace-col-6 ace-small-padding"
+			 type="multicheck"
+			 label="Studenti"
+			 labelalign="top"
+			 customtoptionsselectionclasses="ace-col-6"
+			 net="remote=true;autoload=false;fid='loadstudents'"
+			 onchange="onChangeMulticheck"
+			 displayname="student_name"
+			 valuename="student_id"
+		>
+		</div>
+
+		<div class="ace-col-4 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+			<div
+					class="ace-auto-gen"
+					type="button"
+					value="Get value"
+					action="getValueMulticheck"
+			></div>
+		</div>
+
+	</div>
+
+</div>
+
+<script>
+
+    function multicheck_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/elements/js/multicheck.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

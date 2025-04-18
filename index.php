@@ -61,6 +61,7 @@ if (isset($payload)) {
 }
 
 $actual_main_page = 'main_page.html';
+$custom_content = '';
 
 global $fid,$cmd;
 switch( $fid ){
@@ -218,7 +219,6 @@ switch( $fid ){
             );
         }
         die();
-        break;
 
     case 'getremotedata':
         print(json_encode([
@@ -244,6 +244,12 @@ switch( $fid ){
     case 'appview_v2':
         $actual_main_page = 'app_view_v2.html';
         break;
+
+    case 'readme':
+        $actual_main_page = 'readme.html';
+        require_once(_path_dir.'/libs/parsedown-1.7.4/Parsedown.php');
+        $Parsedown = new Parsedown();
+        $custom_content = $Parsedown->text(file_get_contents(_path_dir.'/documentation/general_readme_first.md'));
 
     default:
         /*
@@ -323,7 +329,8 @@ $page_content = str_replace([
     '{__PH_ACE_BOTTOM_BAR}',
     '{__PH_ACE_GROUP_MAIN_CONTENT}',
     '{__PH_ACE_CSS_LINK}',
-    '{__APP_PATH}'
+    '{__APP_PATH}',
+    '{__CUSTOM_CONTENT}'
 ],
     [
         $page_alignement,
@@ -333,7 +340,8 @@ $page_content = str_replace([
         $_COOKIE['ks_app_bb'] == 1 ? 1 : 0,
         $_COOKIE['ks_app_gmc'] == 1 ? 1 : 0,
         $css_link,
-        _base_dir
+        _base_dir,
+        $custom_content,
     ],
     $page_content);
 

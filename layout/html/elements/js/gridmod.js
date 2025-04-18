@@ -17,6 +17,7 @@ var gridmodObj = {
 		this.targetEx1 = $('#gridmod-ex1-grid').ace('create',{
 			
 			type : 'grid',
+			//gtype : 'table',
 			idfield : 'student_id',
 			selectiontype : 'row',
 			

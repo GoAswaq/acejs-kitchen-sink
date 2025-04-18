@@ -1,0 +1,279 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Help - Examples"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>There are a few ways in which various help information may be included in the page.</p>
+		<p>See the examples bellow for details</p>
+	</div>
+	
+	<div class="ace-col-12 example-container ace-medium-padding-top">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 1 - Tooltips</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>Many ACE fields support <i>tooltips</i>.</li>
+					<li>A tooltip represents an explanation text that will appear when the mouse hovers over an ACE field.</li>
+					<li>The text in this case should be short and streight to the point.</li>
+					<li>To specify a tooltip, the <b>tooltip</b> parameter should be used when creating or modifying an ace field.</li>
+					<li>These tooltips are displayed using native browser support.</li>
+					<li>Hover the mouse over the fields bellow to see the tooltips.</li>
+				</ul>
+			</div>
+		</div>
+		
+    	<div class="ace-col-12">
+    	
+    		<div class="ace-col-12 ace-row ace-flex-justify-spacearound">
+				<div class="ace-auto-gen ace-col-3" type="text" label="Text" tooltip="this is an ACE text field!"></div>
+				<div class="ace-auto-gen ace-col-3" type="display" value="something, or another" label="Display" tooltip="this is an ACE display field!"></div>
+				<div class="ace-auto-gen ace-col-3" type="combobox" label="Combobox" tooltip="this is an ACE combox field, and an empty one at that!"></div>
+    		</div>
+
+			<div class="ace-col-12 ace-row ace-flex-justify-spacearound">
+				<div class="ace-auto-gen ace-col-3" type="password" label="Password" tooltip="this is an ACE password field!"></div>
+				<div class="ace-auto-gen ace-col-3" type="autocomplete" label="Autocomplete" tooltip="this is an ACE autocomplete field!"></div>
+				<div class="ace-auto-gen ace-col-3" type="button" value="Button" tooltip="this is an ACE button field!"></div>
+			</div>
+
+			<div class="ace-col-12 ace-row ace-flex-justify-spacearound ace-medium-padding">
+				<div class="ace-auto-gen ace-col-4" type="textarea" label="Textarea" tooltip="this is an ACE textarea field!"></div>
+				<div
+						class="ace-auto-gen ace-col-4"
+						type="radiogroup"
+						label="Student"
+						tooltip="this is an ACE radiogroup field!"
+				>
+					<store>
+						<record>
+							<field name="name">John Doe</field>
+							<field name="id">20</field>
+						</record>
+						<record>
+							<field name="name">Sarah Finigen</field>
+							<field name="id">40</field>
+						</record>
+						<record>
+							<field name="name">Billy Jeans</field>
+							<field name="id">3</field>
+						</record>
+					</store>
+				</div>
+			</div>
+
+			<div class="ace-col-12 ace-row ace-flex-justify-spacearound ace-medium-padding">
+				<div class="ace-auto-gen ace-col-4" type="checkbox" label="Checkbox" tooltip="this is an ACE checkbox field!"></div>
+				<div class="ace-auto-gen ace-col-4" type="aswitch" label="Switch" tooltip="this is an ACE switch field!"></div>
+			</div>
+
+			<div class="ace-col-12 ace-row ace-flex-justify-spacearound ace-medium-padding">
+				<div class="ace-auto-gen ace-col-4" type="datepicker" label="Datepicker" tooltip="this is an ACE datepicker field!"></div>
+				<div class="ace-auto-gen ace-col-4" type="daterangepicker" label="Date Range Picker" tooltip="this is an ACE date range picker field!"></div>
+				<div class="ace-auto-gen ace-col-4" type="multicheck" label="Multicheck" tooltip="this is an ACE multicheck field!"></div>
+			</div>
+
+			<div class="ace-col-12 ace-row ace-flex-justify-spacearound ace-medium-padding">
+				<div class="ace-auto-gen ace-col-12" type="chips" label="Chips" tooltip="this is an ACE chips field!">
+					<store>
+						<record>
+							<field name="name">C1</field>
+							<field name="value">1</field>
+						</record>
+						<record>
+							<field name="name">C2</field>
+							<field name="value">2</field>
+						</record>
+						<record>
+							<field name="name">C3</field>
+							<field name="value">3</field>
+						</record>
+					</store>
+				</div>
+			</div>
+
+
+    	</div>
+	
+	</div>
+
+	<div class="ace-col-12 example-container ace-medium-padding-top">
+
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 2 - Hints</h3>
+
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>ACE fields may have <i>hints</i>.</li>
+					<li>Hints are a way to display in the page *detailed* information about a field. The information may contain large amounts of text, images, and/or videos.</li>
+					<li>The way this works, is that the DOM element that contains the explanation will be made visible when the ACE field receies input focus. So only ACE fields that may receive input focus will trigger this behaviour.</li>
+					<li>To specify a hint, the property <b>hintselector</b> of an ACE item must be set. The <b>hintselector</b> is a CSS selector pointing at the DOM element that contains the explanation</li>
+					<li>In addition to this, the explanation elements should have the class <i>ace-hint</i>.</li>
+					<li>By default, when a hint is displayed, all other hints next to it will be hidden.</li>
+					<li>The HINT area should display an closing element which will make the hint area hidden.</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="ace-col-12 ace-row">
+
+			<div class="ace-col-7 ace-small-padding">
+				<div class="ace-auto-gen ace-col-12 ace-small-padding" type="text" label="Field 1 - Text" labelalign="left" labelwidth="250px" hintselector="#field1-hint" ></div>
+				<div class="ace-auto-gen ace-col-12 ace-small-padding" type="combobox" label="Field 2 - Combobox" labelalign="left" labelwidth="250px" hintselector="#field2-hint" ></div>
+				<div class="ace-auto-gen ace-col-12 ace-small-padding" type="password" label="Field 3 - Password" labelalign="left" labelwidth="250px" hintselector="#field3-hint" ></div>
+				<div class="ace-auto-gen ace-col-6 ace-small-padding" type="checkbox" label="Field 4.1 - Checkbox" labelalign="left" labelwidth="250px" hintselector="#field41-hint" ></div>
+				<div class="ace-auto-gen ace-col-6 ace-small-padding" type="switch" label="Field 4.2 - Checkbox" labelalign="left" labelwidth="250px" hintselector="#field42-hint" ></div>
+				<div class="ace-auto-gen ace-col-12 ace-small-padding" type="autocomplete" label="Field 5 - Autocomplete" labelalign="left" labelwidth="250px" hintselector="#field5-hint" ></div>
+				<div class="ace-auto-gen ace-col-12 ace-small-padding" type="autocomplete" label="Field 6 - Text Area" labelalign="left" labelwidth="250px" hintselector="#field6-hint" ></div>
+			</div>
+
+			<div class="ace-col-5 ace-padding-5">
+				<div id="field1-hint" class="ace-col-12 ace-full-height ks-test-color-1 ace-hint">
+					<p>This Explanation has been displayed when the field 1 had focus.</p>
+				</div>
+				<div id="field2-hint" class="ace-col-12 ace-full-height ks-test-color-2 ace-hint">
+					<p>This Explanation has been displayed when the field 2 had focus.</p>
+				</div>
+				<div id="field3-hint" class="ace-col-12 ace-full-height ks-test-color-3 ace-hint">
+					<p>This Explanation has been displayed when the field 3 had focus.</p>
+				</div>
+				<div id="field41-hint" class="ace-col-12 ace-full-height ks-test-color-4 ace-hint">
+					<p>This Explanation has been displayed when the field 4.1 had focus.</p>
+				</div>
+				<div id="field42-hint" class="ace-col-12 ace-full-height ks-test-color-7 ace-hint">
+					<p>This Explanation has been displayed when the field 4.2 had focus.</p>
+				</div>
+				<div id="field5-hint" class="ace-col-12 ace-full-height ks-test-color-5 ace-hint">
+					<p>This Explanation has been displayed when the field 5 had focus.</p>
+				</div>
+				<div id="field6-hint" class="ace-col-12 ace-full-height ks-test-color-6 ace-hint">
+					<p>This Explanation has been displayed when the field 6 had focus.</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="ace-col-12 example-container ace-medium-padding-top">
+
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 3 - Information Badges</h3>
+
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>All ACE fields support <i>information badges</i>.</li>
+					<li>Information badges come in two types:.
+						<ol>
+							<li><i>links</i>: when clicked, a new broswer tab will be opend to the specified link; badge icon: <i class="fa fa-external-link"></i></li>
+							<li><i>texts</i>: when clicked, the explanation text will be displayed in a popup window; badge icon:  <i class="fa fa-info"></i></li>
+						</ol>
+					</li>
+					<li>A field may have on type, both types, or none</li>
+					<li>To specify a <i>link badge</i>, set the the <b>infolink</b> parameter to the desired URL</li>
+					<li>To specify a <i>text badge</i>, set the the <b>infotext</b> parameter to the desired text.</li>
+					<li>By default, the badges are positioned to the left. To position them to the right of the field, set the parameter <b>infopos</b> to <i>right</i>. Defualt value: <i>left</i>.</li>
+					<li>By default, the badges are shown all the time. To only show them on hover, set the parameter <b>infohover</b> to true.</li>
+					<li>To remove a badge, set its related parameter to an empty string or false.</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="ace-col-12 ace-large-margin-bottom ace-row">
+			<div class="ace-auto-gen ace-col-3" type="checkbox" label="Link Badges" onchange="onLinkBadgesChanged" value="1"></div>
+			<div class="ace-auto-gen ace-col-3" type="checkbox" label="Text Badges" onchange="onTextBadgesChanged" value="1"></div>
+			<div class="ace-auto-gen ace-col-3" type="checkbox" label="On Left" onchange="onInfoBadgesPosChanged" value="1"></div>
+			<div class="ace-auto-gen ace-col-3" type="checkbox" label="On Hover" onchange="onInfoBadgesPosHoverChanged" value="0"></div>
+		</div>
+
+		<div class="ace-col-12 ace-large-padding-left ace-large-padding-right" id="help-badges-area">
+
+			<div class="ace-col-12 ace-row ace-flex-justify-spacearound">
+				<div class="ace-auto-gen ace-col-3" type="text" label="Text" infolink="http://info.cern.ch" infotext="this is an ACE text field!"></div>
+				<div class="ace-auto-gen ace-col-3" type="display" value="something, or another" label="Display" infolink="http://info.cern.ch" infotext="this is an ACE display field!"></div>
+				<div class="ace-auto-gen ace-col-3" type="combobox" label="Combobox" infolink="http://info.cern.ch" infotext="this is an ACE combox field, and an empty one at that!"></div>
+			</div>
+
+			<div class="ace-col-12 ace-row ace-flex-justify-spacearound">
+				<div class="ace-auto-gen ace-col-3" type="password" label="Password" infolink="http://info.cern.ch" infotext="this is an ACE password field!"></div>
+				<div class="ace-auto-gen ace-col-3" type="autocomplete" label="Autocomplete" infolink="http://info.cern.ch" infotext="this is an ACE autocomplete field!"></div>
+				<div class="ace-auto-gen ace-col-3" type="button" value="Button" infolink="http://info.cern.ch" infotext="this is an ACE button field!"></div>
+			</div>
+
+			<div class="ace-col-12 ace-row ace-flex-justify-spacearound ace-medium-padding">
+				<div class="ace-auto-gen ace-col-4" type="textarea" label="Textarea" infolink="http://info.cern.ch" infotext="this is an ACE textarea field!"></div>
+				<div
+						class="ace-auto-gen ace-col-4"
+						type="radiogroup"
+						label="Student"
+						infolink="http://info.cern.ch" infotext="this is an ACE radiogroup field!"
+				>
+					<store>
+						<record>
+							<field name="name">John Doe</field>
+							<field name="id">20</field>
+						</record>
+						<record>
+							<field name="name">Sarah Finigen</field>
+							<field name="id">40</field>
+						</record>
+						<record>
+							<field name="name">Billy Jeans</field>
+							<field name="id">3</field>
+						</record>
+					</store>
+				</div>
+			</div>
+
+			<div class="ace-col-12 ace-row ace-flex-justify-spacearound ace-medium-padding">
+				<div class="ace-auto-gen ace-col-4" type="checkbox" label="Checkbox" infolink="http://info.cern.ch" infotext="this is an ACE checkbox field!"></div>
+				<div class="ace-auto-gen ace-col-4" type="aswitch" label="Switch" infolink="http://info.cern.ch" infotext="this is an ACE switch field!"></div>
+			</div>
+
+			<div class="ace-col-12 ace-row ace-flex-justify-spacearound ace-medium-padding">
+				<div class="ace-auto-gen ace-col-4" type="datepicker" label="Datepicker" infolink="http://info.cern.ch" infotext="this is an ACE datepicker field!"></div>
+				<div class="ace-auto-gen ace-col-4" type="daterangepicker" label="Date Range Picker" infolink="http://info.cern.ch" infotext="this is an ACE date range picker field!"></div>
+				<div class="ace-auto-gen ace-col-4" type="multicheck" label="Multicheck" infolink="http://info.cern.ch" infotext="this is an ACE multicheck field!"></div>
+			</div>
+
+			<div class="ace-col-12 ace-row ace-flex-justify-spacearound ace-medium-padding">
+				<div class="ace-auto-gen ace-col-12" type="chips" label="Chips" infolink="http://info.cern.ch" infotext="this is an ACE chips field!">
+					<store>
+						<record>
+							<field name="name">C1</field>
+							<field name="value">1</field>
+						</record>
+						<record>
+							<field name="name">C2</field>
+							<field name="value">2</field>
+						</record>
+						<record>
+							<field name="name">C3</field>
+							<field name="value">3</field>
+						</record>
+					</store>
+				</div>
+			</div>
+
+
+		</div>
+
+	</div>
+
+</div>
+
+<script>
+
+    function help_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/utilities/js/help.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

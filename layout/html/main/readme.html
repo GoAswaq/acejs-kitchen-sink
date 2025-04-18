@@ -5,15 +5,13 @@
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
 	<!-- make it SO that these PATHS are correctly loaded on your local machine -->
-
 	<link href="{__PH_ACE_CSS_LINK}" type="text/css" rel="stylesheet" />
+	
+	{__PH_THEMES}
+	
 	<link href="./layout/css/fontawesome-pro-5.10.0-11-web/css/all.min.css" type="text/css" rel="stylesheet" >
 	<link href="./layout/css/ks.css" type="text/css" rel="stylesheet" >
 
-	{__PH_THEMES}
-
-	<!--	<script src="./layout/libs/jquery-ui-1.10.3.custom/js/jquery-1.9.1.js" type="text/javascript"></script>-->
-	<!--	<script src="./layout/libs/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>-->
 	<script src="./layout/libs/jquery-ui-1.13.2/jquery-3.7.0.min.js" type="text/javascript"></script>
 	<script src="./layout/libs/jquery-ui-1.13.2/jquery-ui.1.13.2.min.js" type="text/javascript"></script>
 
@@ -22,19 +20,23 @@
 	<link rel="stylesheet" href="./layout/libs/jquery-date-range-picker/dist/daterangepicker.css" />
 	<script src="./layout/libs/jquery-date-range-picker/dist/jquery.daterangepicker.min.js" type="text/javascript"></script>
 
-	<!--	<script src="https://cdn.jsdelivr.net/gh/GoAswaq/acejs/lang/en.js" type="text/javascript"></script>-->
-	<!--	<script src="https://cdn.jsdelivr.net/gh/GoAswaq/acejs/ace.js" type="text/javascript"></script>-->
-	<script src="https://sbox2.7sab.com/thinkITShared/js_csslibs/thinkITJQplugins/ace/lang/en.js" type="text/javascript"></script>
-	<script src="https://sbox2.7sab.com/thinkITShared/js_csslibs/thinkITJQplugins/ace/ace.js?v=2.0.1" type="text/javascript"></script>
+	<script src="./layout/html/main/js/readme.js" type="text/javascript"></script>
 
-	<script src="./layout/html/main/js/test_view.js" type="text/javascript"></script>
+	<script>
+		var app_path = '{__APP_PATH}';
+	</script>
 
 </head>
 
-<body style="background-image:url(./layout/imgs/bk-pattern.png)">
+<body>
 
-<!-- to be replaced by targeted content -->
+<div class="ace-col-12 ace-full-height-vh ks-doc-styles">
+
+	{__CUSTOM_CONTENT}
+	
+	
+</div>
+
 
 </body>
-
 </html>

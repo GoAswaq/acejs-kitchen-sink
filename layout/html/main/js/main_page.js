@@ -33,6 +33,11 @@ navigatorObj = {
 			name : 'Combobox',
 			category : 'Data Input',
 		},
+
+		multicheck : {
+			name : 'Multicheck',
+			category : 'Data Input',
+		},
 		
 		checkbox : {
 			name : 'Checkbox',
@@ -48,6 +53,10 @@ navigatorObj = {
 		},
 		datepicker : {
 			name : 'Date Picker',
+			category : 'Data Input',
+		},
+		daterangepicker : {
+			name : 'Date Range Picker',
 			category : 'Data Input',
 		},
 		autocomplete : {
@@ -201,6 +210,10 @@ navigatorObj = {
 			name : 'Labels',
 			category : 'Tools',
 		},
+		help : {
+			name : 'Help',
+			category : 'Tools',
+		},
 		app : {
 			name : 'App',
 			category : 'Panels',
@@ -208,6 +221,12 @@ navigatorObj = {
 		app_v2 : {
 			name : 'App v2',
 			category : 'Panels',
+		},
+
+		readme : {
+			name : 'Readme',
+			category : 'Panels',
+			cls : 'ace-hide',
 		},
 	},
 	
@@ -280,6 +299,7 @@ navigatorObj = {
 			navigatorDataCategories[this.availableUtilities[element].category].children.push({
 				name : this.availableUtilities[element].name,
 				tag : element,
+				cls : $.aceOverWatch.utilities.isVoid(this.availableUtilities[element].cls) ? '' : this.availableUtilities[element].cls,
 			});
 		}
 		
@@ -611,4 +631,8 @@ function format_html(node, level) {
 	}
 
 	return node;
+}
+
+function viewDocumentation(){
+	navigatorObj.onFieldUtilitiesTypeSelection('readme');
 }

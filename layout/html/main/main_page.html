@@ -19,13 +19,18 @@
 
 	<script src="./layout/libs/moment/moment.min.js" type="text/javascript"></script>
 
+	<link rel="stylesheet" href="./layout/libs/jquery-date-range-picker/dist/daterangepicker.css" />
+	<script src="./layout/libs/jquery-date-range-picker/dist/jquery.daterangepicker.min.js" type="text/javascript"></script>
+
 	<!--	<script src="https://cdn.jsdelivr.net/gh/GoAswaq/acejs/lang/en.js" type="text/javascript"></script>-->
 	<!--	<script src="https://cdn.jsdelivr.net/gh/GoAswaq/acejs/ace.js" type="text/javascript"></script>-->
-	<script src="https://sbox2.7sab.com/thinkITShared///js_csslibs/thinkITJQplugins/ace/lang/en.js" type="text/javascript"></script>
-	<script src="https://sbox2.7sab.com/thinkITShared///js_csslibs/thinkITJQplugins/ace/ace.js?v=2.0.1" type="text/javascript"></script>
-	
-	<script src="https://cdn.jsdelivr.net/gh/GoAswaq/acejs/ace-app.js" type="text/javascript"></script>
-	<script src="https://cdn.jsdelivr.net/gh/GoAswaq/acejs/ace-init.js" type="text/javascript"></script>
+	<script src="https://sbox2.7sab.com/thinkITShared/js_csslibs/thinkITJQplugins/ace/lang/en.js" type="text/javascript"></script>
+	<script src="https://sbox2.7sab.com/thinkITShared/js_csslibs/thinkITJQplugins/ace/ace.js?v=2.0.1" type="text/javascript"></script>
+
+<!--	<script src="https://cdn.jsdelivr.net/gh/GoAswaq/acejs/ace-app.js" type="text/javascript"></script>-->
+<!--	<script src="https://cdn.jsdelivr.net/gh/GoAswaq/acejs/ace-init.js" type="text/javascript"></script>-->
+	<script src="https://sbox2.7sab.com/thinkITShared/js_csslibs/thinkITJQplugins/ace/ace-app.js" type="text/javascript"></script>
+	<script src="https://sbox2.7sab.com/thinkITShared/js_csslibs/thinkITJQplugins/ace/ace-init.js" type="text/javascript"></script>
 	
 	<script src="./layout/html/main/js/utils.js" type="text/javascript"></script>
 	<script src="./layout/html/main/js/main_page.js" type="text/javascript"></script>
@@ -48,8 +53,18 @@
 
 
 		<div class="ace-col-12 ace-height-minus-100 ace-scrollview">
+
+			<div class="ace-auto-gen ace-col-12 ace-medium-padding-bottom"
+				 type="button"
+				 value="View Documentation"
+				 iconcls="fa fa-eye"
+				 action="viewDocumentation"
+			>
+
+			</div>
+
 			<div
-	            class="ace-auto-gen ace-col-12 ace-medium-padding-top"
+	            class="ace-auto-gen ace-col-12 ace-small-padding-top"
 	            id="page-alignament-combo"
 	            type="combobox"
 	            label="Alignament"
@@ -160,7 +175,7 @@
 	<div class="ace-col-12 utility-type-container ace-hide ace-collapsible" tag="[PLACEHOLDER]" url="html/utilities" tpl="[PLACEHOLDER]" tplloadedcallback="[PLACEHOLDER]_loaded" tplloadedbeforecallback="translate">[PLACEHOLDER]</div>
 </div>
 
-<div id="test-view" class="ace-independent-form ace-lateral-form ace-hide" style="width:80vh !important; max-width:80vh !important;">
+<div id="test-view" class="ace-independent-form ace-lateral-form ace-hide" style="width:80vh !important; max-width:80vh !important;z-index:20">
 	<div class="ace-col-12 ace-title-bar">
 	
 		<div class="ace-auto-gen"
