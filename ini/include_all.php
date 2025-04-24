@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_ALL & ~ E_NOTICE& ~ E_WARNING & ~ E_CORE_WARNING & ~ E_USER_WARNING & ~ E_USER_NOTICE & ~ E_STRICT & ~ E_DEPRECATED);
+error_reporting(E_ALL & ~ E_NOTICE& ~ E_WARNING & ~ E_CORE_WARNING & ~ E_USER_WARNING & ~ E_USER_NOTICE & ~ E_DEPRECATED);
 ini_set('display_errors', 1);
 
 if (! function_exists('__ksace_autoload')) {
@@ -39,7 +39,6 @@ $ip = getenv('SERVER_ADDR');
 $basepathinfo = pathinfo($_SERVER['REQUEST_URI']);
 $basepathsuffix = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on')?'https://':'http://').$_SERVER['HTTP_HOST'];
 $_base_dir = $basepathsuffix.$basepathinfo['dirname'];
-
 $_sources_base_dir = $_base_dir;
 
 $dir_prefix = dirname(dirname(__FILE__));
@@ -61,6 +60,17 @@ define('_resources_dir', $_resources_dir);
 ini_set('include_path', '.');
 ini_set('session.auto_start', '1');
 ini_set('display_errors', '1');
+
+require_once($_path_dir.'/ini/general.ini.php');
+require_once($_path_dir.'/libs/string_functions.php');
+require_once($_path_dir.'/libs/general_functions.php');
+ini_set('include_path','.');
+push_ini_path($_path_dir . '/libs');
+push_ini_path($_path_dir . '/libs/pear');
+
+require_once($_path_dir.'/libs/template_functions.php');
+
+
 
 if (function_exists('session_start')) {
     session_start();
