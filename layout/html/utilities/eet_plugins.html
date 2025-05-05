@@ -1,0 +1,153 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-col-2 ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Plugins Functionality"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>The functionality of a EET can be extended through various plugins.</p>
+		<p>Each plugin is implemented in their own file, and must be included in the page if they are to be used</p>
+		<div>There are three types of plugins
+			<ol>
+				<li><b>edit plugins</b> - they are used to edit cells in the table; every editable cell must have an edit plugin specified </li>
+				<li><b>overlay plugins</b> - these are plugins that modify in some way how the EET is displayed, or it's global functionality</li>
+				<li><b>data plugins</b> - these are plugins that somehow modify the table's data in some way</li>
+				<li><b>cell custom operation plugins</b> - these are plugins which modify the way table cells operate</li>
+			</ol>
+		</div>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container" id="eet-plugins-ex1-container">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 1 - Fun with Plugins</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>
+					</li>
+					<li>Plugin Examples by Type
+						<ol>
+							<li><b>Edit Plugins.</b>
+								To support the edit functionality, 5 things need to happen:
+								<ol>
+									<li>the EET must have the <i>idfield</i> configuration setting set to the id field returned by the displayed data set; this field must identify uniquelly every row, and it will be sent to the server with every data saving operation.</li>
+									<li>all columns that support editing must have the <i>readonly</i> configuration setting set to <b>false</b></li>
+									<li>all columns that support editing must have the <i>editplugin</i> configuration setting set to the name of the edit plugin through which the edit should take place. </li>
+									<li>the plugin file must be included in the page</li>
+									<li>on the server side there must be logic implemented to handle the save operation; for each save operation the following fields are sent on the ajax call:
+										<ul>
+											<li><b>fid</b> - its value will be the <b>fid</b> of the table</li>
+											<li><b>cmd</b> - its value will be the <b>update</b></li>
+											<li><b>[TABLE ID FIELD]</b> - the actual name of the field is the value given in the <i>idfield</i> configuration setting of the table; its value will be taken from the field with the same nasme of the row data</li>
+											<li><b>[TABLE EDIT FIELD]</b> - the actual name of the field is the name of the field that has just been edited, and its value is the new value that has been set</li>
+										</ul>
+									</li>
+								</ol>
+								These columns present examples for the following edit plugins:
+								<ul>
+									<li><i>name</i>, <i>email</i> --> <b>text</b></li>
+									<li><i>profession</i>, <i>marital_status</i>, <i>sex</i> --> <b>comboboxstatic</b>; this provided also an example of a configurable plugin; the configuration is provided through the <i>editpluginconfig</i> configuration setting, and its value is an object, in which the key parent values represent the id/display value pairs of all objects which will appear in the combobox.</li>
+									<li><i>alive</i> --> <b>checkbox</b></li>
+									<li><i>resident</i> --> <b>toogleclick</b></li>
+									<li><i>description</i> --> <b>textarea</b></li>
+								</ul>
+							</li>
+							<li><b>Overlay Plugins.</b> These plugins are specified through the <b>overlayplugins</b> configuration setting of the table.
+								<ul>
+									<li><b>refresh</b> - displays a button to reload the content of the table</li>
+									<li><b>colcheck</b> - displays a checkbox at the start of each row; also, in the title bar of the table there will be another checkbox displayed through which all row checkboxes can be toggled on/off at once.</li>
+									<li><b>groupchange</b> - this table allows the value of more than one row to be set at once;
+										<ul>
+											<li>through the <b>columns</b> configuration setting of the plugin a list of table columns is specified for which this ability is enabled</li>
+											<li>the specified columns must not be editable</li>
+											<li>the <b>colcheck</b> must be activated for the tabke</li>
+											<li>all columns for which the group change behaviour is enabled will have a checkbox displayed in the column header;</li>
+											<li>to use the group change functionality, do the following:
+												<ol>
+													<li>activate the ability by checking the header checkbox for the desired columns</li>
+													<li>select one or more rows through the row checkbox displayed by the <b>colcheck</b> plugin</li>
+													<li>edit one of the desired column cells from one of the selected rows</li>
+													<li>all selected rows will have the desired functionality set</li>
+												</ol>
+											</li>
+											<li>on the server side there must be logic implemented to handle the group save operation; for each group save operation the following fields are sent on the ajax call:
+												<ul>
+													<li><b>fid</b> - its value will be the <b>fid</b> of the table</li>
+													<li><b>cmd</b> - its value will be the <b>bulkupdate</b></li>
+													<li><b>_bulk_data_update</b> - this is a JSON encoded array, where each item is an object with two fields:
+														<ol>
+															<li><b>[TABLE ID FIELD]</b> - the actual name of the field is the value given in the <i>idfield</i> configuration setting of the table; its value will be taken from the field with the same nasme of the row data</li>
+															<li><b>[TABLE EDIT FIELD]</b> - the actual name of the field is the name of the field that has just been edited, and its value is the new value that has been set</li>
+														</ol>
+													</li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+									<li><b>customop</b> - this plugin provides a callback function which is called when the table is redrawn; the method is provided through the <b>custommethod</b> plugin configuration setting, and is the function, or the name of the function called; for the current example, this method displays at the top of the TABLe the number of times the table has been drawn.</li>
+									<li><b>doubledatarows</b>
+										<ul>
+											<li>when active, this plugin will increase the size of the rows;</li>
+											<li>if the EET has a filter form, the rows will be increased only if the form contains an ACE field with the fieldname <i>_ddr</i> whose value is 1</li>
+											<li>for this example, the plugin can be toggled using the table custom button: 'Toggle DDR'</li>
+										</ul>
+									</li>
+									<li><b>legendary</b>
+										<ul>
+											<li>the plugin adds a Legend section underneath the table</li>
+											<li>it expects the existence of a global user define function with the name getEasyEditTableDictionary which returns an object containing various dictionaries used to display the legend</li>
+											<li>if the global getEasyEditTableDictionary is missing, an alternative is to use the plugin configuration setting <b>getDictionary</b> which should be a function, or the name of a function with the same purpose</li>
+											<li>the columns for which legends should be displayed must have the following configuration setting <b>legendarydictionary</b> with the name of the dictionary used to display the data</li>
+											<li>for this example, the plugin can be toggled using the table custom button: 'Toggle Legendary', and it will display a legend for the columns <i>sex</i> and <i>alive</i></li>
+										</ul>
+									</li>
+									<li><b>custombuttom</b> - through this plugin one or more custom buttons may be displayed at the top of the table; the following buttons are displayed for the current example:
+										<ul>
+											<li><i>Reset</i> the button will reset any of the changed performed through edit operations</li>
+											<li><i>Toggle DDR</i> the button will toggle the pluging <b>doubledatarows</b></li>
+											<li><i>Toggle Legendary</i> the button will toggle the pluging <b>legendary</b></li>
+										</ul>
+									</li>
+									<li><b>editgdate</b> - this plugin allows the editing of the table timestamp (if one is displayed); to edit it, left click with the mouse on the displayed timestamp while holding CTRL.</li>
+									<li><b>printpage</b> - this plugin helps with the printing of the table
+										<ul>
+											<li>the orientation of the print page can be set through the <b>orientation</b> plugin configuration</li>
+											<li>the content of the page before and after print may be updated through the <b>custombeforeprint</b> and <b>customafterprint</b> configuration settings, which represent callbacks, or the name of callbacks called before and after print is envoked.</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li><b>Overlay Plugins</b>
+								<ul>
+									<li><b>indexcol</b> - adds an extra column at the begining of the table displaying an index number for each row</li>
+								</ul>
+							</li>
+						</ol>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+
+		<div id="eet_plugins_ex1_table" class="ace-col-12 ace-medium-padding-top">
+		</div>
+	    
+	</div>
+
+	
+</div>
+
+<script>
+
+    function eet_plugins_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/utilities/js/eet_plugins.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

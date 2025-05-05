@@ -7,7 +7,7 @@
 - to handle the data, ACE uses a set of **fields**, each field being a component that allows the user to display or update data
 - an important aspect of the ACE library, is the separion between the data and the way in which the data is displayed and processed; this allows the user to create a custom interface for each application, while using the same underlying data structure
 
-## Requirements
+## Requirements - ACE Basic
 
 | Requirement                                                                                                 | Description                                                                                                    | Required                                                                    |
 |-------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
@@ -22,6 +22,31 @@
 | ace-app.js                                                                                                  | the ACE application related code                                                                               | Yes, if the application framework is used                                   |
 | ace-init.js                                                                                                 | standard ACE Application initialization method                                                                 | No                                                                          |
 | ace.css                                                                                                     | Contains the CSS rules by which the ACE fields are displayed                                                   | Yes                                                                         |
+
+## Requirements - ACE - EASY EDIT TABLE
+
+- in addition to normal ACE requirements, to use the EASY EDIT TABLE (EET) functionality, the following requirements must be met:
+
+| Requirement                                       | Description                                                                                                    | Required                                         |
+|---------------------------------------------------|----------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
+| EasyEditTable/css/edittable.css                   | main CSS for EET                                                                                               | Yes                                              |
+| EasyEditTable/easyedittable.js                    | main JS functionality                                                                                          | Yes |
+| EasyEditTable/plugins/overlay/custombutton.js     | optional plugin                                                                                                | no                                               |
+| EasyEditTable/plugins/overlay/printpage.js     | optional plugin                                                                                                | no                                               |
+| EasyEditTable/plugins/overlay/refresh.js          | optional plugin                                                                                                | no                                               |
+| EasyEditTable/plugins/overlay/customop.js         | optional plugin                                                                                                | no                                               |
+| EasyEditTable/plugins/overlay/groupchange.js      | optional plugin                                                                                                | no                                               |
+| EasyEditTable/plugins/overlay/colcheck.js         | optional plugin                                                                                                | no                                               |
+| EasyEditTable/plugins/overlay/editgdate.js        | optional plugin                                                                                                | no                                               |
+| EasyEditTable/plugins/overlay/legendary.js        | optional plugin                                                                                                | no                                               |
+| EasyEditTable/plugins/overlay/doubledatarows.js   | optional plugin                                                                                                | no                                               |
+| EasyEditTable/plugins/cell_edit/text.js           | optional plugin                                                                                                | no                                               |
+| EasyEditTable/plugins/cell_edit/comboboxstatic.js | optional plugin                                                                                                | no                                               |
+| EasyEditTable/plugins/cell_edit/toggleclick.js    | optional plugin                                                                                                | no                                               |
+| EasyEditTable/plugins/cell_edit/checkbox.js       | optional plugin                                                                                                | no                                               |
+| EasyEditTable/plugins/cell_edit/textarea.js       | optional plugin                                                                                                | no                                               |
+| EasyEditTable/plugins/data/indexcol.js            | optional plugin                                                                                                | no                                               |
+| EasyEditTable/plugins/cell_custom_op/rowclick.js | optional plugin                                                                                                | no                                               |
 
 ## General Information
 

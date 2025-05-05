@@ -63,8 +63,283 @@ if (isset($payload)) {
 $actual_main_page = 'main_page.html';
 $custom_content = '';
 
+$persons_id_field = 'id';
+
 global $fid,$cmd;
 switch( $fid ){
+
+    case 'loadpersons':
+
+        if( !$_SESSION[__app_session_prefix]['persons'] || $_REQUEST['reset'] == 1 || $_REQUEST['reset'] == 'true' ){
+            global $persons;
+            include(_path_dir.'/datastores/persons.php');
+            $_SESSION[__app_session_prefix]['persons'] = $persons;
+        }
+
+        switch( $cmd ){
+
+            case 'create':
+            case 'update':
+
+                $entry_found = false;
+                $target_id = $_REQUEST[$persons_id_field];
+                for( $idx = 0; $idx < count($_SESSION[__app_session_prefix]['persons']); $idx++){
+                    if( $_SESSION[__app_session_prefix]['persons'][$idx][$persons_id_field] == $target_id ){
+                        $entry_found = true;
+
+                        foreach( $_REQUEST as $key=>$val ){
+                            if( $key=='id' ){
+                                continue;
+                            }
+                            if( array_key_exists($key,$_SESSION[__app_session_prefix]['persons'][$idx]) ) {
+                                $_SESSION[__app_session_prefix]['persons'][$idx][$key] = $val;
+                            }
+
+                        }
+
+                        break;
+
+                    }
+                }
+
+                if( $entry_found ) {
+                    print(json_encode(['success'=>true]));
+                }else {
+                    print(json_encode(['success'=>false,'error'=>'ID Not Found']));
+                }
+
+                break;
+
+            case 'bulkupdate':
+                global $_bulk_data_update;
+                $arr_payload = json_decode($_bulk_data_update,true);
+                $id_map = [];
+                $id_map_idx = 0;
+                $return_res = [];
+                foreach( $arr_payload as $update_data ){
+                    $update_data['____idx'] = $id_map_idx;
+                    $return_res[] = [
+                        'success' => false,
+                        'error' => 'ID Not Found'
+                    ];
+                    $id_map_idx++;
+                    $id_map[$update_data[$persons_id_field]] = $update_data;
+                    unset($id_map[$update_data[$persons_id_field]][$persons_id_field]);
+                }
+
+                for( $idx = 0; $idx < count($_SESSION[__app_session_prefix]['persons']); $idx++){
+                    $current_id = $_SESSION[__app_session_prefix]['persons'][$idx][$persons_id_field];
+                    if( $id_map[$current_id] ){
+                        $entry_found = true;
+
+                        foreach( $id_map[$current_id] as $key=>$val ){
+                            if( array_key_exists($key,$_SESSION[__app_session_prefix]['persons'][$idx]) ) {
+                                $_SESSION[__app_session_prefix]['persons'][$idx][$key] = $val;
+                            }
+                        }
+
+                        $return_res[$id_map[$current_id]['____idx']]['success'] = true;
+                        unset($return_res[$id_map[$current_id]['____idx']]['error']);
+
+                    }
+                }
+
+                print(json_encode(['success'=>true,'rows'=>$return_res]));
+                break;
+
+            default:
+
+                $persons = [];
+
+                global $_f_sex,$_f_alive;
+                foreach( $_SESSION[__app_session_prefix]['persons'] as $person ){
+
+
+                    switch( $_f_sex ){
+                        case 'M':
+                        case 'Male':
+                            if( $person['sex'] != 'M' && $person['sex'] != 'Male' ){
+                                continue 2;//skip this person
+                            }
+                            break;
+                        case 'F':
+                        case 'Fale':
+                            if( $person['sex'] != 'F' && $person['sex'] != 'Female' ){
+                                continue 2;//skip this person
+                            }
+                            break;
+                    }
+
+                    if( isset($_f_alive)
+                        && (
+                                ($_f_alive == 1 && $person['alive'] != 1)
+                            ||  ($_f_alive == 0 && $person['alive'] != 0)
+                        )
+                    ){
+                        continue;
+                    }
+
+                    $persons[] = $person;
+                }
+
+                print(json_encode(['success'=>true,
+                    'details' => [//can be used to update the EET configuration from the server side
+                        'generatedtime' => date('Y-m-d H:i:s'),
+                    ],
+                    'rows'=>$persons,'totalCount'=>count($persons)]));
+                break;
+
+        }
+        die();
+
+    case 'eet_custom_config_test':
+
+        global $dt;
+
+        $details_config = [];
+        $rows = [];
+        switch( $dt ){//data type
+
+            case 'p'://persons
+                global $persons;
+                include(_path_dir.'/datastores/persons.php');
+                $rows = $persons;
+
+                $details_config = [
+                    'title' => 'Persons',
+                    'columns' => [
+                        [
+                            'fieldname'     => 'id',
+                            'aditionalclasses'  => 'ace-col-1',
+                            'readonly' => true,
+                            'title' => 'Id',
+                        ],
+                        [
+                            'fieldname'     => 'name',
+                            'aditionalclasses'  => 'ace-col-3',
+                            'readonly' => true,
+                            'title' => 'Name',
+                        ],
+                        [
+                            'fieldname'     => 'profession',
+                            'aditionalclasses'  => 'ace-col-3',
+                            'readonly' => true,
+                            'title' => 'profession',
+                        ],
+                        [
+                            'fieldname'     => 'biscuits',
+                            'aditionalclasses'  => 'ace-col-1',
+                            'readonly' => true,
+                            'title' => 'Biscuits',
+                            //the totals will be displayed only if the EET is settup to show the totals through the showtotalsrow option
+                            'totalstype' => 'sum'
+                        ],
+                    ],
+                    'showtotalsrow' => true,
+                    'subgroups' => [
+                        [
+                            'fieldname' => 'profession',
+                            'ascending' => true,
+                            'with_subtotals' => true,
+                            'subtotals_columns' => [
+                                'biscuits' => [
+                                    'totalstype' => 'sum',
+                                    'renderer' => 'groupRendererTotalsRed'
+                                ],
+                            ],
+                        ],
+                    ],
+                    'sortBySubgroupsOnce' => true,
+                ];
+
+                break;
+
+            case 's'://students
+                global $students;
+                include(_path_dir.'/datastores/students.php');
+                $rows = $students;
+
+                $details_config = [
+                    'title' => 'Students',
+                    'columns' => [
+                        [
+                            'fieldname'     => 'student_id',
+                            'aditionalclasses'  => 'ace-col-1',
+                            'readonly' => true,
+                            'title' => 'Id',
+                        ],
+                        [
+                            'fieldname'     => 'student_name',
+                            'aditionalclasses'  => 'ace-col-3',
+                            'readonly' => true,
+                            'title' => 'Country',
+                        ],
+                        [
+                            'fieldname'     => 'student_sex',
+                            'aditionalclasses'  => 'ace-col-1',
+                            'readonly' => true,
+                            'title' => 'Sex',
+                            'renderer' => 'eetRendererSex'
+                        ],
+                        [
+                            'fieldname'     => 'student_birthday',
+                            'aditionalclasses'  => 'ace-col-2',
+                            'readonly' => true,
+                            'title' => 'Birthday',
+                        ],
+                        [
+                            'fieldname'     => 'student_country',
+                            'aditionalclasses'  => 'ace-col-2',
+                            'readonly' => true,
+                            'title' => 'Canada',
+                        ],
+                    ],
+                    'showtotalsrow' => false,
+                    'subgroups' => [
+                        [
+                            'fieldname' => 'student_sex',
+                            'ascending' => true,
+                            'renderer'  => 'groupRendererSex'
+                        ],
+                    ],
+                    'sortBySubgroupsOnce' => true,
+                ];
+
+                break;
+
+            case 'c'://countries
+                global $countries;
+                include(_path_dir.'/datastores/countries.php');
+                $rows = $countries;
+
+                $details_config = [
+                    'title' => 'Countries',
+                    'columns' => [
+                        [
+                            'fieldname'     => 'country_id',
+                            'aditionalclasses'  => 'ace-col-1',
+                            'readonly' => true,
+                            'title' => 'Id',
+                        ],
+                        [
+                            'fieldname'     => 'country_name',
+                            'aditionalclasses'  => 'ace-col-3',
+                            'readonly' => true,
+                            'title' => 'Country',
+                        ],
+                    ],
+                    'showtotalsrow' => false,
+                    'subgroups' => [],
+                ];
+
+                break;
+
+        }
+
+        print(json_encode(['success'=>true,'details' => $details_config, 'rows'=>$rows]));
+        die;
+
+        break;
 
     case 'loadstudents'://this returns all students
 

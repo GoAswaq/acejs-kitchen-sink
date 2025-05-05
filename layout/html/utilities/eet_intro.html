@@ -1,0 +1,286 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-col-2 ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="Introduction to Easy Edit Table (EET)"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>An Easy Edit Table (EET) functionality is encapsulated into an object of type ACEEasyTable.</p>
+		<p>The EET is not an ACE field, but it is using various ACE functionality.</p>
+		<p>The EET works with normal objects, not with records.</p>
+		<p>The basic EET functionality is and can be expanded through plugins.</p>
+		<p>For requirements and dependencies, read the documentation section.</p>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container" id="eet-intro-ex1-container">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 1 - Basic Functionality</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+
+					<li>Simple example with readonly columns which displays the basic functionality, without the use of plugins<ol>
+							<li>General Notes
+								<ul>once an EET has been created, its configuration may be changed using the <i>updateConfiguration</i> method; any and all configuration settings may be changed in this manner.</ul>
+							</li>
+							<li>Column Renders
+								<ul>
+									<li>the columns support renderers, just like that of the grid columns.</li>
+									<li>in this example, the content of the columns <b>Sex</b> and <b>Alive</b> is rendered through such a render.</li>
+								</ul>
+							</li>
+							<li>Totals
+								<ul>
+									<li>if desired the EET will display a <b>footer</b> row in which various additional information may be displayed.</li>
+									<li>for the footer to be displayed two conditions must be fulfiled:
+										<ol>
+											<li>the EET must be instructed to do sho through the <i>showtotalsrow</i> setting</li>
+											<li>there has to be at least one column set up to display a total information through the <i>totalstype</i> column configuration setting.</li>
+										</ol>
+									</li>
+									<li>the first column <b>cannot not</b> be set to display totals information, because its respective cell content will be set to the text <i>Totals</i></li>
+									<li>there are three possible values for the <i>totalstype</i> column configuration setting:
+										<ol>
+											<li><i>sum</i> - the content of that column will be added; works for numerical values</li>
+											<li><i>mull</i> - the content of that column will be multiplied; works for numerical values</li>
+											<li>if it's not one of the above, it may be a function, or the name of a function that will perform custom operations in order to return a text which will be then be displayed</li>
+										</ol>
+									</li>
+									<li>the EET from the current example presents a total of type sum and a custom one.</li>
+								</ul>
+							</li>
+							<li>Grouping
+								<ul>
+									<li>General Notes
+										<ul>
+											<li>the table is able to group the rows by values of given fields</li>
+											<li>the grouping may be performed on more than one column at a time</li>
+											<li>if the grouping is performed by more than one field, all subsequent groups after the first one will be refered as <i>subgroups</i></li>
+											<li>when the mouse is hovered over a subgroup header, the entire path of the subgroup will be displayed</li>
+										</ul>
+									</li>
+									<li>Group changing
+										<ul>
+											<li>the grouping is updatable thrugh the <i>subgroups</i> setting, and it is an array detailing every group that should be present in the data</li>
+											<li><b>Attention:</b> the grouping of the data is performed in the order in which the data is found; by default, the EET does not sort it's rows to better match the specified grouping</li>
+											<li>The table <b>CAN</b> sort the data, but this has to be specified explicidly through the <i>sortBySubgroupsOnce</i> setting every time the grouping is changed.</li>
+											<li>this explicit sorting should be performed when the data displayed isn't already sorted in the correct order.</li>
+										</ul>
+									</li>
+									<li>Group customisation
+										<ul>
+											<li>when directed to sort itself to fit the grouping, the sort direction may be specified for each grouping in part; ascending order is the default; in this example grouping by <i>profession</i> will sort the fields in descending order, all others in ascending order</li>
+											<li>the group label may be customized through the use of a <i>renderer</i>; in this example, the grouping by <i>sex</i> or <i>alive</i> will give an example of this.</li>
+										</ul>
+									</li>
+									<li>Group subtotals
+										<ul>
+											<li>after the last row of group or subgroup an extra row may be displayed which can be used to display <b>totals</b></li>
+											<li>in order for the group totals row to be displayed two conditiosn must be fulfilled:
+												<ol>
+													<li>the group must be instructed to display the totals row through the configuration setting <i>with_subtotals</i></li>
+													<li>there has to be at least one column specified to display its totals value; this is performed through the <i>subtotals_columns</i> configuration</li>
+												</ol>
+											</li>
+											<li>the <i>subtotals_columns</i> is an object in which every property must be the <i>fieldname</i> of an existing column, and its value must be an object which describes how the totals are computed (<i>totalstype</i>), and how they are displayed (optional renderer)</li>
+											<li>as a difference compared to the totals of the entire table, the <i>totalstype</i> of a group may only be set to <i>sum</i> or <i>mul</i>; currently custom methods for computing the value displayed are not supported</li>
+											<li>in this example, the grouping by <b>sex</b> may display a subtotal for the column <b>biscuits</b></li>
+										</ul>
+
+									</li>
+								</ul>
+							</li>
+							<li>Virtual Fields
+								<ul>
+									<li>these are extra fields which are created on the GUI side based on the value of a field</li>
+									<li>they can be specified through the <i>virtualfields</i> configuration, which is an array of objects with the following fields
+										<ol>
+											<li>fieldname</i> - the fieldname on which the column is based; the fieldname in this case is important only if the EET has a subgroup based on this field</li>
+											<li>virtualfieldsparser</i> - a function, or the name of a function which receives as parameter the row data object; these method adds the extra fields to the row data object, and must return the number of columns that have been added</li>
+										</ol>
+									</li>
+									<li>the newly added fields must have the same name as the one specified in the fieldname, with a numeric sufix (1,2,3,...n)</li>
+									<li>the virtual fields may be displayed in columns just like normal fields</li>
+									<li>virtual fields affect how the sub_groups are parsed. If a sub_group is based on a column which has virtual fields that sub_group will be split into several others equal the highest number of virtual fields generated by this column; the initial sub_group will not be taken into consideration.</li>
+								</ul>
+							</li>
+							<li>The configuration of the table is able to be changed directly from the server side as well. More about this in Example #2.
+								If the server sends a date string signifying the date in which the displated data was generated, then date will be displayed above the table title.
+							</li>
+							<li>Filter Form
+								<ul>
+									<li>a EET can have an ACE form as filter form.</li>
+									<li>this can be specified through the <b>filterform</b> configuration setting, which receives as value an ACE form object</li>
+									<li>every time the EET loads its data, all the fields from the form record and will be sent along to the server on the ajax call with their current values</li>
+									<li>based on the values sent, the server may filter the date returned</li>
+								</ul>
+							</li>
+						</ol>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="ace-medium-padding-top ace-col-12 ace-row">
+			<div class="ace-auto-gen ace-col-4 group-field ace-small-padding-right" type="checkbox" label="Display Totals" onchange="updateTotalsEx1"></div>
+			<div class="ace-auto-gen ace-col-4 group-field ace-small-padding-right" type="checkbox" label="Display Virtual Fields" onchange="updateVirtualFieldsEx1"></div>
+			<div class="ace-auto-gen ace-col-4 ace-small-padding-right" type="checkbox" label="Display Filter Form" onchange="toggleFilterForm"></div>
+		</div>
+
+		<div class="ace-medium-padding-top ace-col-12 ace-row">
+			<div class="ace-auto-gen ace-col-2 group-field" type="checkbox" label="Group by Profession" fieldname="profession" onchange="updateSubgroupsEx1"></div>
+			<div class="ace-auto-gen ace-col-2 group-field" type="checkbox" label="Group by Marital Status" fieldname="marital_status" onchange="updateSubgroupsEx1"></div>
+			<div class="ace-auto-gen ace-col-2 group-field" type="checkbox" label="Group by Sex" fieldname="sex" onchange="updateSubgroupsEx1"></div>
+			<div class="ace-auto-gen ace-col-2 group-field" type="checkbox" label="Group by Alive" fieldname="alive" onchange="updateSubgroupsEx1"></div>
+			<div class="ace-auto-gen ace-col-2 group-field" type="checkbox" label="Group by Biscuits" fieldname="biscuits" onchange="updateSubgroupsEx1"></div>
+		</div>
+
+		<div class="ace-col-12 ace-medium-padding-top ace-hide" id="order-of-grouping-expl">
+			<div class="ace-col-12"><p>Order of grouping</p></div>
+			<div class="ace-auto-gen ace-col-12"
+				 id="grouping-order-element-ex1-eet"
+				 type="chips"
+				 visible="false"
+				 clickonchips="true"
+				 valueformat="valuestring"
+				 onremove="onEETIntroEx1GrupOrderRemoval"
+			>
+			</div>
+			<div class="ace-col-12 ace-small-padding-top">
+				<i>You may also removing groupings by clicking on the entries displayed in <b>Order of Grouping</b> control</i>
+			</div>
+
+			<div class="ace-col-12 ace-small-padding-top">
+				<div class="ace-auto-gen ace-col-6 group-field" type="checkbox" label="Display Subgroup Totals" onchange="updateSubgroupTotalsEx1"></div>
+			</div>
+			<div class="ace-col-12 ace-small-padding-top">
+				<i>After enabling or disabling the Subgroup totals, toogle the <b>Group by Sex</b> check for the effect to be triggered.</i>
+			</div>
+		</div>
+
+		<div class="ace-col-12 ace-hide" id="eet-filter-form-ex1"></div>
+
+		<div id="eet_into_ex1_table" class="ace-col-12 ace-medium-padding-top">
+		</div>
+	    
+	</div>
+
+	<div class="ace-col-12 ace-medium-padding-top example-container" id="eet-intro-ex2-container">
+
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 2 - Server Side Setup</h3>
+
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>An EET is able to be setup directly from the server as well.</li>
+					<li>Beside the rows of data to display, the server may send additional data in the <i>detials</i> field</li>
+					<li>using these additional data, the EET may have its columns changed, subgroups, etc.</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="ace-medium-padding-top ace-col-12 ace-row">
+			<div id="eet-ex2-dt-selector" class="ace-auto-gen ace-col-2 group-field" type="combobox" onchange="changeDataTypeEx2" value="students" label="Select Data Type" labelwidth="200px">
+				<store>
+					<record>
+						<field name="name">Students</field>
+						<field name="id">s</field>
+					</record>
+					<record>
+						<field name="name">Countries</field>
+						<field name="id">c</field>
+					</record>
+					<record>
+						<field name="name">Persons</field>
+						<field name="id">p</field>
+					</record>
+				</store>
+			</div>
+		</div>
+
+
+		<div id="eet_into_ex2_table" class="ace-col-12 ace-medium-padding-top">
+		</div>
+
+	</div>
+	
+</div>
+
+<div class="ace-hide" id="eet-filter-form-ex1-tpl">
+	<div class="ace-col-12" style="border:1px solid gray;">
+		<div class="ace-col-12 ace-medium-padding"><h3>Filter Form</h3></div>
+		<div class="ace-col-12 ace-row ace-medium-padding-left">
+			<div class="ace-auto-gen ace-col-4 ace-small-padding"
+				 type="combobox"
+				 fieldname="_f_sex"
+				 validation="allowempty=false"
+				 label="Sex"
+				  alwayssend="true">
+
+				<store>
+					<record>
+						<field name="name">--Any--</field>
+						<field name="id">0</field>
+					</record>
+					<record>
+						<field name="name">Female</field>
+						<field name="id">F</field>
+					</record>
+					<record>
+						<field name="name">Male</field>
+						<field name="id">M</field>
+					</record>
+				</store>
+
+			</div>
+
+			<div class="ace-auto-gen ace-col-4 ace-small-padding"
+				 type="combobox"
+				 fieldname="_f_alive"
+				 validation="allowempty=false"
+				 label="Alive"
+				 alwayssend="true">
+
+				<store>
+					<record>
+						<field name="name">--Any--</field>
+						<field name="id">-1</field>
+					</record>
+					<record>
+						<field name="name">Yes</field>
+						<field name="id">1</field>
+					</record>
+					<record>
+						<field name="name">No</field>
+						<field name="id">0</field>
+					</record>
+				</store>
+
+			</div>
+
+		</div>
+		<div class="ace-col-12 ace-row ace-flex-justify-spacearound ace-medium-padding">
+			<div
+					class="ace-auto-gen ace-normal-button"
+					type="button"
+					value="Refresh Table"
+					action="save"
+			></div>
+		</div>
+	</div>
+</div>
+
+<script>
+
+    function eet_intro_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/utilities/js/eet_intro.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>

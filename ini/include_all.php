@@ -38,7 +38,7 @@ $ip = getenv('SERVER_ADDR');
 
 $basepathinfo = pathinfo($_SERVER['REQUEST_URI']);
 $basepathsuffix = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on')?'https://':'http://').$_SERVER['HTTP_HOST'];
-$_base_dir = $basepathsuffix.$basepathinfo['dirname'];
+$_base_dir = $basepathsuffix.$basepathinfo['dirname'].'/'.$basepathinfo['basename'].'/';
 
 $_sources_base_dir = $_base_dir;
 

@@ -69,6 +69,29 @@ ksSettingsObj = {
 	}
 }
 
+function eetRendererYesNo(value, data,colId){
+	if( value == 1 ){
+		return '<span class="ace-primary-color">Yes</span>';
+	}else{
+		return '<span class="ace-red">No</span>';
+	}
+}
+
+function eetRendererSex(value, data,colId){
+	if( value == 'Male' || value == 'M' ){
+		return '<i class="fa fa-mars"></i>';
+	}else{
+		return '<i class="fa fa-venus"></i>';
+	}
+}
+
+function groupRendererAlive(value, data){
+	return 'Alive: '+eetRendererYesNo(value);
+}
+function groupRendererSex(value, data){
+	return 'Sex: '+eetRendererSex(value);
+}
+
 function rendererYesNo(value){
 	if( value == 1 ){
 		return '<span style="color:green"> YES </span>';

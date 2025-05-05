@@ -228,6 +228,15 @@ navigatorObj = {
 			category : 'Panels',
 			cls : 'ace-hide',
 		},
+
+		eet_intro : {
+			name : 'Intro',
+			category : 'Easy Edit Table',
+		},
+		eet_plugins : {
+			name : 'Plugins',
+			category : 'Easy Edit Table',
+		},
 	},
 	
 	init : function(){
