@@ -237,6 +237,10 @@ navigatorObj = {
 			name : 'Plugins',
 			category : 'Easy Edit Table',
 		},
+		acetemplates : {
+			name : 'ACE Templates',
+			category : 'Tools',
+		},
 	},
 	
 	init : function(){

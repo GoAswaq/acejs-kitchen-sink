@@ -91,7 +91,7 @@ var eetEdit = {
 						]
 					},
 					colcheck : {},//displays a checkbox for each row in part
-					groupchange : {//works only if the grouping is enabled
+					groupchange : {//works only if the checkbox is enabled
 						columns : [
 							'profession',
 							'sex',

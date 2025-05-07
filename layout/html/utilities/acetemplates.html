@@ -1,0 +1,181 @@
+<div class="ace-col-12 ace-transparent-title-bar ace-independent-style">
+	<div class="ace-col-2 ace-auto-gen ks-change-example-button" type="button" iconcls="fad fa-angle-left" action="shownMobileExampleSelector"></div>
+	<h2 class="ace-auto-gen" type="display" value="ACE Templates"></h2>
+	<button class="ace-collapsible-trigger">Info</button>
+</div>
+
+<div class="ace-col-12 ace-height-minus-50 ace-scrollview">
+
+	<div class="ace-col-12 info-container ace-collapsible-content">
+		<p>ACE Templates provides an easy way to parse information in a HTML without the use of ACE fields.</p>
+	</div>
+	
+	<div class="ace-col-12 ace-medium-padding-top example-container" id="eet-intro-ex1-container">
+	
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 1 - Basic Functionality</h3>
+			
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>To use this functionality one must have a:
+						<ul>
+							<li><b>a record</b> - this will be the source of the data</li>
+							<li><b>a HTML template</b> - a HTML template is any HTML code identified either through a CSS selector string, or through a jQuery object </li>
+						</ul>
+					</li>
+					<li>the parsing is done through the following method: $.aceOverWatch.utilities.parseAsAceTemplate(target,record,veryAsStringToo)
+						<ul>
+							<li><b>target</b> - is the HTML template, either a CSS selector string, or a jQuery object</li>
+							<li><b>record</b> - is an ACE record object with the data which is going to be parsed in the template</li>
+							<li><b>veryAsStringToo</b> - boolean parameter, if true, record fields of type string of length 0 will be considered null for the purposes of some tests</li>
+						</ul>
+					</li>
+					<li>What data is parsed in what part of the HTML template is specified through the use of template HTML tags, and template HTML attributes:
+						<ul>
+							<li><b>Tags</b>:
+								<ul>
+									<li><b>atv</b>
+										<ul>
+											<li>Format: <code>&lt;atv atv_renderer="optionalRendererFunction"&gt;fieldname&lt;/atv&gt;</code><br>
+												Where:
+												<ul>
+													<li><b>atv_renderer</b> - is a special attribute whose value is the name of a global function that will be calles as a renderer for the display value; <code>function(value,record){return 'modified text';}</code></li>
+													<li><b>fieldname</b> - is the name of the field in the record object</li>
+												</ul>
+											</li>
+											<li>Effect: the entire tag (from &lt; all the way to &gt;, including), will be replaced with the value of the record field identified by <i>fieldname</i>. If the optional renderer function name is specified, and if the function exists, the method will be called to perform custom formatting operations.<br>
+												Because the entire tag is replaced after a parsing operation, the same HTML template cannot be used again to display another set of data.
+												To avoid this issue in situation where it is necessary, instead of usind the <code>&lt;atv&gt;</code> tag, use the <code>&lt;atvreuse&gt;</code> tag.
+											</li>
+										</ul>
+									</li>
+									<li><b>atvreuse</b>
+										<ul>
+											<li>Format: <code>&lt;atvreuse atv_renderer="optionalRendererFunction" atv_fld="fieldname"&gt;&lt;/atv&gt;</code><br>
+												Where:
+												<ul>
+													<li><b>atv_renderer</b> - is a special attribute whose value is the name of a global function that will be calles as a renderer for the display value; <code>function(value,record){return 'modified text';}</code></li>
+													<li><b>atv_fld</b> - is a special attribute whose value is the name of the field in the record object</li>
+												</ul>
+											</li>
+											<li>Effect: the contents of the tag(from &gt; all the way to &lt;, excluding), will be replaced with the value of the record field identified by <i>atv_fld</i> attribute. If the optional renderer function name is specified, and if the function exists, the method will be called to perform custom formatting operations.<br>
+												Because contents of the tag is replaced after a parsing operation, the same HTML template may be be used again to display another set of data.
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li><b>Attributes</b><br>
+								Attention:
+								<ul>
+									<li>all HTML tags that use these attributes must have the class <code>ace_pt</code>; if the class is missing, the attributes will not be interpreted</li>
+									<li>the examples bellow use as HTML the tag <code>div</code>; this is only for exmaple purposes; the attribute work with all HTML tags, and not just <code>div</code></li>
+								</ul>
+								List of Atributes:
+								<ul>
+									<li><b>ace_pt_hide_void</b>
+										<ul>
+											<li>Format: <code>&lt;div class="ace_pt" ace_pt_hide_void="fieldname"&gt;&lt;/div&gt;</code><br>
+												Where:
+												<ul>
+													<li><b>fieldname</b> - is the name of the field in the record object</li>
+												</ul>
+											</li>
+											<li>Effect: if the value of the field is null, or an empty string, the entire tag will be hidden in the HTML template by giving it the <code>.ace-hide</code> class.</li>
+										</ul>
+									</li>
+									<li><b>ace_pt_hide_not_void</b>
+										<ul>
+											<li>Format: <code>&lt;div class="ace_pt" ace_pt_hide_not_void="fieldname"&gt;&lt;/div&gt;</code><br>
+												Where:
+												<ul>
+													<li><b>fieldname</b> - is the name of the field in the record object</li>
+												</ul>
+											</li>
+											<li>Effect: if the value of the field is not null, or an empty string, the entire tag will be hidden in the HTML template by giving it the <code>.ace-hide</code> class.</li>
+										</ul>
+									</li>
+									<li><b>ace_pt_hide_fn_true</b>
+										<ul>
+											<li>Format: <code>&lt;div class="ace_pt" ace_pt_hide_fn_true="functionName"&gt;&lt;/div&gt;</code><br>
+												Where:
+												<ul>
+													<li><b>functionName</b> - is the name of a global function that will be called to determine if the tag should be hidden or not; the function must return a boolean value; <code>functionName(target,rec){return true;}</code></li>
+												</ul>
+											</li>
+											<li>Effect: if the function returns true, the entire tag will be hidden in the HTML template by giving it the <code>.ace-hide</code> class.</li>
+										</ul>
+									</li>
+									<li><b>ace_pt_hide_fn_false</b>
+										<ul>
+											<li>Format: <code>&lt;div class="ace_pt" ace_pt_hide_fn_false="functionName"&gt;&lt;/div&gt;</code><br>
+												Where:
+												<ul>
+													<li><b>functionName</b> - is the name of a global function that will be called to determine if the tag should be hidden or not; the function must return a boolean value; <code>functionName(target,rec){return true;}</code></li>
+												</ul>
+											</li>
+											<li>Effect: if the function returns false, the entire tag will be hidden in the HTML template by giving it the <code>.ace-hide</code> class.</li>
+										</ul>
+									</li>
+
+									<li><b>atv_attrs</b>,<b>atv_attrs_values</b> - these two attributes work always together
+										<ul>
+											<li>Format: <code>&lt;div class="ace_pt" atv_attrs="attribute1,attribute2,..." atv_attrs_values="functionName1,functionName2,..."&gt;&lt;/div&gt;</code><br>
+												Where:
+												<ul>
+													<li><b>atv_attrs</b> - comma separated string of html attributes</li>
+													<li><b>atv_attrs_values</b> - comma separated string of function names; <code>function(target,rec){ return 'text';}</code></li>
+												</ul>
+											</li>
+											<li>Effect: with these two attributes the name of other attributes may be determined at parsing time; the comma separated values of the attribute <i>atv_attrs</i> will be used as a list of attributes, and the values returned by the comma separated functions identified by <i>atv_attrs_values</i> will be used as the values of those attributes. The two lists must have the same number of elements, otherwise an error will be thrown.</li>
+										</ul>
+
+									</li>
+								</ul>
+							</li>
+
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="ace-col-12 ks-example-controls ace-flex ace-flex-justify-spacearound ace-flex-wrap-yes">
+			<div class="ace-auto-gen ace-normal-button" type="button" value="Reset Template Defaults" action="resetATDefaultsEX1"></div>
+		</div>
+		<div class="ace-medium-padding-top ace-col-12 ace-row">
+			<div id="ex1-input-css" class="ace-auto-gen ace-col-3 ace-small-padding-right ks-simple-border" type="textarea" labelalign="top" label="CSS" onchange="evaluateCodeATEx1" rows="10"></div>
+			<div id="ex1-input-html" class="ace-auto-gen ace-col-6 ace-small-padding-right ks-simple-border" type="textarea" labelalign="top" label="HTML" onchange="evaluateCodeATEx1" rows="10"></div>
+			<div id="ex1-input-js" class="ace-auto-gen ace-col-3 ace-small-padding-right ks-simple-border" type="textarea" labelalign="top" label="JavaScript" onchange="evaluateCodeATEx1" rows="10"></div>
+
+			<div class="ace-col-12 ace-row">
+
+				<div id="at-ex1-grid" class="ace-col-8"></div>
+				<div class="ace-col-4 ace-medium-padding-left ks-simple-border">
+					<h3 class="ace-col-12">Output</h3>
+					<iframe id="ex1-output-if" class="ace-col-12" style="height:90%;"></iframe>
+
+				</div>
+
+			</div>
+
+
+		</div>
+
+
+	    
+	</div>
+</div>
+
+
+<script>
+
+    function acetemplates_loaded(target){initMotion(target);
+        $.aceOverWatch.template.loadScripts("./layout/html/utilities/js/acetemplates.js", function(){
+            /*
+             * TO DO: other stuff, as needed
+             */
+        });
+    }
+    
+</script>
