@@ -23,16 +23,49 @@
 				<ul>
 
 					<li>Simple example with readonly columns which displays the basic functionality, without the use of plugins<ol>
-							<li>General Notes
-								<ul>once an EET has been created, its configuration may be changed using the <i>updateConfiguration</i> method; any and all configuration settings may be changed in this manner.</ul>
+							<li><h3>General Notes</h3>
+								<ul>
+									<li>once an EET has been created, its configuration may be changed using the <i>updateConfiguration</i> method; any and all configuration settings may be changed in this manner.</li>
+									<li>The configuration of the table is able to be changed directly from the server side as well. More about this in Example #2.
+										If the server sends a date string signifying the date in which the displated data was generated, then date will be displayed above the table title.
+									</li>
+								</ul>
 							</li>
-							<li>Column Renders
+							<li><h3>Cell Text Alignment</h3>
+								<ul>
+									<li>the alignment of the text displayed in table cells may be specified for each column in part</li>
+									<li>by default, both horizontal and vertical alignments are set to <i>center</i></li>
+									<li>Horizontal text alignament:
+										<ul>
+											<li>column configuration setting: <i>textalign</i></li>
+											<li>the possible values are: <i>left, right, center, justify</i></li>
+											<li>default value: <i>center</i></li>
+										</ul>
+									</li>
+									<li>Vertical text alignament
+										<ul>
+											<li>column configuration setting: <i>verticalalign</i></li>
+											<li>the possible values are: <i>top,bottom, center</i></li>
+											<li>default value: <i>center</i></li>
+										</ul>
+									</li>
+									<li>In this example:
+										<ul>
+											<li>In this example all columns have the vertical text alignment set to <i>bottom</i>, and are using various values for the horizontal alignament.</li>
+											<li>the verical alignament may be changed by pressing the 'Change Vertical Alignament' button.</li>
+										</ul>
+									</li>
+
+
+								</ul>
+							</li>
+							<li><h3>Column Renders</h3>
 								<ul>
 									<li>the columns support renderers, just like that of the grid columns.</li>
 									<li>in this example, the content of the columns <b>Sex</b> and <b>Alive</b> is rendered through such a render.</li>
 								</ul>
 							</li>
-							<li>Totals
+							<li><h3>Totals</h3>
 								<ul>
 									<li>if desired the EET will display a <b>footer</b> row in which various additional information may be displayed.</li>
 									<li>for the footer to be displayed two conditions must be fulfiled:
@@ -52,7 +85,50 @@
 									<li>the EET from the current example presents a total of type sum and a custom one.</li>
 								</ul>
 							</li>
-							<li>Grouping
+							<li><h3>Sorting</h3>
+								<ul>
+									<li>the EET allows custom sorting for all columns</li>
+									<li>the columns that support sorting will have an icon displayed in the column header to the left of the column title</li>
+									<li>the mouse pointer when hovering over the header of a column that supports sorting will transfrom into a hand, indicating that the header is clickable</li>
+									<li>There are two types of sorting options:
+										<ol>
+											<li><b>exclusive</b>
+												<ul>
+													<li>the data in the EET will be sorted only after one column</li>
+													<li>to set this, use the <b>sortingexclusive</b> table configuration and set its value to <i>true</i></li>
+													<li>in this configuration, the sorting status of a column may be switched between <i>ascending</i> and <i>descending</i> by clicking on the column header</li>
+													<li>once a column header has been clicked, any other column will lose its sorting status, reverting to neutral</li>
+												</ul>
+											</li>
+											<li><b>inclusive</b>
+												<ul>
+													<li>the data in the EET may be sorted after multiple columns</li>
+													<li>use the <b>sortingexclusive</b> table configuration and set its value to <i>false</i>; this is the <i>default</i> behaviour</li>
+													<li>in this configuration, the sorting status of a column may be switched between <i>ascending</i> and <i>descending</i> and <i>neutral</i> by clicking on the column header</li>
+													<li>once a column header has been clicked, any other column will keep its sorting status</li>
+													<li>the sorting will be performed in the order in which the columns have been activated</li>
+													<li>putting a column in neutral, it will be removed from the sorting order</li>
+												</ul>
+
+											</li>
+										</ol>
+									</li>
+									<li>to indicate that a column is sortable use the following two column configuration settings:
+										<ul>
+											<li><b>allowsorting</b> - set it to true for the columns that support sorting</li>
+											<li><b>sortingorder</b> - can be <i>ascending</i>, or <i>descending</i>, or <i>neutral</i>  (this is also the <i>default</i> behaviour)<br>
+												Attention:
+												<ul>
+													<li>for EET with <i>exclusive</i> sorting, only the first column with a <i>sortingorder</i> different that <i>neutral</i> will be taken into consideration</li>
+													<li>for EET with <i>inclusive</i> sorting, the order of the sortable columns gives the initial sorting order</li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+									<li>the EET can sort its data after each load operation if the table configuration setting <b>sortafterload</b> has the value <i>true</i></li>
+								</ul>
+							</li>
+							<li><h3>Grouping</h3>
 								<ul>
 									<li>General Notes
 										<ul>
@@ -66,7 +142,7 @@
 										<ul>
 											<li>the grouping is updatable thrugh the <i>subgroups</i> setting, and it is an array detailing every group that should be present in the data</li>
 											<li><b>Attention:</b> the grouping of the data is performed in the order in which the data is found; by default, the EET does not sort it's rows to better match the specified grouping</li>
-											<li>The table <b>CAN</b> sort the data, but this has to be specified explicidly through the <i>sortBySubgroupsOnce</i> setting every time the grouping is changed.</li>
+											<li>The table <b>CAN</b> sort the data, but this has to be specified explicidly through the <i>resortOnce</i> setting every time the grouping is changed.</li>
 											<li>this explicit sorting should be performed when the data displayed isn't already sorted in the correct order.</li>
 										</ul>
 									</li>
@@ -93,7 +169,7 @@
 									</li>
 								</ul>
 							</li>
-							<li>Virtual Fields
+							<li><h3>Virtual Fields</h3>
 								<ul>
 									<li>these are extra fields which are created on the GUI side based on the value of a field</li>
 									<li>they can be specified through the <i>virtualfields</i> configuration, which is an array of objects with the following fields
@@ -107,10 +183,7 @@
 									<li>virtual fields affect how the sub_groups are parsed. If a sub_group is based on a column which has virtual fields that sub_group will be split into several others equal the highest number of virtual fields generated by this column; the initial sub_group will not be taken into consideration.</li>
 								</ul>
 							</li>
-							<li>The configuration of the table is able to be changed directly from the server side as well. More about this in Example #2.
-								If the server sends a date string signifying the date in which the displated data was generated, then date will be displayed above the table title.
-							</li>
-							<li>Filter Form
+							<li><h3>Filter Form</h3>
 								<ul>
 									<li>a EET can have an ACE form as filter form.</li>
 									<li>this can be specified through the <b>filterform</b> configuration setting, which receives as value an ACE form object</li>
@@ -125,9 +198,10 @@
 		</div>
 
 		<div class="ace-medium-padding-top ace-col-12 ace-row">
-			<div class="ace-auto-gen ace-col-4 group-field ace-small-padding-right" type="checkbox" label="Display Totals" onchange="updateTotalsEx1"></div>
-			<div class="ace-auto-gen ace-col-4 group-field ace-small-padding-right" type="checkbox" label="Display Virtual Fields" onchange="updateVirtualFieldsEx1"></div>
-			<div class="ace-auto-gen ace-col-4 ace-small-padding-right" type="checkbox" label="Display Filter Form" onchange="toggleFilterForm"></div>
+			<div class="ace-auto-gen ace-col-3 group-field ace-small-padding-right" type="checkbox" label="Display Totals" onchange="updateTotalsEx1"></div>
+			<div class="ace-auto-gen ace-col-3 group-field ace-small-padding-right" type="checkbox" label="Display Virtual Fields" onchange="updateVirtualFieldsEx1"></div>
+			<div class="ace-auto-gen ace-col-3 ace-small-padding-right" type="checkbox" label="Display Filter Form" onchange="toggleFilterFormEET"></div>
+			<div class="ace-auto-gen ace-col-2 ace-small-padding-right ace-normal-button" type="button" value="Change Vertical Alignament" action="toggleVerticalAlignamentEET"></div>
 		</div>
 
 		<div class="ace-medium-padding-top ace-col-12 ace-row">
@@ -175,9 +249,10 @@
 
 			<div class="ace-col-12 small-text">
 				<ul>
-					<li>An EET is able to be setup directly from the server as well.</li>
-					<li>Beside the rows of data to display, the server may send additional data in the <i>detials</i> field</li>
+					<li>an EET is able to be setup directly from the server as well.</li>
+					<li>beside the rows of data to display, the server may send additional data in the <i>detials</i> field</li>
 					<li>using these additional data, the EET may have its columns changed, subgroups, etc.</li>
+					<li>to enable this functionality set the configuration setting <b>rebuildafterload</b> to true</li>
 				</ul>
 			</div>
 		</div>

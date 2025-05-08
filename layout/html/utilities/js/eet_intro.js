@@ -22,6 +22,8 @@ var eetIntro = {
 				},
 				container : $('#eet_into_ex1_table'),//without specifying a container, the table will not know where to draw itself
 				rebuildafterload : true,
+				sortafterload : true,//to always sort the data immidietely after a load operation
+				sortingexclusive : true,//if true, only one column can be sorted at a time
 				title : 'Persons',
 				columns : this.getBasicColumns(),
 				filterform : this.getForm(),
@@ -34,6 +36,19 @@ var eetIntro = {
 
 		toggleFilterForm : function(){
 			this.getForm().toggleClass('ace-hide');
+		},
+
+
+		toggleVerticalAlignament : function(){
+			switch( this.verticalAlignament ){
+				case 'bottom': this.verticalAlignament = 'top'; break;
+				case 'top': this.verticalAlignament = 'center'; break;
+				case 'center': this.verticalAlignament = 'bottom'; break;
+			}
+
+			this.eet.updateConfiguration({columns:this.getBasicColumns()});
+
+			$.aceOverWatch.toast.show('success', 'The vertical alignament of cells is now:' + this.verticalAlignament);
 		},
 
 		getForm : function(){
@@ -71,41 +86,60 @@ var eetIntro = {
 			return this.form;
 		},
 
+		verticalAlignament : 'bottom',
 		getBasicColumns : function(){
 			return [
 				{
 					'fieldname'     : 'id',
-					'aditionalclasses'  : 'ace-col-1',
+					'aditionalclasses'  : 'ace-thin-col-1',
 					'readonly' : true,
 					'title' : 'Id',
+					'textalign' : 'right',
+					'verticalalign' : this.verticalAlignament,
+					'allowsorting' : true,
 				},
 				{
 					'fieldname'     : 'name',
 					'aditionalclasses'  : 'ace-col-2',
 					'readonly' : true,
 					'title' : 'Name',
+					'textalign' : 'left',
+					'verticalalign' : this.verticalAlignament,
+
+					'allowsorting' : true,
+					'sortingorder' : 'ascending',
 				},
 				{
 					'fieldname'     : 'profession',
 					'aditionalclasses'  : 'ace-col-2',
 					'readonly' : true,
 					'title' : 'Profession',
+					'textalign' : 'center',
+					'verticalalign' : this.verticalAlignament,
+
+					'allowsorting' : true,
 				},
 				{
 					'fieldname'     : 'marital_status',
 					'aditionalclasses'  : 'ace-col-2',
 					'readonly' : true,
 					'title' : 'Marital Status',
+					'textalign' : 'right',
+					'verticalalign' : this.verticalAlignament,
+					'allowsorting' : true,
 				},
 				{
 					'fieldname'     : 'email',
 					'aditionalclasses'  : 'ace-col-2',
 					'readonly' : true,
 					'title' : 'e-Mail',
+					'textalign' : 'right',
+					'verticalalign' : this.verticalAlignament,
+					'allowsorting' : true,
 				},
 				{
 					'fieldname'     : 'sex',
-					'aditionalclasses'  : 'ace-col-1',
+					'aditionalclasses'  : 'ace-thin-col-1',
 					'readonly' : true,
 					'title' : 'Sex',
 					'renderer' : eetRendererSex,
@@ -122,13 +156,19 @@ var eetIntro = {
 						}
 						return 'There are <b>'+males+'</b> men and <b>'+females+'</b> women';
 					},
+					'textalign' : 'center',
+					'verticalalign' : this.verticalAlignament,
+					'allowsorting' : true,
 				},
 				{
 					'fieldname'     : 'alive',
-					'aditionalclasses'  : 'ace-col-1',
+					'aditionalclasses'  : 'ace-thin-col-1',
 					'readonly' : true,
 					'title' : 'Alive',
 					'renderer' : eetRendererYesNo,
+					'textalign' : 'right',
+					'verticalalign' : this.verticalAlignament,
+					'allowsorting' : true,
 				},
 				{
 					'fieldname'     : 'biscuits',
@@ -136,7 +176,20 @@ var eetIntro = {
 					'readonly' : true,
 					'title' : 'Biscuits',
 					//the totals will be displayed only if the EET is settup to show the totals through the showtotalsrow option
-					'totalstype' : 'sum'
+					'totalstype' : 'sum',
+					'textalign' : 'right',
+					'verticalalign' : this.verticalAlignament,
+					'allowsorting' : true,
+				},
+				{
+					'fieldname'     : 'description',
+					'aditionalclasses'  : 'ace-col-2',
+					'readonly' : false,
+					'title' : 'Description',
+					'editplugin' : 'textarea',
+					'textalign' : 'justify',
+					'verticalalign' : this.verticalAlignament,
+					'allowsorting' : true,
 				},
 
 			];
@@ -231,7 +284,7 @@ var eetIntro = {
 			}
 			this.eet.updateConfiguration({
 				'subgroups' : subgroupsConfig,
-				'sortBySubgroupsOnce' : true,
+				'resortOnce' : true,
 			});
 		}
 	},
@@ -306,8 +359,11 @@ function parserVirtualFieldBiscuits(data){
 	return 2;//returns the number of virtual fields created
 }
 
-function toggleFilterForm(){
+function toggleFilterFormEET(){
 	eetIntro.ex1.toggleFilterForm();
+}
+function toggleVerticalAlignamentEET(){
+	eetIntro.ex1.toggleVerticalAlignament();
 }
 
 eetIntro.init();

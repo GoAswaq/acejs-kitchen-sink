@@ -30,6 +30,8 @@ var eetEdit = {
 				columns : this.getBasicColumns(),
 				idfield : 'id',//mandatory for edit functionality
 				showtotalsrow : true,
+				sortafterload : true,//to always sort the data immidietely after a load operation
+				sortingexclusive : true,//if true, only one column can be sorted at a time
 
 				overlayplugins : {
 					refresh : {},//no special configuration needed; will dislpay a reload button
@@ -138,9 +140,11 @@ var eetEdit = {
 			return [
 				{
 					'fieldname'     : 'id',
-					'aditionalclasses'  : 'ace-col-1',
+					'aditionalclasses'  : 'ace-thin-col-1',
 					'readonly' : true,
 					'title' : 'Id',
+					'textalign' : 'right',
+					'allowsorting' : true,
 				},
 				{
 					'fieldname'     : 'name',
@@ -148,6 +152,10 @@ var eetEdit = {
 					'readonly' : false,
 					'title' : 'Name',
 					'editplugin' : 'text',
+					'textalign' : 'left',
+
+					'allowsorting' : true,
+					'sortingorder' : 'descending',
 				},
 				{
 					'fieldname'     : 'profession',
@@ -169,8 +177,11 @@ var eetEdit = {
 								'Scientist' : 'Scientist',
 							}
 					},
-					
-					
+
+					'textalign' : 'center',
+
+					'allowsorting' : true,
+					'sortingorder' : 'descending',
 				},
 				{
 					'fieldname'     : 'marital_status',
@@ -189,13 +200,18 @@ var eetEdit = {
 							'Widower' : 'Widower',
 						}
 					},
+					'textalign' : 'right',
+
+					'allowsorting' : true,
+					'sortingorder' : 'descending',
 				},
 				{
 					'fieldname'     : 'email',
-					'aditionalclasses'  : 'ace-col-1',
+					'aditionalclasses'  : 'ace-col-2',
 					'readonly' : false,
 					'title' : 'e-Mail',
 					'editplugin'    : 'text',
+					'textalign' : 'right',
 				},
 				{
 					'fieldname'     : 'sex',
@@ -227,23 +243,29 @@ var eetEdit = {
 						}
 					},
 					legendarydictionary : 'sexDictionary',//fpr the legendary plugin
+					'textalign' : 'center',
 				},
 				{
 					'fieldname'     : 'alive',
-					'aditionalclasses'  : 'ace-col-1',
+					'aditionalclasses'  : 'ace-thin-col-1',
 					'readonly' : false,
 					'title' : 'Alive',
 					'renderer' : eetRendererYesNo,
 					'editplugin' : 'checkbox',
 					legendarydictionary : 'aliveDictionary',
+					'textalign' : 'right',
+
+					'allowsorting' : true,
+					'sortingorder' : 'descending',
 				},
 				{
 					'fieldname'     : 'resident',
-					'aditionalclasses'  : 'ace-col-1',
+					'aditionalclasses'  : 'ace-thin-col-1',
 					'readonly' : false,
 					'title' : 'Resident',
 					'renderer' : eetRendererYesNo,
 					'editplugin' : 'toggleclick',
+					'textalign' : 'right',
 				},
 				{
 					'fieldname'     : 'description',
@@ -251,6 +273,7 @@ var eetEdit = {
 					'readonly' : false,
 					'title' : 'Description',
 					'editplugin' : 'textarea',
+					'textalign' : 'justify',
 				},
 
 			];

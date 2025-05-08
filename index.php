@@ -249,7 +249,7 @@ switch( $fid ){
                             ],
                         ],
                     ],
-                    'sortBySubgroupsOnce' => true,
+                    'resortOnce' => true,
                 ];
 
                 break;
@@ -302,7 +302,7 @@ switch( $fid ){
                             'renderer'  => 'groupRendererSex'
                         ],
                     ],
-                    'sortBySubgroupsOnce' => true,
+                    'resortOnce' => true,
                 ];
 
                 break;
