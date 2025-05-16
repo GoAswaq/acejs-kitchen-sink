@@ -58,8 +58,117 @@ var multicheckObj = {
 	loadMulticheckFromServer : function(){
 		this.ex5ComboEl.ace('load');
 	},
+
+	ex3 : {
+
+		studentIds : 0,
+		studentRecords : {},
+
+		getForm : function(){
+			if( !this.form ){
+				this.form = $('#ace-multicheck-form-ex-3').ace('create',{
+					type		: 'form',
+					ftype		: 'popup',
+
+					displayinfullscreenonmobile: true,
+
+					template 	: 'ace-multicheck-form-ex-3-template',
+					renderto	: 'ace-multicheck-form-ex-3',
+
+					autoloadfieldsonshow : false,
+
+					displaysavebtn : false,
+					displaycancelbtn : false,
+
+					validate : true,
+
+					idfield : 'student_id',
+
+					checkdirtyoncancel : false,
+
+					oninit : function(form){
+						multicheckObj.ex3.oninit($(form));
+					},
+
+					onafterloadrecord : function(form, record){
+						multicheckObj.ex3.onAfterLoadRecord(record);
+					},
+
+					onlocalsavesuccessfull : function(form, record){
+						multicheckObj.ex3.savesuccessfull(record);
+					},
+
+				});
+
+				this.exampleControls = $('#example-controls-ex3');
+
+			}
+			return this.form;
+		},
+
+		oninit : function(f){
+			this.studentsSelectedField = f.find('[fieldname="selected_students"]');
+		},
+
+		onAfterLoadRecord : function(){
+			if( this.typeOfMulticheckInit == 'singleselectionplus' ) {
+				this.studentsSelectedField.ace('value', 2, {explicitdisplayname: 'Freddy Mercury'});
+			}
+		},
+
+		savesuccessfull : function(record){
+			$.aceOverWatch.toast.show(
+				'success',
+				'The student data has been saved! '+record.val('selected_students'),
+			);
+			this.form.ace('hide');
+		},
+
+		typeOfMulticheckInit : 'noselection',
+		displayForm : function(){
+			let record = $.aceOverWatch.record.create({});
+
+			switch( this.typeOfMulticheckInit ){
+
+				case 'singleselection':
+					//just a single value
+					record.val('selected_students',2);
+					break;
+
+				case 'object':
+					//an object, where each property name is the value, and the property value is the display name
+					record.val('selected_students',{8:'Elton John',2:'Freddy Mercury'});
+					break;
+
+				case 'json':
+					//json format of an object, where each property name is the value, and the property value is the display name
+					record.val('selected_students',JSON.stringify({1:'Bob Marley',2:'Freddy Mercury'}));
+					break;
+
+				case 'noselection':
+				case 'singleselectionplus'://the data will be set on after record loaded manually
+				default:
+					record.val('selected_students','');//no selection; works if an emtpy object is passed as well
+					break;
+
+			}
+
+			this.getForm().ace('value',record);
+			this.getForm().ace('show');
+		},
+
+		displayForonMulticheckTypeSelectionChange : function(value){
+			this.typeOfMulticheckInit = value;
+			this.displayForm();
+		},
+
+	},
 	
 };
+
+function displayMulticheckFormEx3(){{
+}
+}
 
 function toggleLabelPlacementMulticheck(button) {
 	
@@ -138,6 +247,14 @@ function importDataFromEx3(){
 
 function loadMulticheckFromServer(){
 	multicheckObj.loadMulticheckFromServer();
+}
+
+function displayMulticheckFormEx3(){
+	multicheckObj.ex3.displayForm();
+}
+
+function onMulticheckTypeSelectionChangeEx3(target,value){
+	multicheckObj.ex3.displayForonMulticheckTypeSelectionChange(value);
 }
 
 multicheckObj.init();

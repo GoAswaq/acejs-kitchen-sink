@@ -134,6 +134,126 @@
 
 	</div>
 
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class="">Ex. 3 - Multicheck in a Form</h3>
+			<div class="ace-col-12 ace-row">
+				<div class="ace-col-9 small-text" >
+					<ul>
+						<li>in this example, there are several ways presented in which which the initial selection of a multicheck may be set when in a form</li>
+						<li>the multicheck has the fieldname <i>selected_students</i></li>
+						<li>
+
+							<ol>
+								<li><i>no selection</i> - the multicheck will be displayed without a selection; <i>selected_students</i> will be given an empty string as value</li>
+								<li><i>object</i> -  <i>selected_students</i> will be given an object, in which the every property name is a selection id, and their value their display values </li>
+								<li><i>json</i> -  <i>selected_students</i> will be given a string, representing the JSON encrypted format of an object, in which the every property name is a selection id, and their value their display values </li>
+								<li><i>single selection</i> -  <i>selected_students</i> will be given a single value, representing the id of 1 selected item; as display text, the same id will be displayed; when the selection window is opened, if the id is part of the loaded data, the coresponding entry will be selected in the window </li>
+								<li><i>single selection with explicit text</i> -  <i>selected_students</i> will be given an empty string; the value of the multicheck will be set AFTER the record has been loaded, using the ace value function, where the display text will be given in the extra parameter</li>
+							</ol>
+						</li>
+					</ul>
+				</div>
+				<div class="ace-col-3">
+					<div class="ace-col-12" id="example-controls-ex3">
+
+						<div
+								class="ace-auto-gen ace-col-12 ace-small-padding"
+								type="combobox"
+								label="Initial Multicheck Selection"
+								labelwidth="300px"
+								value="noselection"
+								onchange="onMulticheckTypeSelectionChangeEx3"
+						>
+							<store>
+								<record>
+									<field name="name">no selection</field>
+									<field name="id">noselection</field>
+								</record>
+								<record>
+									<field name="name">object</field>
+									<field name="id">object</field>
+								</record>
+								<record>
+									<field name="name">json</field>
+									<field name="id">json</field>
+								</record>
+								<record>
+									<field name="name">single selection</field>
+									<field name="id">singleselection</field>
+								</record>
+
+								<record>
+									<field name="name">single selection with explicit text</field>
+									<field name="id">singleselectionplus</field>
+								</record>
+
+							</store>
+						</div>
+
+						<div
+								class="ace-auto-gen ace-col-12 ace-small-padding"
+								type="button"
+								value="Display Form"
+								action="displayMulticheckFormEx3"
+						></div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div id="ace-multicheck-form-ex-3"></div>
+
+</div>
+
+<div class="ace-hide" id="ace-multicheck-form-ex-3-template">
+
+	<div class="ace-col-12 ace-transparent-title-bar">
+
+		<h2 class="ace-auto-gen ace-center" type="display" name="title" value="Multicheck Example in Form"></h2>
+
+	</div>
+
+	<div class="ace-col-12">
+
+		<div class="ace-auto-gen ace-col-6 ace-small-padding"
+			 type="multicheck"
+			 label="Studenti"
+			 labelalign="top"
+			 fieldname="selected_students"
+			 customtoptionsselectionclasses="ace-col-6"
+			 net="remote=true;autoload=false;fid='loadstudents'"
+			 displayname="student_name"
+			 valuename="student_id"
+		>
+		</div>
+
+	</div>
+
+	<div class="ace-col-12 ace-centered-blocks">
+
+		<div
+				class="ace-auto-gen ace-small-padding"
+				type="button"
+				value="Save Student Information"
+				iconcls="far fa-save"
+				action="save"
+		></div>
+
+		<div
+				class="ace-auto-gen ace-small-padding"
+				type="button"
+				value="Go Back"
+				iconcls="far fa-ban"
+				action="cancel"
+		></div>
+
+	</div>
+
+
 </div>
 
 <script>

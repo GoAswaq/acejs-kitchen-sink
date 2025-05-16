@@ -4,6 +4,76 @@
 	<button class="ace-collapsible-trigger">Info</button>
 </div>
 
+<div id="students-grid-template-acr" class="ace-hide">
+
+	<div class="ace-col-12">
+
+		<div class="ace-col-12 ace-small-padding-top ace-center">
+			<div class="ace-auto-gen ace-col-5 ace-small-padding"
+				 type="text"
+				 fieldname="student_name"
+				 validation="allowempty=false"
+				 label="Name">
+			</div>
+			<div class="ace-auto-gen ace-col-5  ace-small-padding"
+				 type="datepicker"
+				 fieldname="student_birthday"
+				 validation="allowempty=false"
+				 label="Birthday">
+			</div>
+		</div>
+
+		<div class="ace-col-12 ace-center">
+			<div class="ace-auto-gen ace-col-5 ace-small-padding"
+				 type="combobox"
+				 fieldname="student_sex"
+				 validation="allowempty=false"
+				 label="Sex">
+
+				<store>
+					<record>
+						<field name="name">Female</field>
+						<field name="id">F</field>
+					</record>
+					<record>
+						<field name="name">Male</field>
+						<field name="id">M</field>
+					</record>
+				</store>
+
+			</div>
+
+			<div class="ace-auto-gen ace-col-5 ace-small-padding"
+				 type="autocomplete"
+				 fieldname="student_country"
+				 validation="allowempty=false"
+				 label="Country"
+
+				 displayname="student_country"
+
+				 searchname="country_name"
+				 valuename="country_id"
+
+				 net="remote=true;autoload=false;fid='loadcountriesfilter';size=5"
+
+				 minlength="0"
+				 autosearchonfocus="true"
+				 usequeries="true"
+
+			>
+			</div>
+
+		</div>
+
+		<div class="ace-col-12 ace-row ace-flex-justify-spacearound">
+			<div class="ace-auto-gen ace-normal-button ace-col-2" type="button" value="Save" action="save"></div>
+			<div class="ace-auto-gen ace-normal-button ace-col-2" type="button" value="Cancel" action="cancel"></div>
+		</div>
+
+	</div>
+
+</div>
+
 <div class="ace-col-12 ace-height-minus-50 ace-scrollview">
 	<div class="ace-col-12 info-container ace-collapsible-content">
 		<p>Elements of tip <b>autocomplete</b> are used to help filtering a selection from a large set of data.</p>
@@ -47,6 +117,7 @@
 	            labelwidth="200px"
 	            searchname="student_name"
 	            valuename="student_id"
+				minlength="3"
 	            
 	            net="remote=true;autoload=false;fid='loadstudentsfilter';size=5"
 	    ></div>
@@ -188,11 +259,56 @@
 	    </div>
 	    
 	</div>
+
+	<div class="ace-col-12 ace-medium-padding-top example-container">
+
+		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 4 - Autocomplete with CREATE and CREATE EDIT functionality</h3>
+
+			<div class="ace-col-12 small-text">
+				<ul>
+					<li>...</li>
+				</ul>
+			</div>
+		</div>
+
+		<div
+				class="ace-auto-gen ace-col-10"
+				type="autocomplete"
+				placeholder="type something here"
+				label="Find a student"
+				labelwidth="200px"
+
+				searchname="student_name"
+				valuename="student_id"
+
+				net="remote=true;autoload=false;fid='loadstudentsfilter';size=5"
+
+				minlength="0"
+				autosearchonfocus="true"
+
+				usequeries="false"
+
+				onselect="onAutocompleteChange"
+
+				allowcreatesearchterm="true"
+				allowcreateeditsearchterm="true"
+				editsearchtermtemplateid="students-grid-template-acr"
+		></div>
+
+		<div
+				class="ace-auto-gen ace-col-2"
+				type="button"
+				value="Get value"
+				action="getValueAutocomplete"
+		></div>
+
+	</div>
 	
 	<div class="ace-col-12 ace-medium-padding-top example-container ace-full-height-vh">
 		
 		<div class="ace-col-12 ks-example-header ace-medium-margin-bottom ace-small-padding-bottom">
-			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 4 - like Ex.3, BUT, the grid rows are displayed in panel form, with a dedicated template</h3>
+			<h3 class=""><div class="ace-auto-gen ace-right ace-no-border-button" type="button" iconcls="fa fa-eye" action="viewTestView"></div>Ex. 5 - like Ex.3, BUT, the grid rows are displayed in panel form, with a dedicated template</h3>
 			
 			<div class="ace-col-12 small-text">
 				<ul>
@@ -233,7 +349,7 @@
 	    ></div>
 	    
 	</div>
-	
+
 	<div class="ace-hide" id="autocomplete-student-row-tpl">
 		<div class="ace-col-12">
 			<h2 class="ace-auto-gen" type="display" fieldname="student_name"></h2>
@@ -241,6 +357,7 @@
 		</div>
 	
 	</div>
+
 </div>
 <script>
 

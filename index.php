@@ -368,34 +368,70 @@ switch( $fid ){
         global $students;
         include(_path_dir.'/datastores/students.php');
 
-        global $query,$queries,$start,$limit;
-        $limit = intval($limit);
-        $start = intval($start);
+        if( !$_SESSION[__app_session_prefix]['actual_students'] ) {
+            $_SESSION[__app_session_prefix]['actual_students'] = $students;
+        }
+        $students = $_SESSION[__app_session_prefix]['actual_students'];
 
-        if( $limit < 0 ){
-            $limit = 25;
+        $students_map = [];
+        for( $idx = 0; $idx<count($students); $idx++ ){
+            $student = $students[$idx];
+            $students_map[$student['student_id']] = $idx;
         }
 
-        if( $start < 0 ){
-            $start = 0;
+        //print_a($students);
+
+        switch( $cmd ){
+            case 'create':
+            case 'update':
+
+                if( is_void($_REQUEST['student_id']) || $_REQUEST['student_id'] < 0 ){
+                    $_REQUEST['student_id'] = time();
+                }
+                if( !array_key_exists($_REQUEST['student_id'],$students_map) ){
+                    $students[] = $_REQUEST;
+                    $student_idx = count($students)-1;
+                }else{
+                    $student_idx = $students_map[$_REQUEST['student_id']];
+                    $students[$student_idx] = array_merge($students[$student_idx],$_REQUEST);
+                }
+
+                $_SESSION[__app_session_prefix]['actual_students'] = $students;
+
+                print(json_encode(['success'=>true,'data'=>$students[$student_idx]]));
+                break;
+
+            default:
+                global $query,$queries,$start,$limit;
+                $limit = intval($limit);
+                $start = intval($start);
+
+                if( $limit < 0 ){
+                    $limit = 25;
+                }
+
+                if( $start < 0 ){
+                    $start = 0;
+                }
+
+                $search_terms = [];
+                $all_conditions = false;
+                if( isset($queries) ){
+                    $all_conditions = true;
+                    $search_terms = explode(';', trim($queries));
+                }elseif( isset($query) ){
+                    $search_terms = explode(';', trim($query));
+                }
+
+                $filtered_array = filter_array_data($students,$search_terms,$all_conditions);
+
+                print(json_encode([
+                    'success'=>true,
+                    'rows'=>get_pagination_from_array($filtered_array, $start,$limit),
+                    'totalCount'=>count($filtered_array)])
+                );
+
         }
-
-        $search_terms = [];
-        $all_conditions = false;
-        if( isset($queries) ){
-            $all_conditions = true;
-            $search_terms = explode(';', trim($queries));
-        }elseif( isset($query) ){
-            $search_terms = explode(';', trim($query));
-        }
-
-        $filtered_array = filter_array_data($students,$search_terms,$all_conditions);
-
-        print(json_encode([
-            'success'=>true,
-            'rows'=>get_pagination_from_array($filtered_array, $start,$limit),
-            'totalCount'=>count($filtered_array)])
-        );
 
         die();
 
@@ -589,13 +625,6 @@ switch( $_COOKIE['ks_theme'] ){
 }
 
 
-//$css_link = 'https://cdn.jsdelivr.net/gh/GoAswaq/acejs/css/ace.css';
-$css_link = 'https://sbox2.7sab.com/thinkITShared///js_csslibs/thinkITJQplugins/ace/css/wisemed_ace.css?v=2.0.1';
-//if ($_GET['local']=='1')  $css_link = 'http://127.0.0.1/git/acejs-4/css/scss/ace.css';
-//$css_link = 'http://127.0.0.1/git/thinkITShared//js_csslibs/thinkITJQplugins/ace/css/wisemed_ace.css?v=2.0.1';
-//$css_link = 'http://127.0.0.1/git/thinkITShared//js_csslibs/thinkITJQplugins/ace/css/7sab_ace.css?v=2.0.1';
-//print_a($css_link);
-
 $page_content = str_replace([
     '{__PH_ALGN}',
     '{__PH_THEMES}',
@@ -603,7 +632,6 @@ $page_content = str_replace([
     '{__PH_ACE_SIDE_MENU}',
     '{__PH_ACE_BOTTOM_BAR}',
     '{__PH_ACE_GROUP_MAIN_CONTENT}',
-    '{__PH_ACE_CSS_LINK}',
     '{__APP_PATH}',
     '{__CUSTOM_CONTENT}'
 ],
@@ -614,7 +642,6 @@ $page_content = str_replace([
         $_COOKIE['ks_app_sm'] == 1 ? 1 : 0,
         $_COOKIE['ks_app_bb'] == 1 ? 1 : 0,
         $_COOKIE['ks_app_gmc'] == 1 ? 1 : 0,
-        $css_link,
         _base_dir,
         $custom_content,
     ],

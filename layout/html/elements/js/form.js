@@ -30,6 +30,7 @@ var formObj = {
 					displayinfullscreencancel: true,
 
 					template 	: 'student-editing-form-template',
+					//loadtplfromdom : true,
 					
 					autoloadfieldsonshow : false,
 					
@@ -73,7 +74,7 @@ var formObj = {
 		},
 		
 		oninit : function(f){
-			f.find('[type="autocomplete"]').ace('create');
+			//f.find('[type="autocomplete"]').ace('create');
 			this.countriesField = f.find('[fieldname="student_country"]');
 		},
 		

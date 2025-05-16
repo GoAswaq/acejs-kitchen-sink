@@ -116,6 +116,10 @@ navigatorObj = {
 			name : 'Grid - Modifiers',
 			category : 'Complex',
 		},
+		gridcr : {
+			name : 'Grid - Command Rows',
+			category : 'Complex',
+		},
 		wizard : {
 			name : 'Wizard',
 			category : 'Complex',
